@@ -10,6 +10,13 @@
     <Copyright>2021 IVolt,LLC - Mark Alicz</Copyright>
     <PackageProjectUrl>https://www.act.net.us</PackageProjectUrl>
     <PackageIcon>ACT_CORE_Icon.png</PackageIcon>
+    <PackageTags>.net 6, ACT, Developer Tools,</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <AssemblyVersion>2.05</AssemblyVersion>
+    <FileVersion>2.05</FileVersion>
+    <PackageLicenseFile>Z:\Informative\CodeLicenses\GPL-3.0+.html</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <AnalysisLevel>6.0</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
