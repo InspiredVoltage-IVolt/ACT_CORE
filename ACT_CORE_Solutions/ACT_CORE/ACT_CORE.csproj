@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ACT.Core</RootNamespace>
+    <ApplicationIcon>ACT_Common_Icon.pdn</ApplicationIcon>
+    <Description>Core Engine that Manages ACT Core and All of the  Applications</Description>
+    <Copyright>2021 IVolt,LLC - Mark Alicz</Copyright>
+    <PackageProjectUrl>https://www.act.net.us</PackageProjectUrl>
+    <PackageIcon>ACT_CORE_Icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="ACT_Common_Icon.pdn" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="M:\Shared drives\Assets\IVolt_Product_Images\ACT\Common\ACT_CORE_Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
