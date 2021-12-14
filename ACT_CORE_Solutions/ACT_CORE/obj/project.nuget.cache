@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DUAFVx9CXSnWSWi/d3Ga9grNCL45I2GGuX1FyO2EGAe/VHRUkUj+e3et3u8geeqr6F6D1R3qCboeMA738yMa8g==",
+  "dgSpecHash": "WlDSdU8sITEuMNzeTpmDAHmB0Q+zZVQpsqcZRxVCoTob+eD+wnrOpyq699VTDHXPM8dLgm986xnmqM4sDTpvBw==",
   "success": true,
   "projectFilePath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_CORE\\ACT_CORE.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MarkAlicz\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -30,4 +30,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SharpCompress" Version="0.30.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BuiltInPlugins\" />
+  </ItemGroup>
+
 </Project>
