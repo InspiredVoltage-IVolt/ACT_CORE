@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_CORE\\ACT_CORE.csproj": {
-      "version": "1.0.0",
+      "version": "2.0.5",
       "restore": {
         "projectUniqueName": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_CORE\\ACT_CORE.csproj",
         "projectName": "ACT_CORE",
@@ -26,7 +26,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
@@ -35,8 +35,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -47,12 +47,32 @@
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "ACT_Interfaces": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "ACT_Security": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "IVolt_ACT_ExtensionLibrary": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "SharpCompress": {
               "target": "Package",
               "version": "[0.30.1, )"
+            },
+            "System.Security.SecureString": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

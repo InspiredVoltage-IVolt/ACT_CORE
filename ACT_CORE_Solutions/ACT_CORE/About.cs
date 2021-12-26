@@ -1,7 +1,9 @@
-﻿namespace ACT.CORE
+﻿namespace ACT.Core
 {
     public static class About
     {
-        public new static string ToString() { return "ACT Core. ACT Core. ACT Core. ACT Core." }
+        internal static readonly string InstallID = "";
+
+        public new static string ToString() { return "ACT Core. ACT Core. ACT Core. ACT Core."; }
     }
 }

@@ -14,4 +14,24 @@
     <SourceRoot Include="D:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)act_security\2.0.2\contentFiles\any\net6.0\ACT_Security_Icon.ico" Condition="Exists('$(NuGetPackageRoot)act_security\2.0.2\contentFiles\any\net6.0\ACT_Security_Icon.ico')">
+      <NuGetPackageId>ACT_Security</NuGetPackageId>
+      <NuGetPackageVersion>2.0.2</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ACT_Security_Icon.ico</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)act_interfaces\2.0.5\contentFiles\any\net6.0\ACT_Interfaces.ico" Condition="Exists('$(NuGetPackageRoot)act_interfaces\2.0.5\contentFiles\any\net6.0\ACT_Interfaces.ico')">
+      <NuGetPackageId>ACT_Interfaces</NuGetPackageId>
+      <NuGetPackageVersion>2.0.5</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ACT_Interfaces.ico</Link>
+    </Content>
+  </ItemGroup>
 </Project>

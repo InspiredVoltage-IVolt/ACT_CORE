@@ -1,0 +1,993 @@
+﻿{
+  "file_version": 1.3,
+  "nuget_packages": [
+    {
+      "name": "sqlite",
+      "version": "3.13.0",
+      "min_version": "3.13.0",
+      "package_source": ""
+    },
+    {
+      "name": "System.Data.SQLite",
+      "version": "1.0.113.7"
+    },
+    {
+      "name": "System.Diagnostics.StackTrace",
+      "version": "4.3.0"
+    },
+    {
+      "name": "EPPlus",
+      "version": "5.5.4"
+    },
+    {
+      "name": "FluentFTP",
+      "version": "33.0.3"
+    },
+    {
+      "name": "Microsoft.Net.Native.Compiler",
+      "version": "2.2.10-rel-29722-00"
+    },
+    {
+      "name": "Microsoft.Win32.Registry",
+      "version": "5.0.0"
+    },
+    {
+      "name": "Newtonsoft.Json",
+      "version": "12.0.3"
+    },
+    {
+      "name": "Newtonsoft.Json",
+      "version": "13.0.1-beta1"
+    },
+    {
+      "name": "NLog",
+      "version": "4.7.8"
+    },
+    {
+      "name": "NLog.Schema",
+      "version": "4.7.8"
+    },
+    {
+      "name": "SSH.NET",
+      "version": "2020.0.1"
+    },
+    {
+      "name": "System.Data.SqlClient",
+      "version": "4.8.2"
+    },
+    {
+      "name": "System.Diagnostics.StackTrace",
+      "version": "4.3.0"
+    },
+    {
+      "name": "System.Drawing.Common",
+      "version": "5.0.2"
+    },
+    {
+      "name": "System.Drawing.Primitives",
+      "version": "4.3.0"
+    },
+    {
+      "name": "System.Reflection",
+      "version": "4.3.0"
+    },
+    {
+      "name": "System.Security.Cryptography.ProtectedData",
+      "version": "5.0.0"
+    }
+  ],
+  "dependancies": [
+    {
+      "name": "ACTPlugins",
+      "filename": "ACT_Plugins.dll",
+      "fileversion": [ "2.2.*" ],
+      "updatesource": "http://www.act-net.net/downloads/getdll.aspx?name=ActPlugins&version=###VERSION###",
+      "source": "dll"
+    },
+    {
+      "name": "EPPlus",
+      "filename": "EPPlus.dll",
+      "fileversion": "",
+      "updatesource": "",
+      "source": "nuget"
+    },
+    {
+      "name": "FluentFTP",
+      "filename": "FluentFTP.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "Microsoft.CSharp",
+      "filename": "Microsoft.CSharp.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "Microsoft.Web.Administration",
+      "filename": "Microsoft.Web.Administration.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "Newtonsoft.Json",
+      "filename": "Newtonsoft.Json.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "Newtonsoft.Json.Encryption",
+      "filename": "Newtonsoft.Json.Encryption.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "NLog",
+      "filename": "NLog.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "PresentationCore",
+      "filename": "PresentationCore.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "Renci.SshNet",
+      "filename": "Renci.SshNet.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "RestSharp",
+      "filename": "RestSharp.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "SshNet.Security.Cryptography",
+      "filename": "SshNet.Security.Cryptography.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Configuration",
+      "filename": "System.Configuration.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Data.DataSetExtensions",
+      "filename": "System.Data.DataSetExtensions.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Data",
+      "filename": "System.Data.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System",
+      "filename": "System.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Drawing.Common",
+      "filename": "System.Drawing.Common.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Drawing",
+      "filename": "System.Drawing.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "id": "558b4b7d-4833-4873-a83c-9d809590c260",
+      "name": "SYS-IO-COMP",
+      "fullclassname": "System.IO.Compression",
+      "filename": "System.IO.Compression.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Net.Http",
+      "filename": "System.Net.Http.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Runtime.Serialization",
+      "filename": "System.Runtime.Serialization.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Security",
+      "filename": "System.Security.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.ServiceModel",
+      "filename": "System.ServiceModel.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Threading.Tasks",
+      "filename": "System.Threading.Tasks.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Transactions",
+      "filename": "System.Transactions.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Web",
+      "filename": "System.Web.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Xml",
+      "filename": "System.Xml.dll",
+      "fileversion": "",
+      "updatesource": ""
+    },
+    {
+      "name": "System.Xml.Linq",
+      "filename": "System.Xml.Linq.dll",
+      "fileversion": "",
+      "updatesource": ""
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "382A79D3-0179-4D87-8D89-ADB9D231C4D8",
+      "name": "I_DataAccess",
+      "full_class_name": "ACT.Core.Interfaces.DataAccess.I_DataAccess",
+      "type": "Core",
+      "is_core": true,
+      "date_added": "",
+      "plugins": [
+        {
+          "full_class_name": "ACT.Plugins.DataAccess.ACT_MSSQL",
+          "plugin_ID": "A82A79D3-3179-4D87-8D89-ADB9D231C4D8",
+          "default": true,
+          "date_added": "11/1/2020",
+          "usage_override": "ACTMSSQL"
+        }
+      ]
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Hashing.I_ACTHash",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_Saveable",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Configuration.I_ACT_ConfigTemplate",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.TemplateEngine.I_TemplateDataSource",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_SimpleExecute",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Security.I_Security",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.Excel.I_Excel_Sheet",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Graphics.IEffect",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Serialization.I_JSON_Serializer<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Encoding.IEncoderRules",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_Universal_Data_Processor",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Hashing.I_ACT_SecureHash",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Compression.I_CompressedFileActions",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Public.I_DataStore",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Workflow.I_Workflow_Timer",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.I_Dashboard_Control<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_Execute",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbView",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Serialization.I_Serializer<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Application.I_Installer",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DataExecutionInfo",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbTable",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Authentication.I_LoginResult",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.I_Core",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Development.I_Code_Logging",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Security.Licensing.I_License",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_Dataset",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Encryption.IEncryptionPacket",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Encoding.I_JsonObject",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Profile.I_User_Management",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Storage.I_ACT_Box",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.I_WebUserControl",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Workflow.I_Workflow_Trigger",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DataObject",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Security.Licensing.I_LicenseEngine",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Media.I_MediaServer",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.Excel.I_Excel_Workbook",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Configuration.I_ACT_ConfigData",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_Test",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Tools.I_BackupTool",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Authentication.I_Simple_Security_Provider",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_MSSQL_CodeGenerationSettings",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbColumn",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Authentication.I_UserInfo",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_DataColumnIdentifier",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Configuration.I_ACT_Configuration",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_Db",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbRelationship",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.UserData.I_UserContact",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Configuration.I_ACT_APP_CONFIG_FILE_MANAGER",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_TestResultExpanded",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Imaging.IImagingHelper",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.IIS.I_IISHit",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.UserData.I_UserAddress",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Validation.I_FileType_Validator<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_ML_DataSource",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_JSON_Data_Plugin<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_ErrorLoggable",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Data.I_ACTSqlProxy",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.I_WebHook_Action_Handler",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_TestResult",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_Database_ConnectionInfo",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Configuration.I_ConfigurationProject",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Compression.I_CompressedFile",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Serialization.I_CacheAble",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Authentication.I_SecurityProvider",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Storage.I_File",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Storage.I_Location",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_Scheduler_Plugin",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbWhereStatement",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Application.I_Application",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Random.I_Randomization",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Communication.I_Email_Event",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_Configurable",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbFunction",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Data.I_ACT_Get_Web_Object",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Communication.I_Emails",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbStoredProcedureParameter",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_Db_TypeConverter",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Encoding.I_Serializer",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_CodeGenerationSettings",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Graphics.I_Graphics",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Cloud.ILoginPage",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_ExecuteWithParameters",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbDataType",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Storage.Caching.I_Caching",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Configuration.I_ConfigurationFile",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Communication.I_BatchManager",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_GeneratedCode",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Configuration.I_ACT_ConfigPluginData",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.IO.I_FileType_Processor",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.TemplateEngine.I_ReplacementParser",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_ML_Component",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_Simple_Plugin",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbStoredProcedure",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.IIS.I_IISLogRecord",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Payment.I_PaymentGateway",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Graphics.I_TextureManager",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_CodeGeneration_UpdateEnums",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.IO.I_Exportable<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Application.I_ACT_APP_ENVIRONMENT_CONFIG_FILE",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.IACTProjects",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Text.I_PatternEngine",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DB_Table_Archive",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_ML_MainEngine",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Printer.I_NonStandardPrinter",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_Db_ObjectHierarchy",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Communication.I_Email_Handler<T>",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.DatabaseManagement.I_Database_Manager",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Security.Encryption.I_Encryption",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Web.I_ACT_Web_Security_Page",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DBObject",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Security.I_WebService_Authenticator",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.WebServices.Storage.I_Storage",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.AI.I_ML_ComponentResult",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_About",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.I_Plugin",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.IO.I_Saveable",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.History.I_History",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.ACTConsole.I_ConsoleItemClicked",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_MSSQL_Generator",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Serialization.I_CacheEngine",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.CodeGeneration.History.I_HistoryItem",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Common.IWebPlugin",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Encoding.I_Encoder",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Plugins.I_Plugin_Executor",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_QueryResult",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.Communication.I_Email_Message",
+      "type": "Core",
+      "plugins": []
+    },
+    {
+      "name": "ACT.Core.Interfaces.DataAccess.I_DbFunctionParameter",
+      "type": "Core",
+      "plugins": []
+    }
+  ],
+  "plugins": [
+    {
+      "id": "A82A79D3-3179-4D87-8D89-ADB9D231C4D8",
+      "file_name": "ACTPlugins.dll",
+      "type": "Core",
+      "store_once": true,
+      "arguments": [ "" ],
+      "checksum": "",
+      "license_key": "",
+      "order": 1
+    }
+  ],
+  "encryption_keys": [
+    {
+      "id": "",
+      "identifier": "Default",
+      "sub_identifier": "",
+      "key_value": "jdioDj29jmd_21jnd8hnsk@djd8!jdiijdlainnqkdiifpka;dujm3",
+      "dateadded": ""
+    },
+    {
+      "id": "",
+      "identifier": "UserBased",
+      "sub_identifier": "gamersgather\\markalicz",
+      "key_value": "jdioDj29jmd_21jnd8hnsk@djd8!jdiijdlainnqkdiifpka;dujm3",
+      "dateadded": ""
+    }
+  ],
+  "basic_settings": [
+    { 
+      "name": "Verbosity",
+      "value": "false",
+      "group_name": "System",
+      "encrypted": "",
+      "pointer": ""
+    },
+    {
+      "name": "Default_Error_Logging_Path",
+      "value": "c:\\act\\logging\\",
+      "group_name": "System",
+      "encrypted": "",
+      "pointer": ""
+    }
+  ],
+  "complex_settings": [
+    {
+      "name": "cs",
+      "group_name": "complexgroup",
+      "encrypted": "internal",
+      "values": [
+        "c1",
+        "c2"
+      ]
+    },
+    {
+      "name": "otcs",
+      "group_name": "complexgroup",
+      "encrypted": "UserBased_MarkAlicz",
+      "values": [
+        "c1",
+        "c2"
+      ]
+    }
+  ],
+  "installed_applications": [
+    {
+      "id": "",
+      "name": "default",
+      "install_location": ""
+    }
+  ]
+}

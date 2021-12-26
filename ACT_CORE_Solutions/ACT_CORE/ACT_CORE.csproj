@@ -1,41 +1,63 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <RootNamespace>ACT.Core</RootNamespace>
-    <ApplicationIcon>ACT_Common_Icon.pdn</ApplicationIcon>
+    <ApplicationIcon>Kinguin_API_Icon.ico</ApplicationIcon>
     <Description>Core Engine that Manages ACT Core and All of the  Applications</Description>
     <Copyright>2021 IVolt,LLC - Mark Alicz</Copyright>
     <PackageProjectUrl>https://www.act.net.us</PackageProjectUrl>
-    <PackageIcon>ACT_CORE_Icon.png</PackageIcon>
+    <PackageIcon>Kinguin_API_Icon.png</PackageIcon>
     <PackageTags>.net 6, ACT, Developer Tools,</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>2.05</AssemblyVersion>
-    <FileVersion>2.05</FileVersion>
-    <PackageLicenseFile>Z:\Informative\CodeLicenses\GPL-3.0+.html</PackageLicenseFile>
+    <AssemblyVersion>2.0.5</AssemblyVersion>
+    <FileVersion>2.0.5</FileVersion>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AnalysisLevel>6.0</AnalysisLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Version>2.0.5</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <FileAlignment>4096</FileAlignment>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="ACT_Common_Icon.pdn" />
+    <Content Include="Kinguin_API_Icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="M:\Shared drives\Assets\IVolt_Product_Images\ACT\Common\ACT_CORE_Icon.png">
+    <None Include="M:\Shared drives\Assets\IVolt_Product_Images\ACT\Common\Kinguin_API_Icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ACT_Interfaces" Version="2.0.5" />
+    <PackageReference Include="ACT_Security" Version="2.0.2" />
+    <PackageReference Include="IVolt_ACT_ExtensionLibrary" Version="2.0.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SharpCompress" Version="0.30.1" />
+    <PackageReference Include="System.Security.SecureString" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BuiltInPlugins\" />
+    <None Update="GPL3-29.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\Security\" />
   </ItemGroup>
 
 </Project>

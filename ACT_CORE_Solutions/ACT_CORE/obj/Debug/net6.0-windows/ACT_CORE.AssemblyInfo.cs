@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("2021 IVolt,LLC - Mark Alicz")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Core Engine that Manages ACT Core and All of the  Applications")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.05")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ACT_CORE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ACT_CORE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.05")]

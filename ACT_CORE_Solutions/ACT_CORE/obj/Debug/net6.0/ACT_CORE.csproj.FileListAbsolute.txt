@@ -1,0 +1,12 @@
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\GPL3-29.txt
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.deps.json
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ref\ACT_CORE.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.GeneratedMSBuildEditorConfig.editorconfig
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.AssemblyInfoInputs.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.AssemblyInfo.cs
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.csproj.CoreCompileInputs.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ref\ACT_CORE.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.pdb

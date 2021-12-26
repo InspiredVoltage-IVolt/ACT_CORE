@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ACT_CORE</id>
+    <version>2.0.5</version>
+    <authors>ACT_CORE</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">GPL-3.0-or-later</license>
+    <licenseUrl>https://licenses.nuget.org/GPL-3.0-or-later</licenseUrl>
+    <icon>Kinguin_API_Icon.png</icon>
+    <projectUrl>https://www.act.net.us/</projectUrl>
+    <description>Core Engine that Manages ACT Core and All of the  Applications</description>
+    <copyright>2021 IVolt,LLC - Mark Alicz</copyright>
+    <tags>.net 6, ACT, Developer Tools,</tags>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="ACT_Interfaces" version="2.0.5" exclude="Build,Analyzers" />
+        <dependency id="ACT_Security" version="2.0.2" exclude="Build,Analyzers" />
+        <dependency id="IVolt_ACT_ExtensionLibrary" version="2.0.9" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+        <dependency id="SharpCompress" version="0.30.1" exclude="Build,Analyzers" />
+        <dependency id="System.Security.SecureString" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/net6.0/Kinguin_API_Icon.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.dll" target="lib\net6.0\ACT_CORE.dll" />
+    <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\Kinguin_API_Icon.ico" target="content\Kinguin_API_Icon.ico" />
+    <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\Kinguin_API_Icon.ico" target="contentFiles\any\net6.0\Kinguin_API_Icon.ico" />
+    <file src="M:\Shared drives\Assets\IVolt_Product_Images\ACT\Common\Kinguin_API_Icon.png" target="\Kinguin_API_Icon.png" />
+  </files>
+</package>

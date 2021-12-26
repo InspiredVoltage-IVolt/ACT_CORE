@@ -3,13 +3,14 @@
     [AttributeUsage(AttributeTargets.Class)]
     public class EncryptAllFields : Attribute
     {
-        public string SettingName { get { return _SettingName; } }
-        private string _SettingName = "";
+        public Guid EncryptionKeyID { get { return _EncryptionKeyID; } }
+        private Guid _EncryptionKeyID = Guid.Empty;
 
-        public EncryptAllFields(string SettingName)
+        public EncryptAllFields(Guid encryptionKeyID)
         {
-            _SettingName = SettingName;
-            var zip = File.OpenWrite("\\aasdas.zip");
+            _EncryptionKeyID = encryptionKeyID;
+            // var zip = File.OpenWrite("\\aasdas.zip");
 
         }
     }
+}

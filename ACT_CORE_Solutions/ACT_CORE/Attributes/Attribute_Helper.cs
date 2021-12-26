@@ -19,7 +19,7 @@
             if (action == null) { throw new ArgumentNullException(nameof(action)); }
 
             var methodInfo = action.Method;
-            TAttribute? attr = methodInfo.GetCustomAttributes(typeof(TAttribute), true).FirstOrDefault() as TAttribute;
+            TAttribute attr = methodInfo.GetCustomAttributes(typeof(TAttribute), true).FirstOrDefault() as TAttribute;
 
             if (attr == null) { throw new ArgumentNullException(nameof(attr)); }
             else

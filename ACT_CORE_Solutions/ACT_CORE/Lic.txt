@@ -1,0 +1,9 @@
+﻿{
+    "licensekey":"sdfsdfsdff",
+    "companyid":"sdfsdf",
+    "productid":"sdfsdf",
+    "purchaseid":"sdfsdf",
+    "purchasedate":"2/2019",
+    "quantity":"4",
+    "code":"RGV2ZWxvcG1lbnQgQmV0YQ=="
+}
