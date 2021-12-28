@@ -3,7 +3,8 @@ using Newtonsoft.Json;
 
 namespace ACT.Core.License
 {
-    internal class License_Manager
+    [DEV(OriginaDeveloperInfo = "Mark R Alicz, Darkbit@Gmail.com")]
+    public class License_Manager
     {
         private bool _IsValid { get; set; } = false;
         private bool _IsDevelopment { get; set; } = false;
@@ -12,17 +13,18 @@ namespace ACT.Core.License
         string _FilePath = "";
         string _FileContents = "";
 
+        [DEV(Priority = 10, RemoveBeforeRelease = true, RemoveBeforeRelease_Description = "Incorporate Real Security Local Security or Server Security", ToDo = true)]
+        [DEV(ToDo = true, ToDo_Description = "Build Test Case")]
         public License_Manager(string FilePath)
         {
             _FilePath = FilePath;
 
-            //TODO Update to New Extensions Version
             try
             {
-                _FileContents = FilePath.ReadAllText();
+                _FileContents = FilePath.ReadAllText().DecryptString("ACTLicFileEncryp");
                 try
                 {
-                    var ACTLicenseInfo = ACT_License_Info.FromJson(_FileContents);
+                    ACTLicenseInfo = ACT_License_Info.FromJson(_FileContents);
                     if (ACTLicenseInfo.Code.FromBase64() == "Development Beta") { _IsDevelopment = true; _IsValid = true; }
                     // TODO Develop All Code
                     if (ACTLicenseInfo.Licensekey.NullOrEmpty() == false) { _IsValid = true; }
@@ -40,7 +42,10 @@ namespace ACT.Core.License
         }
     }
 
-    internal class ACT_License_Info
+    [DEV(OriginaDeveloperInfo = "Mark Alicz, Darkbit@Gmail.com")]
+    [DEV(ToDo = true, ToDo_Description = "Check Security Rules", LastDeveloperInfo = "Mark Alicz, Darkbit@Gmail.com")]
+    [DEV(ToDo = true, ToDo_Description = "Build Test Case")]
+    public class ACT_License_Info
     {
         [JsonProperty("licensekey", NullValueHandling = NullValueHandling.Ignore)]
         public string Licensekey { get; set; }
@@ -63,8 +68,10 @@ namespace ACT.Core.License
         [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code { get; set; }
 
+        [DEV(ToDo = true, ToDo_Description = "Build Test Case")]
         public static ACT_License_Info FromJson(string json) => JsonConvert.DeserializeObject<ACT_License_Info>(json, ACT.Core.Encoding.JSON.DefaultConverter.Settings);
 
+        [DEV(ToDo = true, ToDo_Description = "Build Test Case")]
         public string ToJson() => JsonConvert.SerializeObject(this, ACT.Core.Encoding.JSON.DefaultConverter.Settings);
     }
 }

@@ -1,4 +1,5 @@
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\GPL3-29.txt
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\Lic.txt
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.deps.json
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ref\ACT_CORE.dll
@@ -10,3 +11,4 @@ D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ref\ACT_CORE.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\Debug\net6.0\ACT_CORE.csproj.AssemblyReference.cache

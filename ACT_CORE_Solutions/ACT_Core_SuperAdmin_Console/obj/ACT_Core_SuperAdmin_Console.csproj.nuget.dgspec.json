@@ -70,6 +70,18 @@
               "target": "Package",
               "version": "[0.30.1, )"
             },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Collections.Concurrent": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Collections.Specialized": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "System.Security.SecureString": {
               "target": "Package",
               "version": "[4.3.0, )"
@@ -95,10 +107,10 @@
       }
     },
     "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_Core_SuperAdmin_Console\\ACT_Core_SuperAdmin_Console.csproj": {
-      "version": "1.0.0",
+      "version": "2.1.0",
       "restore": {
         "projectUniqueName": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_Core_SuperAdmin_Console\\ACT_Core_SuperAdmin_Console.csproj",
-        "projectName": "ACT_Core_SuperAdmin_Console",
+        "projectName": "ACT-SuperAdmin-Console",
         "projectPath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_Core_SuperAdmin_Console\\ACT_Core_SuperAdmin_Console.csproj",
         "packagesPath": "C:\\Users\\MarkAlicz\\.nuget\\packages\\",
         "outputPath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_Core_SuperAdmin_Console\\obj\\",

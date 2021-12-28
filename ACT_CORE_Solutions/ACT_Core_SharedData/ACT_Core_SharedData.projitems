@@ -9,6 +9,7 @@
     <Import_RootNamespace>ACT_Core_SharedData</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
     <Content Include="$(MSBuildThisFileDirectory)References\SystemConfiguration.json" />
     <Content Include="$(MSBuildThisFileDirectory)References\SystemConfiguration_Template.json" />
   </ItemGroup>

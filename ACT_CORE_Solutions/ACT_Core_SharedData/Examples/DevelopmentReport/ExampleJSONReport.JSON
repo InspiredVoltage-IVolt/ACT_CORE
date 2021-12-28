@@ -1,0 +1,92 @@
+﻿{
+  "DevelopmentData": [
+    {
+      "classname": "License_Manager",
+      "typename": ".ctor",
+      "todo": "True",
+      "todo_description": "",
+      "removebeforerelease": "True",
+      "removebeforerelease_description": "Incorporate Real Security Local Security or Server Security",
+      "priority": "10",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "License_Manager",
+      "typename": ".ctor",
+      "todo": "True",
+      "todo_description": "Build Test Case",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "License_Manager",
+      "typename": "",
+      "todo": "False",
+      "todo_description": "",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "Mark Alicz, Darkbit@Gmail.com",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "ACT_License_Info",
+      "typename": "FromJson",
+      "todo": "True",
+      "todo_description": "Build Test Case",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "ACT_License_Info",
+      "typename": "ToJson",
+      "todo": "True",
+      "todo_description": "Build Test Case",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "ACT_License_Info",
+      "typename": "",
+      "todo": "False",
+      "todo_description": "",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "Mark Alicz, Darkbit@Gmail.com",
+      "lastdeveloperinfo": ""
+    },
+    {
+      "classname": "ACT_License_Info",
+      "typename": "",
+      "todo": "True",
+      "todo_description": "Check Security Rules",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": "Mark Alicz, Darkbit@Gmail.com"
+    },
+    {
+      "classname": "ACT_License_Info",
+      "typename": "",
+      "todo": "True",
+      "todo_description": "Build Test Case",
+      "removebeforerelease": "False",
+      "removebeforerelease_description": "",
+      "priority": "0",
+      "originadeveloperinfo": "",
+      "lastdeveloperinfo": ""
+    }
+  ]
+}

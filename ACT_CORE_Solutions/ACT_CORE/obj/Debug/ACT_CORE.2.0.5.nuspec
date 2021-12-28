@@ -19,6 +19,9 @@
         <dependency id="IVolt_ACT_ExtensionLibrary" version="2.0.9" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
         <dependency id="SharpCompress" version="0.30.1" exclude="Build,Analyzers" />
+        <dependency id="System.Collections" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Concurrent" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.Specialized" version="4.3.0" exclude="Build,Analyzers" />
         <dependency id="System.Security.SecureString" version="4.3.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
