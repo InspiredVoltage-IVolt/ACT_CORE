@@ -10,9 +10,13 @@ namespace ACT.SuperAdmin.Console // Note: actual namespace depends on the projec
     {
         public static void Main(string[] args)
         {
-            /*
-          
-            */
+
+            //if (SC.ReadKey().Key == ConsoleKey.C)
+            //{
+            //    string _Code = GenerateDevReport(();
+
+            //}
+
             //string _FN = @"D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\bin\Debug\net6.0\ACT_CORE.dll";
 
             string _FN = "ACT_CORE";
@@ -30,10 +34,13 @@ namespace ACT.SuperAdmin.Console // Note: actual namespace depends on the projec
             return ACT.Core.Attributes.Helper.GenerateJSONDevelopmentReport(Path, true);
         }
 
+
+
         /// <summary>
         /// Generate Client License
         /// </summary>
         /// <returns>License Text</returns>
+        [DEV(ToDo = true, ToDo_Description = "Finish Code", Priority = 20)]
         static string GenerateClientLic()
         {
             Dictionary<string, string> _Data = new Dictionary<string, string>();
@@ -60,9 +67,10 @@ namespace ACT.SuperAdmin.Console // Note: actual namespace depends on the projec
 
 
             string _fn = @"D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\Lic.txt";
-            string _Data = System.IO.File.ReadAllText(_fn);
-            string _LicFile = _Data.EncryptString("ACTLicFileEncryp");
-            _LicFile.SaveAllText(_fn);
+
+            //  string _LicFile = _Data.EncryptString("ACTLicFileEncryp");
+            //_LicFile.SaveAllText(_fn);
+            return "";
         }
     }
 }

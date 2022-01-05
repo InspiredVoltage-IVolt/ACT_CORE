@@ -45,6 +45,7 @@ namespace ACT.Core.License
     [DEV(OriginaDeveloperInfo = "Mark Alicz, Darkbit@Gmail.com")]
     [DEV(ToDo = true, ToDo_Description = "Check Security Rules", LastDeveloperInfo = "Mark Alicz, Darkbit@Gmail.com")]
     [DEV(ToDo = true, ToDo_Description = "Build Test Case")]
+    [DEV(RemoveBeforeRelease = true, RemoveBeforeRelease_Description = "Because Its Crappy")]
     public class ACT_License_Info
     {
         [JsonProperty("licensekey", NullValueHandling = NullValueHandling.Ignore)]
@@ -56,6 +57,7 @@ namespace ACT.Core.License
         [JsonProperty("productid", NullValueHandling = NullValueHandling.Ignore)]
         public string Productid { get; set; }
 
+        [DEV(ToDo = true, ToDo_Description = "Rename to match other code....")]
         [JsonProperty("purchaseid", NullValueHandling = NullValueHandling.Ignore)]
         public string Purchaseid { get; set; }
 

@@ -10,7 +10,22 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "565959e0-45c9-42c0-ad50-d3af2fc20260": {
+      "ProjectGuid": "565959e0-45c9-42c0-ad50-d3af2fc20260",
+      "DisplayName": "ACT_Core_SharedData",
+      "ColorIndex": 1
+    },
+    "16b10679-111d-4492-ae91-1bc39f5e5e9e": {
+      "ProjectGuid": "16b10679-111d-4492-ae91-1bc39f5e5e9e",
+      "DisplayName": "ACT_Core_SuperAdmin_Console",
+      "ColorIndex": 2
+    },
+    "8719bab7-d7c3-40c0-91c8-fd8ab57f0c33": {
+      "ProjectGuid": "8719bab7-d7c3-40c0-91c8-fd8ab57f0c33",
+      "DisplayName": "ACT_Nuget_Publisher",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

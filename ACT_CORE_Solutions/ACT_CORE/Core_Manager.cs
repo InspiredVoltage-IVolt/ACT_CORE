@@ -22,41 +22,25 @@ namespace ACT.Core
     /// </summary>
     public class PluginArguments
     {
-        /// <summary>
-        /// The loaded
-        /// </summary>
+        /// <summary>The loaded</summary>
         public bool Loaded = false;
 
-        /// <summary>
-        /// Full DLL Name (i.e) MyDLL.dll
-        /// </summary>
-        /// <value>The name of the DLL.</value>
+        /// <summary>Full DLL Name (i.e) MyDLL.dll</summary>
         public string DLLName { get; set; }
 
-        /// <summary>
-        /// Full Class Name (i.e) MyNameSpace.MySub.MyClass
-        /// </summary>
-        /// <value>The full name of the class.</value>
+        /// <summary>Full Class Name (i.e) MyNameSpace.MySub.MyClass</summary>
         public string FullClassName { get; set; }
 
-        /// <summary>
-        /// Defines if the class should be treated like a singleton or not
-        /// </summary>
+        /// <summary>Defines if the class should be treated like a singleton or not</summary>
         public bool StoreOnce = false;
 
-        /// <summary>
-        /// Optional Arguments the are required to create an instance of the class
-        /// </summary>
+        /// <summary>Optional Arguments the are required to create an instance of the class</summary>
         public List<object> Arguments = new List<object>();
 
-        /// <summary>
-        /// Empty Constructor for Generic Use
-        /// </summary>
+        /// <summary>Empty Constructor for Generic Use</summary>
         public PluginArguments() { }
 
-        /// <summary>
-        /// Loads the Plugin Arguments From the SystemConfiguration File Settings
-        /// </summary>
+        /// <summary>Loads the Plugin Arguments From the SystemConfiguration File Settings</summary>
         /// <param name="Interface">The interface.</param>
         /// <exception cref="Exception">Error Locating System Setting: " + Interface</exception>
         public PluginArguments(string Interface)

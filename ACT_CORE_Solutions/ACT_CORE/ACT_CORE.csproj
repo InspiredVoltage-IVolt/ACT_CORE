@@ -20,14 +20,28 @@
     <Version>2.0.5</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <Platforms>AnyCPU;x64</Platforms>
+    <BaseOutputPath>D:\IVolt_Releases\ACT-Core</BaseOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <FileAlignment>4096</FileAlignment>
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <FileAlignment>4096</FileAlignment>
+    <NoWarn>1701;1702;CA1416</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <FileAlignment>4096</FileAlignment>
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <FileAlignment>4096</FileAlignment>
+    <NoWarn>1701;1702;CA1416</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,6 +64,8 @@
     <PackageReference Include="System.Collections" Version="4.3.0" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
     <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="6.0.0" />
     <PackageReference Include="System.Security.SecureString" Version="4.3.0" />
   </ItemGroup>
 
@@ -63,6 +79,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="BuiltInPlugins\DataAccess\MSSQL\" />
+    <Folder Include="BuiltInPlugins\DataAccess\Common\" />
+    <Folder Include="BuiltInPlugins\DataAccess\SQLite\" />
+    <Folder Include="BuiltInPlugins\Code_Generator\" />
     <Folder Include="Exceptions\Security\" />
   </ItemGroup>
 

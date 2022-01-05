@@ -22,6 +22,7 @@
         <dependency id="System.Collections" version="4.3.0" exclude="Build,Analyzers" />
         <dependency id="System.Collections.Concurrent" version="4.3.0" exclude="Build,Analyzers" />
         <dependency id="System.Collections.Specialized" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SQLite" version="1.0.115.5" exclude="Build,Analyzers" />
         <dependency id="System.Security.SecureString" version="4.3.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
@@ -30,6 +31,7 @@
     </contentFiles>
   </metadata>
   <files>
+    <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.runtimeconfig.json" target="lib\net6.0\ACT_CORE.runtimeconfig.json" />
     <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\bin\Debug\net6.0\ACT_CORE.dll" target="lib\net6.0\ACT_CORE.dll" />
     <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\Kinguin_API_Icon.ico" target="content\Kinguin_API_Icon.ico" />
     <file src="D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\Kinguin_API_Icon.ico" target="contentFiles\any\net6.0\Kinguin_API_Icon.ico" />

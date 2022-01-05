@@ -1,0 +1,5 @@
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\x64\Debug\net6.0\ACT_CORE.csproj.AssemblyReference.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\x64\Debug\net6.0\ACT_CORE.GeneratedMSBuildEditorConfig.editorconfig
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\x64\Debug\net6.0\ACT_CORE.AssemblyInfoInputs.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\x64\Debug\net6.0\ACT_CORE.AssemblyInfo.cs
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_CORE\obj\x64\Debug\net6.0\ACT_CORE.csproj.CoreCompileInputs.cache

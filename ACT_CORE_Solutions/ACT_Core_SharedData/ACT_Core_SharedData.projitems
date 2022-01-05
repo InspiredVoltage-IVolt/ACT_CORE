@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
-    <Content Include="$(MSBuildThisFileDirectory)References\SystemConfiguration.json" />
-    <Content Include="$(MSBuildThisFileDirectory)References\SystemConfiguration_Template.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration_Template.json" />
   </ItemGroup>
 </Project>
