@@ -1,0 +1,292 @@
+{
+  "ACT_Interfaces": [
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Debug\\ACT_Interfaces.2.0.3.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.3.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Debug\\ACT_Interfaces.2.0.4.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.4.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Debug\\ACT_Interfaces.2.0.5.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.5.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Debug\\ACT_Interfaces.2.0.6.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.6.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.3.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.3.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.4.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.4.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.5.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.5.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.6.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.6.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.7.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.7.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Release\\ACT_Interfaces.2.0.9.nupkg",
+      "FileNameOnly": "ACT_Interfaces.2.0.9.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    }
+  ],
+  "ACT_Interfaces_Library": [
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Interfaces\\Debug\\ACT_Interfaces_Library.2.0.3.nupkg",
+      "FileNameOnly": "ACT_Interfaces_Library.2.0.3.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    }
+  ],
+  "ACT_Security": [
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Security\\Debug\\ACT_Security.2.0.2.nupkg",
+      "FileNameOnly": "ACT_Security.2.0.2.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Security\\Debug\\ACT_Security.2.0.3.nupkg",
+      "FileNameOnly": "ACT_Security.2.0.3.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Security\\Release\\ACT_Security.2.0.2.nupkg",
+      "FileNameOnly": "ACT_Security.2.0.2.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Security\\Release\\ACT_Security.2.0.3.nupkg",
+      "FileNameOnly": "ACT_Security.2.0.3.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    }
+  ],
+  "ACT_Enums": [
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Debug\\ACT_Enums.2.0.6.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.6.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Debug\\ACT_Enums.2.0.7.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.7.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Debug\\ACT_Enums.2.0.8.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.8.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Debug\\ACT_Enums.2.0.9.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.9.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Debug\\ACT_Enums.2.1.0.nupkg",
+      "FileNameOnly": "ACT_Enums.2.1.0.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Release\\ACT_Enums.2.0.6.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.6.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Release\\ACT_Enums.2.0.7.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.7.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Release\\ACT_Enums.2.0.8.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.8.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": false,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\Release\\ACT_Enums.2.0.9.nupkg",
+      "FileNameOnly": "ACT_Enums.2.0.9.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": true,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT_Enums\\x64\\Release\\ACT_Enums.2.1.0.nupkg",
+      "FileNameOnly": "ACT_Enums.2.1.0.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    }
+  ],
+  "IVolt_ACT_ExtensionLibrary": [
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": true,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Extension_Methods\\x64\\Debug\\IVolt_ACT_ExtensionLibrary.2.1.2.nupkg",
+      "FileNameOnly": "IVolt_ACT_ExtensionLibrary.2.1.2.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": true,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Extension_Methods\\x64\\Release\\IVolt_ACT_ExtensionLibrary.2.1.1.nupkg",
+      "FileNameOnly": "IVolt_ACT_ExtensionLibrary.2.1.1.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    },
+    {
+      "WindowsFlag": false,
+      "Is32Bit": false,
+      "Is64Bit": true,
+      "IsOther": false,
+      "IsDebugVersion": false,
+      "FullFilePath": "D:\\IVolt_Releases\\ACT-Extension_Methods\\x64\\Release\\IVolt_ACT_ExtensionLibrary.2.1.2.nupkg",
+      "FileNameOnly": "IVolt_ACT_ExtensionLibrary.2.1.2.nupkg",
+      "LastModifiedDate": "0001-01-01T00:00:00"
+    }
+  ]
+}

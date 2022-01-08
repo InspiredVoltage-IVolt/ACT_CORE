@@ -6,20 +6,17 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using ACT.Core.Enums;
 using ACT.Core.Extensions;
+using ACT.Core.Extensions.CodeGeneration;
 using ACT.Core.Interfaces.CodeGeneration;
 using ACT.Core.Interfaces.DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using ACT.Core.SupportExtensions;
 using System.Text;
-using ACT.Core.Extensions.CodeGenerator;
 
 namespace ACT.Plugins.CodeGeneration
 {
@@ -30,7 +27,7 @@ namespace ACT.Plugins.CodeGeneration
     /// </summary>
     /// <seealso cref="ACT.Plugins.ACT_Core" />
     /// <seealso cref="ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator" />
-    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator
+    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_Code_Generator
     {
 
         /// <summary>
@@ -39,7 +36,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateSearchMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             if (Table.GetPrimaryColumnNames.Count() == 0) { return ""; }
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -104,7 +101,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateSearchMethodManyParams(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethodManyParams(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             if (Table.GetPrimaryColumnNames.Count() == 0) { return ""; }
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -170,7 +167,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateGenericSearchMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateGenericSearchMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
 
@@ -215,7 +212,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateSearchMethodPaging(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethodPaging(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();

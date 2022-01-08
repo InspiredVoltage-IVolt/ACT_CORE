@@ -1,5 +1,4 @@
-﻿using ACT.Core;
-using ACT.Core.Enums;
+﻿using ACT.Core.Enums;
 using ACT.Core.Extensions;
 using ACT.Core.Interfaces;
 using ACT.Core.Interfaces.Common;
@@ -8,7 +7,7 @@ using ACT.Core.Interfaces.Security;
 using System.Reflection;
 using System.Xml.Serialization;
 
-namespace ACT.Plugins
+namespace ACT.Core
 {
     /// <summary>
     /// Global Implementation of the DIP_Core Interface.
@@ -16,15 +15,30 @@ namespace ACT.Plugins
     [Serializable()]
     public class ACT_Core : I_Core
     {
+        public string PerformStandardTextReplacement(string instr, Enums.RepacementStandard ReplacementFormats)
+        {
+            return instr;
+        }
+        public string PerformStandardTextReplacement(string instr)
+        {
+            return instr;
+        }
+
+        public List<Exception> GetCachedErrors()
+        {
+            throw new NotImplementedException();
+        }
+
+        I_Result I_Core.HealthCheck()
+        {
+            throw new NotImplementedException();
+        }
 
         #region Private Fields
 
         [NonSerialized()]
         private I_UserInfo _Current_UserInfo;
 
-        /// <summary>   The error logger. </summary>
-        [NonSerialized()]
-        private I_ErrorLoggable _ErrorLogger = ACT.Core.CurrentCore<I_ErrorLoggable>.GetCurrent();
 
         private bool _HasChanged;
 
@@ -45,10 +59,7 @@ namespace ACT.Plugins
 
         #endregion Public Fields
 
-        #region Public Properties
-
-        public Dictionary<string, BasicSetting> ConfigurationSettings { get { return _Settings; } set { _Settings = value; } }
-
+        #region Public Properties       
         ///-------------------------------------------------------------------------------------------------
         /// <summary>   Gets or sets information describing the current user. </summary>
         ///
@@ -75,8 +86,7 @@ namespace ACT.Plugins
             {
                 _HasChanged = value;
             }
-        }
-
+        }              
         /// <summary>
         /// Returns all the Properties in the class
         /// </summary>
@@ -98,9 +108,13 @@ namespace ACT.Plugins
             }
         }
 
-        public bool CacheErrors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public dynamic GetConfigurationValue() { return ""; }
+
+        public bool CacheErrors { get; set; } = true;
 
         public string[] AvailableEncodingFormats => throw new NotImplementedException();
+
+        public List<string> PropertiesMonitoredForChange { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         #endregion Public Properties
 
@@ -155,15 +169,14 @@ namespace ACT.Plugins
         /// Checks All Of the Base Functionality
         /// </summary>
         /// <returns>Test Result</returns>
-        public virtual I_TestResult HealthCheck()
+        public virtual I_Result HealthCheck()
         {
-            I_TestResult _CurrentResult = CurrentCore<I_TestResult>.GetCurrent();
+            I_Result _CurrentResult = CurrentCore<I_Result>.GetCurrent();
 
             _CurrentResult.Success = true;
 
             try
-            {
-                LogError("HealthCheck", "", null, "", ErrorLevel.Warning);
+            {               
                 if (ValidatePluginRequirements().Success == false)
                 {
                     throw new Exception("Error In Validating Plugin Requirements");
@@ -183,32 +196,7 @@ namespace ACT.Plugins
             }
 
             return _CurrentResult;
-            //return ACT.Core.CurrentCore<I_TestResult>.GetCurrent();
-        }
-
-        /// <summary>
-        /// Not Implemented on the Global Level Must Override if needed
-        /// </summary>
-        /// <param name="XML"></param>
-        /// <returns></returns>
-        public virtual I_TestResult ImportXMLData(string XML)
-        {
-            I_TestResult _tmpReturn = new ACT.Core.BuiltInPlugins.Common.ACT_TestResult();
-            _tmpReturn.Success = true;
-
-            if (!XML.IsValidXML()) { _tmpReturn.Success = false; _tmpReturn.Messages.Add(""); return _tmpReturn; }
-            try
-            {
-                System.Xml.Linq.XDocument _doc = System.Xml.Linq.XDocument.Parse(XML);
-                foreach (var element in _doc.Elements()) { SetProperty(element.Name.ToString(), element.Value); }
-            }
-            catch
-            {
-                _tmpReturn.Success = false;
-                _tmpReturn.Messages.Add("Error Importing XML Data");
-            }
-
-            return _tmpReturn;
+            //return ACT.Core.CurrentCore<I_Result>.GetCurrent();
         }
 
         public virtual bool Load(string JSONData)
@@ -220,21 +208,7 @@ namespace ACT.Plugins
         {
             throw new NotImplementedException();
         }
-
-        /// <summary>
-        /// Log the Error
-        /// </summary>
-        /// <param name="className"></param>
-        /// <param name="summary"></param>
-        /// <param name="ex"></param>
-        /// <param name="additionInformation"></param>
-        /// <param name="errorType"></param>
-        public void LogError(string className, string summary, Exception ex, string additionInformation, ErrorLevel errorType)
-        {
-            // Use the Internal Error Logger
-            ACT.Core.Helper.ErrorLogger.VLogError(className, summary + "--" + additionInformation, ex, errorType);
-        }
-
+                
         /// <summary>
         /// Returns the Property Value as a Object
         /// </summary>
@@ -298,10 +272,10 @@ namespace ACT.Plugins
         /// </summary>
         /// <param name="PropertyName"></param>
         /// <param name="value"></param>
-        /// <returns>I_TestResult</returns>
-        public I_TestResult SetProperty(string PropertyName, object value)
+        /// <returns>I_Result</returns>
+        public I_Result SetProperty(string PropertyName, object value)
         {
-            I_TestResult _TmpReturn = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TmpReturn = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             try
             {
@@ -316,8 +290,7 @@ namespace ACT.Plugins
                 _TmpReturn.Success = true;
             }
             catch (Exception ex)
-            {
-                LogError(this.GetType().FullName, "Error Setting Property", ex, "Property Name: " + PropertyName, ErrorLevel.Warning);
+            {               
                 _TmpReturn.Success = false;
                 _TmpReturn.Exceptions.Add(ex);
                 _TmpReturn.Messages.Add("Error setting property");
@@ -376,27 +349,14 @@ namespace ACT.Plugins
         /// <summary>
         /// Validate the Plugin
         /// </summary>
-        /// <returns><see cref="ACT.Core.Interfaces.Common.I_TestResult">I_TestResult</see></returns>         
-        public virtual I_TestResult ValidatePluginRequirements()
+        /// <returns><see cref="ACT.Core.Interfaces.Common.I_Result">I_Result</see></returns>         
+        public virtual I_Result ValidatePluginRequirements()
         {
             var _TmpReturn = SystemSettings.MeetsExpectations((I_Plugin)this);
             return _TmpReturn;
         }
 
-        public string PerformStandardTextReplacement(string instr)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Exception> GetCachedErrors()
-        {
-            throw new NotImplementedException();
-        }
-
-        I_Result I_Core.HealthCheck()
-        {
-            throw new NotImplementedException();
-        }
 
         public string EncodeText(string Input, string Format, I_EncoderRules Rules)
         {
@@ -430,54 +390,6 @@ namespace ACT.Plugins
 
         #endregion Public Methods
 
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Gets or sets options for controlling the operation. </summary>
-        ///
-        /// <value> The settings. </value>
-        ///-------------------------------------------------------------------------------------------------
 
-        //   public Dictionary<string, BasicSetting> Settings { get { return _Settings; } set { _Settings = value; } }
-
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Gets or sets the configuration settings. </summary>
-        ///
-        /// <value> The configuration settings. </value>
-        ///-------------------------------------------------------------------------------------------------
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Loads. </summary>
-        ///
-        /// <remarks>   Mark Alicz, 7/20/2019. </remarks>
-        ///
-        /// <param name="JSONData"> The JSON data to load. </param>
-        ///
-        /// <returns>   True if it succeeds, false if it fails. </returns>
-        ///-------------------------------------------------------------------------------------------------
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Saves the given file. </summary>
-        ///
-        /// <remarks>   Mark Alicz, 7/20/2019. </remarks>
-        ///
-        /// <param name="FilePath"> The file path to save. </param>
-        ///
-        /// <returns>   True if it succeeds, false if it fails. </returns>
-        ///-------------------------------------------------------------------------------------------------
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Loads a configuration. </summary>
-        ///
-        /// <remarks>   Mark Alicz, 7/20/2019. </remarks>
-        ///
-        /// <param name="JSONData"> The JSON data to load. </param>
-        ///
-        /// <returns>   True if it succeeds, false if it fails. </returns>
-        ///-------------------------------------------------------------------------------------------------
-        ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Saves a configuration. </summary>
-        ///
-        /// <remarks>   Mark Alicz, 7/20/2019. </remarks>
-        ///
-        /// <param name="FilePath"> The file path to save. </param>
-        ///
-        /// <returns>   True if it succeeds, false if it fails. </returns>
-        ///-------------------------------------------------------------------------------------------------
     }
 }

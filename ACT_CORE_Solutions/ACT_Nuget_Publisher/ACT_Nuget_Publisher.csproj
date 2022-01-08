@@ -6,10 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
+    <BaseOutputPath>D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER</BaseOutputPath>
+    <IsPublishable>False</IsPublishable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IVolt_ACT_ExtensionLibrary" Version="2.1.1" />
+    <PackageReference Include="IVolt_ACT_ExtensionLibrary" Version="2.0.9" />
   </ItemGroup>
 
   <ItemGroup>

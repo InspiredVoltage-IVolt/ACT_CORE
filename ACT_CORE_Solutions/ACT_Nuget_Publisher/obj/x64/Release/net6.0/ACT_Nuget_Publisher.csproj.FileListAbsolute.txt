@@ -19,7 +19,13 @@ D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\bi
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\bin\x64\Release\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\bin\x64\Release\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\bin\x64\Release\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.csproj.AssemblyReference.cache
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ACT_Nuget_Publisher.exe
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\settings.ini
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ACT_Nuget_Publisher.deps.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ACT_Nuget_Publisher.runtimeconfig.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ref\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\x64\Release\net6.0\ACT_Nuget_Publisher.pdb
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.GeneratedMSBuildEditorConfig.editorconfig
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.AssemblyInfoInputs.cache
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.AssemblyInfo.cs
@@ -29,3 +35,4 @@ D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\ob
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ref\ACT_Nuget_Publisher.dll
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.pdb
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.genruntimeconfig.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\x64\Release\net6.0\ACT_Nuget_Publisher.csproj.AssemblyReference.cache

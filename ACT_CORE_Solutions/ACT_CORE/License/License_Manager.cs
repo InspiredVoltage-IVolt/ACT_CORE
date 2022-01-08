@@ -1,10 +1,13 @@
-﻿using ACT.Core.Extensions;
+﻿using ACT.Core.Attributes;
+using ACT.Core.Extensions;
 using Newtonsoft.Json;
+
 
 namespace ACT.Core.License
 {
     [DEV(OriginaDeveloperInfo = "Mark R Alicz, Darkbit@Gmail.com")]
-    public class License_Manager
+    [Localization()]
+    public class License_Manager : ACT_Core
     {
         private bool _IsValid { get; set; } = false;
         private bool _IsDevelopment { get; set; } = false;

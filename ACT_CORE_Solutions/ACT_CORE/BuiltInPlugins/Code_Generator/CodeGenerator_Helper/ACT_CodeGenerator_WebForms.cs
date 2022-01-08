@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -36,10 +36,10 @@ namespace ACT.Plugins.CodeGeneration
         /// TODO
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
-        /// <returns>List&lt;I_GeneratedCode&gt;.</returns>
-        public List<I_GeneratedCode> GenerateWebFormCode(I_CodeGenerationSettings CodeSettings)
+        /// <returns>List&lt;I_Generated_Code&gt;.</returns>
+        public List<I_Generated_Code> GenerateWebFormCode(I_Code_Generation_Settings CodeSettings)
         {
-            List<I_GeneratedCode> _TmpReturn = new List<I_GeneratedCode>();
+            List<I_Generated_Code> _TmpReturn = new List<I_Generated_Code>();
 
             var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent();
 

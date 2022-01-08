@@ -29,3 +29,10 @@ D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\ob
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Debug\net6.0\ACT_Nuget_Publisher.pdb
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Debug\net6.0\ACT_Nuget_Publisher.genruntimeconfig.cache
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\bin\Debug\net6.0\settings.ini
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ACT_Nuget_Publisher.exe
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\settings.ini
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ACT_Nuget_Publisher.deps.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ACT_Nuget_Publisher.runtimeconfig.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ref\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Debug\net6.0\ACT_Nuget_Publisher.pdb

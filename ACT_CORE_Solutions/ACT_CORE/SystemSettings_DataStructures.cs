@@ -247,6 +247,9 @@ namespace ACT.Core.Structs
         [JsonProperty("store_once", NullValueHandling = NullValueHandling.Ignore)]
         public bool? StoreOnce { get; set; }
 
+        [JsonProperty("required_data_files", NullValueHandling = NullValueHandling.Ignore)]
+        public List<string> Data_Files { get; set; }
+
         [JsonProperty("arguments", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Arguments { get; set; }
 

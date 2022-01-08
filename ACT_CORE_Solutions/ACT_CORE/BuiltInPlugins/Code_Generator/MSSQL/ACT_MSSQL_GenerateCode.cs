@@ -20,17 +20,17 @@ namespace ACT.Plugins.CodeGeneration.MSSQL
         {
         }
 
-        public List<I_GeneratedCode> GenerateCode(I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_Code_Generation_Settings CodeSettings)
         {
             throw new NotImplementedException();
         }
 
-        public List<I_GeneratedCode> GenerateCode(I_Db Database, I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_Db Database, I_Code_Generation_Settings CodeSettings)
         {
             throw new NotImplementedException();
         }
 
-        public List<I_GeneratedCode> GenerateWebFormCode(I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateWebFormCode(I_Code_Generation_Settings CodeSettings)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -47,7 +47,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
         /// <param name="DataBase">The data base.</param>
-        private void ParseStoredProcedures(I_CodeGenerationSettings CodeSettings, I_Db DataBase)
+        private void ParseStoredProcedures(I_Code_Generation_Settings CodeSettings, I_Db DataBase)
         {
             string _Delimiter = CodeSettings.NamespaceDrivenProceduresDelimiter;
 
@@ -91,10 +91,10 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
         /// <param name="DataBase">The data base.</param>
-        /// <returns>List&lt;I_GeneratedCode&gt;.</returns>
-        public List<I_GeneratedCode> GenerateStoredProcedureClass(I_CodeGenerationSettings CodeSettings, I_Db DataBase)
+        /// <returns>List&lt;I_Generated_Code&gt;.</returns>
+        public List<I_Generated_Code> GenerateStoredProcedureClass(I_Code_Generation_Settings CodeSettings, I_Db DataBase)
         {
-            List<I_GeneratedCode> _TmpReturn = new List<I_GeneratedCode>();
+            List<I_Generated_Code> _TmpReturn = new List<I_Generated_Code>();
 
             var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent();
             string _ConnectionString = ACT.Core.SystemSettings.GetSettingByName(CodeSettings.DatabaseConnectionName).Value;
@@ -213,7 +213,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Proc">The proc.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string GenerateStoredProcedureCode(I_DbStoredProcedure Proc, I_CodeGenerationSettings CodeSettings)
+        public string GenerateStoredProcedureCode(I_DbStoredProcedure Proc, I_Code_Generation_Settings CodeSettings)
         {
             string _ParamList = "";
             string _ParamAddList = "";

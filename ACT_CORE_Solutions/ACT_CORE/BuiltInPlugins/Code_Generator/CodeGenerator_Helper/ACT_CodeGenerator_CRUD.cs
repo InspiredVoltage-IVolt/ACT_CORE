@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -35,7 +35,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        private string GenerateUpdateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateUpdateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -117,7 +117,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        private string GenerateDeleteMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateDeleteMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -170,7 +170,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        private string GenerateCreateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateCreateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -261,7 +261,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateBlankUpdateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateBlankUpdateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
             _TmpBuilder.Append("public virtual void Update()" + Environment.NewLine);
@@ -275,7 +275,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateBlankDeleteMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateBlankDeleteMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
             _TmpBuilder.Append("public virtual void Delete()" + Environment.NewLine);

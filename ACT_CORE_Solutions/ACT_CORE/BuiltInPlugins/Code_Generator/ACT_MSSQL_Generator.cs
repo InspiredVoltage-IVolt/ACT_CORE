@@ -137,7 +137,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        public List<I_GeneratedCode> GenerateCode(I_MSSQL_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_MSSQL_CodeGenerationSettings CodeSettings)
         {
             throw new NotImplementedException();
         }

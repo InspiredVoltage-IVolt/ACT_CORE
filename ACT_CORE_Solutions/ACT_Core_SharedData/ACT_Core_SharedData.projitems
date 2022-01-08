@@ -10,7 +10,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\CodeGeneration\CSharp_DLL\Class_Header_1.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\sqlschema.sql" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\readme.txt" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\supportedlanguages.json" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration.json" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration_Template.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)NLog.config" />
+    <None Include="$(MSBuildThisFileDirectory)NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using System.Reflection;
-using System.ComponentModel;
+﻿using ACT.Core;
 using ACT.Core.Interfaces.Common;
-using ACT.Core.Interfaces.Security.Authentication;
 using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.Interfaces;
-using ACT.Core;
-using ACT.Core.Enums;
+using ACT.Core.Interfaces.Security;
+using System.ComponentModel;
+using System.Text;
 
 
 namespace ACT.Plugins.DataAccess
@@ -27,7 +20,7 @@ namespace ACT.Plugins.DataAccess
         private string _Name = "";
         private BindingList<I_DbTable> _Tables = new BindingList<I_DbTable>();
         private List<I_DbView> _Views = new List<I_DbView>();
-        private List<I_DbDataType> _Types = new List<I_DbDataType>();        
+        private List<I_DbDataType> _Types = new List<I_DbDataType>();
         private List<I_DbStoredProcedure> _Procedures = new List<I_DbStoredProcedure>();
 
         /// <summary>
@@ -175,7 +168,7 @@ namespace ACT.Plugins.DataAccess
 
         #region Methods (3)
 
-        
+
 
         /// <summary>
         /// Doesnt Follow Normal Logic.  May need to rewrite
@@ -211,11 +204,11 @@ namespace ACT.Plugins.DataAccess
             {
                 foreach (char c in _TmpTable.Name)
                 {
-                    TmpReturn += (int)c;
+                    TmpReturn += c;
                 }
                 foreach (char c in Name)
                 {
-                    TmpReturn += (int)c;
+                    TmpReturn += c;
                 }
             }
 
@@ -226,9 +219,9 @@ namespace ACT.Plugins.DataAccess
         /// Validates the Current Structure of the Database
         /// </summary>
         /// <returns></returns>
-        public I_TestResult Validate()
+        public I_Result Validate()
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
             _TestResult.Success = true;
             _TestResult.Messages.Add("Always True");
             return _TestResult;
@@ -265,10 +258,10 @@ namespace ACT.Plugins.DataAccess
         /// Add a table to the Database.  This doesn't add to the database until you Save
         /// </summary>
         /// <param name="Table">Table To Add</param>
-        /// <returns>I_TestResult Result of addition</returns>
-        public I_TestResult AddTable(I_DbTable Table)
+        /// <returns>I_Result Result of addition</returns>
+        public I_Result AddTable(I_DbTable Table)
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             if (GetTable(Table.Name, true) != null)
             {
@@ -287,10 +280,10 @@ namespace ACT.Plugins.DataAccess
         /// Adds a view to the Database.  This doesn't add to the database until you Save
         /// </summary>
         /// <param name="View">View to Add</param>
-        /// <returns>I_TestResult Result of the Addition</returns>
-        public I_TestResult AddView(I_DbView View)
+        /// <returns>I_Result Result of the Addition</returns>
+        public I_Result AddView(I_DbView View)
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             if (GetView(View.Name, true) != null)
             {
@@ -310,10 +303,10 @@ namespace ACT.Plugins.DataAccess
         /// </summary>
         /// <param name="Name">Fully Qualified Name of Table</param>
         /// <param name="IgnoreCase">Ignore Case?</param>
-        /// <returns>I_TestResult</returns>
-        public I_TestResult RemoveTable(string Name, bool IgnoreCase)
+        /// <returns>I_Result</returns>
+        public I_Result RemoveTable(string Name, bool IgnoreCase)
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             I_DbTable _TmpTable = GetTable(Name, true);
             if (_TmpTable != null)
@@ -333,10 +326,10 @@ namespace ACT.Plugins.DataAccess
         /// Removes a table at Index. This doesn't add to the database until you Save
         /// </summary>
         /// <param name="Index"></param>
-        /// <returns>I_TestResult Result of Removal</returns>
-        public I_TestResult RemoveTable(int Index)
+        /// <returns>I_Result Result of Removal</returns>
+        public I_Result RemoveTable(int Index)
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             if ((Index < _Tables.Count && Index > -1))
             {
@@ -356,10 +349,10 @@ namespace ACT.Plugins.DataAccess
         /// </summary>
         /// <param name="Original">Original Table To Modify</param>
         /// <param name="New">New Table </param>
-        /// <returns>I_TestResult with Modification Success</returns>
-        public I_TestResult ModifyTable(I_DbTable Original, I_DbTable New)
+        /// <returns>I_Result with Modification Success</returns>
+        public I_Result ModifyTable(I_DbTable Original, I_DbTable New)
         {
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
 
             int x = GetTableIndex(Original.Name);
 
@@ -382,10 +375,10 @@ namespace ACT.Plugins.DataAccess
         /// <param name="Original">Name Case Insensitive</param>
         /// <param name="New"></param>
         /// <returns></returns>
-        public I_TestResult ModifyTable(string Original, I_DbTable New)
+        public I_Result ModifyTable(string Original, I_DbTable New)
         {
 
-            I_TestResult _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            I_Result _TestResult = CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
             int x = GetTableIndex(Original);
 
             if (x == -1)
@@ -466,7 +459,7 @@ namespace ACT.Plugins.DataAccess
         }
 
         #endregion
-                
+
         #region IDisposable Members
 
         /// <summary>
@@ -496,7 +489,7 @@ namespace ACT.Plugins.DataAccess
         /// </summary>
         /// <returns></returns>
         public override List<string> ReturnSystemSettingRequirements()
-        {               
+        {
             List<string> _tmpReturn = new List<string>();
             _tmpReturn.Add("I_DbColumn");
             _tmpReturn.Add("I_DbDataType");
@@ -507,7 +500,7 @@ namespace ACT.Plugins.DataAccess
             _tmpReturn.Add("I_DbWhereStatement");
             _tmpReturn.Add("I_DbRelationship");
             _tmpReturn.Add("I_DBObject");
-                        
+
             return _tmpReturn;
         }
 
@@ -515,9 +508,9 @@ namespace ACT.Plugins.DataAccess
         /// Validate the Plugin
         /// </summary>
         /// <returns></returns>
-        public override I_TestResult ValidatePluginRequirements()
+        public override I_Result ValidatePluginRequirements()
         {
-            var _TmpReturn = ACT.Core.SystemSettings.MeetsExpectations((ACT.Core.Interfaces.Common.I_Plugin)this);
+            var _TmpReturn = ACT.Core.SystemSettings.MeetsExpectations(this);
 
             return _TmpReturn;
         }
@@ -580,6 +573,16 @@ namespace ACT.Plugins.DataAccess
             _TmpExport.Append("</Database>\n\r");
 
             return _TmpExport.ToString();
+        }
+
+        public List<string> ReturnSystemSettingRequirements(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

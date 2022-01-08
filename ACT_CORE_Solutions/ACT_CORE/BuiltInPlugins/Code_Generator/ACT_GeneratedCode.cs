@@ -14,7 +14,7 @@ using ACT.Core.Enums;
 
 namespace ACT.Plugins.CodeGeneration
 {
-    public class ACT_GeneratedCode : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_GeneratedCode
+    public class ACT_GeneratedCode : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_Generated_Code
     {
         private string _FileName;
         private string _Path;

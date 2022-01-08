@@ -11,7 +11,7 @@
           "lib/netstandard2.0/FastExcel.dll": {}
         }
       },
-      "IVolt_ACT_ExtensionLibrary/2.1.1": {
+      "IVolt_ACT_ExtensionLibrary/2.0.9": {
         "type": "package",
         "dependencies": {
           "FastExcel": "3.0.13",
@@ -800,15 +800,16 @@
         "lib/netstandard2.0/FastExcel.xml"
       ]
     },
-    "IVolt_ACT_ExtensionLibrary/2.1.1": {
-      "sha512": "X/GoOjoDMHN/pdxsLGpy0Lpr6JPfe/BquiigSQakOGntCUO6zEPflhuonn1Pgz4s3xQOA02ayd9Mhr3okTTT+w==",
+    "IVolt_ACT_ExtensionLibrary/2.0.9": {
+      "sha512": "9OagUk+wrGzlbbLfImP1R1/t00x8jaVginsLbelJn8jQes6wVLhb8MNafRSn9GkODC0vjzdzFUa5MQvQT8TqdQ==",
       "type": "package",
-      "path": "ivolt_act_extensionlibrary/2.1.1",
+      "path": "ivolt_act_extensionlibrary/2.0.9",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ACT_Common_Icon.png",
         "README.md",
-        "ivolt_act_extensionlibrary.2.1.1.nupkg.sha512",
+        "ivolt_act_extensionlibrary.2.0.9.nupkg.sha512",
         "ivolt_act_extensionlibrary.nuspec",
         "lib/net6.0/ACTExtLib.dll"
       ]
@@ -3236,7 +3237,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "IVolt_ACT_ExtensionLibrary >= 2.1.1"
+      "IVolt_ACT_ExtensionLibrary >= 2.0.9"
     ]
   },
   "packageFolders": {
@@ -3269,6 +3270,8 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "http://actnuget.homeunix.com:5555/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -3291,7 +3294,7 @@
         "dependencies": {
           "IVolt_ACT_ExtensionLibrary": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "[2.0.9, )"
           }
         },
         "imports": [

@@ -209,8 +209,10 @@ namespace ACT.Core
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        public Structs.SystemSettingsData GetAndSet_ActiveConfig(string Name = "default")
+        public Structs.SystemSettingsData GetAndSet_ActiveConfig(string Name = "")
         {
+            if (Name.NullOrEmpty()) { Name = "Default"; }
+
             if (SettingsLoaded == false) { return null; }
 
             if (Name == "default") { return _LoadedConfigurationData; }

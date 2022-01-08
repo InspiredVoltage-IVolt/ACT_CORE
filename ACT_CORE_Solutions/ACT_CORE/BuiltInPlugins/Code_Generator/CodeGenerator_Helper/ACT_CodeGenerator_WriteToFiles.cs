@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -14,8 +14,6 @@
 using ACT.Core.Enums;
 using ACT.Core.Extensions;
 using ACT.Core.Interfaces.CodeGeneration;
-using System;
-using System.Collections.Generic;
 
 namespace ACT.Plugins.CodeGeneration
 {
@@ -26,7 +24,7 @@ namespace ACT.Plugins.CodeGeneration
     /// </summary>
     /// <seealso cref="ACT.Plugins.ACT_Core" />
     /// <seealso cref="ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator" />
-    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator
+    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_Code_Generator
     {
         #region WRITE CODE TO FILES
 
@@ -35,7 +33,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateStoredProceduresFile(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateStoredProceduresFile(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             string _Folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "\\DBSP\\";
 
@@ -66,7 +64,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateUserLayer(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateUserLayer(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             string _Folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "User\\";
             if (_Folder.DirectoryExists()) { System.IO.Directory.Delete(_Folder, true); }
@@ -85,7 +83,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateBaseLayer(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateBaseLayer(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             string _Folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\";
 
@@ -112,7 +110,7 @@ namespace ACT.Plugins.CodeGeneration
         /// Generate the Solution and the Project within the Solution
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateCSSolution(I_CodeGenerationSettings CodeSettings)
+        private void GenerateCSSolution(I_Code_Generation_Settings CodeSettings)
         {
 
             string _cssolution_folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Solution\\";
@@ -123,7 +121,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateCSProject(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateCSProject(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             string _cssolution_folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Project\\";
             string _csproject_folder = _cssolution_folder + CodeSettings.DLLName.Replace(".dll", "") + "\\";
@@ -163,7 +161,7 @@ namespace ACT.Plugins.CodeGeneration
                 _UserItems += "\t<Compile Include=\"User\\" + c.FileName.Replace(".cs", "") + "_User" + ".cs" + "\" />" + Environment.NewLine;
             }
 
-            string _ProjectCode = ACT.Core.SystemSettings.GetSettingByName("C#ProjectTemplate").Value;
+            string _ProjectCode = ACT.Core.ACTConfig.GetSettingByName("C#ProjectTemplate");
             _ProjectCode = _ProjectCode.Replace("#ASSEMBLYNAME#", CodeSettings.DLLName);
             _ProjectCode = _ProjectCode.Replace("#ITEMS#", _BaseItems + _UserItems);
             _ProjectCode = _ProjectCode.Replace("#NEWGUID#", Guid.NewGuid().ToString());
@@ -177,8 +175,9 @@ namespace ACT.Plugins.CodeGeneration
             {
                 System.IO.File.Copy(AppDomain.CurrentDomain.BaseDirectory + "Bin\\ACT.Core.dll", CodeSettings.RootOutputDirectory + "\\Project\\Bin\\ACT.Core.dll");
             }
+            string _JSON = ACT.Core.ACTConfig.ConfigSettings.GetAndSet_ActiveConfig().ToJson();
 
-            System.IO.File.WriteAllText(CodeSettings.RootOutputDirectory + "\\Project\\Bin\\SystemConfiguration.xml", ACT.Core.SystemSettings.ExportXMLData());
+            System.IO.File.WriteAllText(CodeSettings.RootOutputDirectory + "\\Project\\Bin\\SystemConfiguration.enc", ACT.Core.Protection.Protect(_JSON));
 
         }
 
@@ -187,7 +186,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        private void GenerateViewAccessCode(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateViewAccessCode(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             string _Folder = CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\";
             if (!System.IO.Directory.Exists(_Folder)) { System.IO.Directory.CreateDirectory(_Folder); }

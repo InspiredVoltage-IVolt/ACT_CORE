@@ -6,24 +6,14 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 using ACT.Core.Enums;
 using ACT.Core.Extensions;
-using ACT.Core.Extensions.CodeGenerator;
 using ACT.Core.Interfaces.CodeGeneration;
-using ACT.Core.Interfaces.Common;
-using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.TemplateEngine;
-using Microsoft.CSharp;
-using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 
 namespace ACT.Plugins.CodeGeneration
@@ -65,8 +55,8 @@ namespace ACT.Plugins.CodeGeneration
         /// Generates The Enums..  This is a Specific Class That Utilizes a Table Named _GeneratorEnums
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
-        /// <returns>I_GeneratedCode.</returns>
-        public I_GeneratedCode GenerateEnums(I_CodeGenerationSettings CodeSettings)
+        /// <returns>I_Generated_Code.</returns>
+        public I_Generated_Code GenerateEnums(I_Code_Generation_Settings CodeSettings)
         {
             bool _UseDatabaseConnectionName = false;
             if (CodeSettings.DatabaseConnectionName != "")

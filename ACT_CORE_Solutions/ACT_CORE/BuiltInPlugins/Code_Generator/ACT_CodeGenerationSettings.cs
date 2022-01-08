@@ -1,4 +1,5 @@
-﻿using ACT.Core.Extensions;
+﻿using ACT.Core.Enums.Programming;
+using ACT.Core.Extensions;
 using ACT.Core.Interfaces.CodeGeneration;
 
 namespace ACT.Plugins.CodeGeneration
@@ -6,7 +7,7 @@ namespace ACT.Plugins.CodeGeneration
     /// <summary>
     /// This is the ACT Implementation of the Code Generation Settings File
     /// </summary>
-    public class ACT_CodeGenerationSettings : I_CodeGenerationSettings
+    public class ACT_CodeGenerationSettings : I_Code_Generation_Settings
     {
         /// <summary>
         /// Location of the settings file to USE When generating CODE
@@ -38,31 +39,10 @@ namespace ACT.Plugins.CodeGeneration
             {
                 if (_ConnectionString.NullOrEmpty())
                 {
-                    var _ConnectionSetting = ACT.Core.SystemSettings.(DatabaseConnectionName);
-                    if (_ConnectionSetting.Encrypted == false || _ConnectionSetting.InternalEncryption == false)
+                    _ConnectionString = ACT.Core.ACTConfig.GetSettingByName(DatabaseConnectionName);
+                    if (_ConnectionString.NullOrEmpty())
                     {
-                        ACT.Core.Helper.ErrorLogger.LogError(this, "Error - Connection Is Not Encrypted", null, Core.Enums.ErrorLevel.Warning);
-                        _ConnectionString = _ConnectionSetting.Value;
-                    }
-                    else
-                    {
-                        if (_ConnectionSetting.InternalEncryption == false)
-                        {
-                            ACT.Core.Helper.ErrorLogger.LogError(this, "Error - Connection Is Encrypted Using Non Supported Encryption (NOT INTERNAL)", null, Core.Enums.ErrorLevel.Warning);
-                            throw new System.Exception("Unsupported Encryption Method on Connection String");
-                        }
 
-                        _ConnectionString = _ConnectionSetting.EncryptedValue;
-                    }
-
-                    if (_ConnectionSetting.InternalEncryption == true)
-                    {
-                        var Encryption = ACT.Core.CurrentCore<I_Encryption>.GetCurrent();
-                        return Encryption.Decrypt(_ConnectionString);
-                    }
-                    else
-                    {
-                        return _ConnectionString;
                     }
                 }
 
@@ -83,7 +63,12 @@ namespace ACT.Plugins.CodeGeneration
         /// Language to Generate The code Into (Search Plugins For Matching Language)
         /// ACT Built in ONLY Supports CSharp
         /// </summary>
-        public ACT.Core.Enums.ProgrammingLanguages OutputLanguage { get { return ACT.Core.Enums.ProgrammingLanguages.CSharp; } set { throw new Exception("Not supported"); } }
+        public ACT.Core.Enums.Programming.Programming_Language OutputLanguage { get { return Programming_Language.CSharp; } set { return; } }
+        public bool CompileBaseLayer { get; set; }
+        public bool CompileUserLayer { get; set; }
+        public bool OutPutCSProject { get; set; }
+        public string OutPutDirectory { get; set; }
+
 
         #region Code Generation Boolean Options
 
@@ -210,9 +195,7 @@ namespace ACT.Plugins.CodeGeneration
         /// Max Age In Days Since Last Edit
         /// </summary>
         public int ObjectAgeMax { get; set; }
-        public bool CompileBaseLayer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool CompileUserLayer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool OutPutCSProject { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string OutPutDirectory { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+
     }
 }

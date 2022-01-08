@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using System.Reflection;
-using System.ComponentModel;
-using ACT.Core.Interfaces.Common;
-using ACT.Core.Interfaces.Security;
+﻿using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.Interfaces;
-using ACT.Core;
-using ACT.Core.Enums;
 
 namespace ACT.Plugins.DataAccess
 {
@@ -35,8 +24,8 @@ namespace ACT.Plugins.DataAccess
         /// </summary>
         public string Owner
         {
-            get;           
-            set;            
+            get;
+            set;
         }
 
         /// <summary>
@@ -45,7 +34,7 @@ namespace ACT.Plugins.DataAccess
         public int AgeInDays { get { return _AgeInDays; } set { _AgeInDays = value; } }
 
 
-        
+
         /// <summary>
         /// All of the Parameters
         /// </summary>
@@ -86,9 +75,9 @@ namespace ACT.Plugins.DataAccess
         /// Lists the Plugin Requirements for this Class
         /// </summary>
         /// <returns></returns>
-        public override I_TestResult ValidatePluginRequirements()
+        public override I_Result ValidatePluginRequirements()
         {
-            var _TR = ACT.Core.CurrentCore<ACT.Core.Interfaces.Common.I_TestResult>.GetCurrent();
+            var _TR = ACT.Core.CurrentCore<ACT.Core.Interfaces.Common.I_Result>.GetCurrent();
             _TR.Success = true;
 
             return _TR;
@@ -98,9 +87,19 @@ namespace ACT.Plugins.DataAccess
         /// Run Health Check
         /// </summary>
         /// <returns></returns>
-        public override I_TestResult HealthCheck()
+        public override I_Result HealthCheck()
         {
             return ValidatePluginRequirements();
+        }
+
+        public List<string> ReturnSystemSettingRequirements(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ACT.Core
         /// <exception cref="ArgumentNullException"></exception>
         public static bool LoadConfigurationFile(string Path, bool IsEncrypted, string configType = "default")
         {
+
             return ConfigSettings.LoadConfigurationFile(Path, IsEncrypted, configType);
         }
 

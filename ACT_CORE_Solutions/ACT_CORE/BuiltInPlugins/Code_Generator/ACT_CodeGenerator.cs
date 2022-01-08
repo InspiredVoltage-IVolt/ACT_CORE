@@ -6,23 +6,18 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using ACT.Core.Enums;
 using ACT.Core.Extensions;
-using ACT.Core.Extensions.CodeGenerator;
+using ACT.Core.Extensions.CodeGeneration;
 using ACT.Core.Interfaces.CodeGeneration;
 using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.TemplateEngine;
 using Microsoft.CSharp;
-using System;
 using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 
@@ -35,7 +30,7 @@ namespace ACT.Plugins.CodeGeneration
     /// </summary>
     /// <seealso cref="ACT.Plugins.ACT_Core" />
     /// <seealso cref="ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator" />
-    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator
+    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_Code_Generator
     {
         #region Variables Used By The Generator
 
@@ -89,7 +84,7 @@ namespace ACT.Plugins.CodeGeneration
         /// or
         /// Error Generating Code: Unable To Connect To Database: Using Setting Name: " + CodeSettings.DatabaseConnectionName
         /// </exception>
-        public List<I_GeneratedCode> GenerateCode(I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_Code_Generation_Settings CodeSettings)
         {
             EnsureCodeSettings(CodeSettings);
 
@@ -99,13 +94,14 @@ namespace ACT.Plugins.CodeGeneration
 
             if (_TestConnResults == false)
             {
-                LogError("Error Open DB With the ConnectionString Specified By DatabaseConnectionName: " + CodeSettings.DatabaseConnectionName + "" + Environment.NewLine, "Unable To Open DB" + Environment.NewLine, null, "" + Environment.NewLine, ErrorLevel.Critical);
+
+
                 throw new Exception("Error Generating Code: Unable To Connect To Database: Using Setting Name: " + CodeSettings.DatabaseConnectionName);
             }
 
             using (var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent())
             {
-                string _ConnectionString = ACT.Core.SystemSettings.GetSettingByName(CodeSettings.DatabaseConnectionName).Value;
+                string _ConnectionString = ACT.Core.ACTConfig.GetSettingByName(CodeSettings.DatabaseConnectionName);
 
                 if (DataAccess.Open(_ConnectionString))
                 {
@@ -117,7 +113,7 @@ namespace ACT.Plugins.CodeGeneration
                 }
                 else
                 {
-                    LogError("Error Open DB With the ConnectionString Specified By DatabaseConnectionName: " + CodeSettings.DatabaseConnectionName + "" + Environment.NewLine, "Unable To Open DB" + Environment.NewLine, null, "" + Environment.NewLine, ErrorLevel.Critical);
+
                     throw new Exception("Error Generating Code: Unable To Connect To Database: Using Setting Name: " + CodeSettings.DatabaseConnectionName);
                 }
             }
@@ -129,7 +125,9 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Database">ACT.Core.Interfaces.DataAccess.IDb - Database Containing the Extracted Meta Data</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.CodeGeneration.ICodeGenerationSettings - Code Generation Settings</param>
         /// <returns>Generated Code in a List</returns>
-        public List<I_GeneratedCode> GenerateCode(I_Db Database, I_CodeGenerationSettings CodeSettings)
+        /// 
+        [DEV(ToDo = true, ToDo_Description = "Impement Logging")]
+        public List<I_Generated_Code> GenerateCode(I_Db Database, I_Code_Generation_Settings CodeSettings)
         {
             // Load the Correct Settings File
             EnsureCodeSettings(CodeSettings);
@@ -137,11 +135,11 @@ namespace ACT.Plugins.CodeGeneration
             #region Test the Database Configuration Log Errors Only
             using (var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent())
             {
-                string _ConnectionString = ACT.Core.SystemSettings.GetSettingByName(CodeSettings.DatabaseConnectionName).Value;
+                string _ConnectionString = ACT.Core.ACTConfig.GetSettingByName(CodeSettings.DatabaseConnectionName);
 
                 if (_ConnectionString == "")
                 {
-                    LogError("Error with the DatabaseConnectionName: " + CodeSettings.DatabaseConnectionName + "" + Environment.NewLine, "Unable To Locate Setting Name" + Environment.NewLine, null, "" + Environment.NewLine, ErrorLevel.Critical);
+                    //CT.Core._.                    
                 }
 
                 if (ACT.Core.Validation.DatabaseValidations.ValidateConnectionString(_ConnectionString) == false)
@@ -157,11 +155,11 @@ namespace ACT.Plugins.CodeGeneration
             #endregion
 
             // The Variable that Holds The Generated Code
-            List<I_GeneratedCode> _TmpReturn = new List<I_GeneratedCode>();
+            List<I_Generated_Code> _TmpReturn = new List<I_Generated_Code>();
 
             // Generate The Static Class This Holds the Connection String and Name
             _TmpReturn.Add(GenerateStaticClass(CodeSettings));
-            
+
             // Generate The Code For Each Table
             foreach (var T in Database.Tables)
             {
@@ -217,7 +215,7 @@ namespace ACT.Plugins.CodeGeneration
             // Generate the CS Project If Requested
             if (CodeSettings.OutputSolutionWithProject == true) { GenerateCSProject(_TmpReturn, CodeSettings); }
 
-            
+
 
             // Return the Generated Code Structure
             return _TmpReturn;
@@ -228,18 +226,18 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
-        /// <returns>I_GeneratedCode.</returns>
-        public I_GeneratedCode GenerateCode(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        /// <returns>I_Generated_Code.</returns>
+        public I_Generated_Code GenerateCode(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             EnsureCodeSettings(CodeSettings);
 
             List<string> _PrimaryKeys = Table.GetPrimaryColumnNames;
             string _Temp = "";
-            _Temp += ACT.Core.SystemSettings.GetSettingByName("ACTCodeGenerator_UsingStatements").Value;
-            
+            _Temp += ACT.Core.ACTConfig.GetSettingByName("ACTCodeGenerator_UsingStatements");
+
 
             _Temp += Environment.NewLine + "" + Environment.NewLine;
-            _Temp += "namespace " + CodeSettings.NameSpace + Environment.NewLine + "{" + Environment.NewLine + Environment.NewLine; 
+            _Temp += "namespace " + CodeSettings.NameSpace + Environment.NewLine + "{" + Environment.NewLine + Environment.NewLine;
             _Temp += "\t[Serializable()]" + Environment.NewLine;
             _Temp += "\tpublic class " + Table.ShortName.ToCSharpFriendlyName() + "_CoreClass : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.DataAccess.I_DataObject " + Environment.NewLine + "\t{" + Environment.NewLine;
 
@@ -298,7 +296,7 @@ namespace ACT.Plugins.CodeGeneration
                 _Temp = _Temp + "\t\t\t\tset { __" + c.Name.ToCSharpFriendlyName() + " = value; }" + Environment.NewLine;
                 _Temp = _Temp + "\t\t\t}" + Environment.NewLine + Environment.NewLine;
 
-                
+
                 _Temp = _Temp + "\t\t\tpublic virtual string " + c.Name.ToCSharpFriendlyName() + "_Description" + Environment.NewLine;
                 _Temp = _Temp + "\t\t\t{" + Environment.NewLine;
                 _Temp = _Temp + "\t\t\t\tget { return __" + c.Name.ToCSharpFriendlyName() + "_Description; }" + Environment.NewLine;
@@ -508,7 +506,7 @@ namespace ACT.Plugins.CodeGeneration
 
             _Temp += Environment.NewLine + "\t\t\t}" + Environment.NewLine + "\t\t}";
 
-            SkipConstructor:
+        SkipConstructor:
 
 
             #endregion
@@ -670,7 +668,7 @@ namespace ACT.Plugins.CodeGeneration
         /// Invalid Connection String
         /// </exception>
         /// <exception cref="ACT.Core.Exceptions.DatabaseConnectionError">Error Opening The Database: " + CodeSettings.DatabaseConnectionName</exception>
-        private bool TestCodeSettingsConnection(bool throwErrors, I_CodeGenerationSettings CodeSettings)
+        private bool TestCodeSettingsConnection(bool throwErrors, I_Code_Generation_Settings CodeSettings)
         {
             #region Test the Database Configuration Log Errors Only
             using (var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent())
@@ -726,7 +724,7 @@ namespace ACT.Plugins.CodeGeneration
         /// Ensure The CodeSettings List Loaded
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
-        private void EnsureCodeSettings(I_CodeGenerationSettings CodeSettings)
+        private void EnsureCodeSettings(I_Code_Generation_Settings CodeSettings)
         {
             if (CodeSettings.SettingsFileLocation.NullOrEmpty() == false)
             {
@@ -742,8 +740,8 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Database">The database.</param>
         /// <param name="CodeSettings">The code settings.</param>
-        /// <returns>I_GeneratedCode.</returns>
-        public I_GeneratedCode GenerateViewAccess(I_Db Database, I_CodeGenerationSettings CodeSettings)
+        /// <returns>I_Generated_Code.</returns>
+        public I_Generated_Code GenerateViewAccess(I_Db Database, I_Code_Generation_Settings CodeSettings)
         {
             string _TemplateData = TemplateEngine.GetTextTemplate(_TemplatePath, "AccessViewTemplate.ngt");
             string _TemplateDataMethods = TemplateEngine.GetTextTemplate(_TemplatePath, "AccessViewTemplateMethods.ngt");
@@ -769,8 +767,8 @@ namespace ACT.Plugins.CodeGeneration
         /// Generates a Static Class To Hold Public Variables For All Other Classes
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
-        /// <returns>I_GeneratedCode.</returns>
-        public I_GeneratedCode GenerateStaticClass(I_CodeGenerationSettings CodeSettings)
+        /// <returns>I_Generated_Code.</returns>
+        public I_Generated_Code GenerateStaticClass(I_Code_Generation_Settings CodeSettings)
         {
             string _Temp = TemplateEngine.GetTextTemplate(_TemplatePath, "GenerateStaticClass.ngt");
             _Temp = _Temp.Replace("##NAMESPACE##", CodeSettings.NameSpace);
@@ -786,7 +784,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string GenerateGenericDBAccess(I_CodeGenerationSettings CodeSettings)
+        public string GenerateGenericDBAccess(I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder(Environment.NewLine + "" + Environment.NewLine);
 
@@ -810,7 +808,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateChildDeleteMethods(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateChildDeleteMethods(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             return "";
         }
@@ -826,7 +824,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Code">The code.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <exception cref="Exception">Error Compiling..</exception>
-        private void Compile(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void Compile(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
 
             List<string> _BaseCode = new List<string>();
@@ -877,7 +875,7 @@ namespace ACT.Plugins.CodeGeneration
         /// Health Check Runs the Requirement Check.  It also checks other items like other Interfaces (TODO)
         /// </summary>
         /// <returns>Test Result</returns>
-        public override I_TestResult HealthCheck() { return ValidatePluginRequirements(); }
+        public override I_Result HealthCheck() { return ValidatePluginRequirements(); }
 
         /// <summary>
         /// Returns a list of System Settings Required In Order For This Plugin To Work

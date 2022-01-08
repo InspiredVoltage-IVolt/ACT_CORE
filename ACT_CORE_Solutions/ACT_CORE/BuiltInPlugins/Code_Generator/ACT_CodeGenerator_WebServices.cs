@@ -26,7 +26,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="Code"></param>
         /// <param name="CodeSettings"></param>
-        private void GenerateWebServiceLayer(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateWebServiceLayer(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (System.IO.Directory.Exists(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "WebServices\\"))
             {
@@ -72,7 +72,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        private string GenerateWebServices(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateWebServices(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             string _Temp = "<%@ WebHandler Language=\"C#\" Class=\"" + Table.ShortName.ToCSharpFriendlyName() + "\" %>" + NL;
@@ -103,7 +103,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        private string GenerateWebServicesSoap(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateWebServicesSoap(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             string _Temp = "";  // "<%@ WebHandler Language=\"C#\" Class=\"" + Table.ShortName.ToCSharpFriendlyName() + "\" %>" + NL;
@@ -131,7 +131,7 @@ namespace ACT.Plugins.CodeGeneration
             return _Temp;
 
         }
-        private string GenerateGetDataMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateGetDataMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _Temp = "";
             _Temp += "\t[WebMethod()]" + NL;

@@ -1,0 +1,16 @@
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ACT_Nuget_Publisher.exe
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\settings.ini
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ACT_Nuget_Publisher.deps.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ACT_Nuget_Publisher.runtimeconfig.json
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ref\ACT_Nuget_Publisher.dll
+D:\IVolt_Releases\NOPUB_ACT_NUGET_PUBLISHER\Release\net6.0\ACT_Nuget_Publisher.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.GeneratedMSBuildEditorConfig.editorconfig
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.AssemblyInfoInputs.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.AssemblyInfo.cs
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.csproj.CoreCompileInputs.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.csproj.CopyComplete
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ref\ACT_Nuget_Publisher.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Nuget_Publisher\obj\Release\net6.0\ACT_Nuget_Publisher.genruntimeconfig.cache

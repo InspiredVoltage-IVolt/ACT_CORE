@@ -5,13 +5,100 @@
 /// </summary>
 namespace ACT.PackageManager
 {
+
     public class Program
     {
-        public static void Main(string[] args)
+
+
+        static void Main(string[] args)
         {
-            MainRun();
+            // Console.WriteLine(args.Length);
+            foreach (var s in args) { Console.WriteLine(s); }
+
+            if (args.Length > 1)
+            {
+                GenerateJSONOutput(args[1]);
+            }
+            else
+            {
+                GenerateJSONOutput(AppDomain.CurrentDomain.BaseDirectory);
+            }
+
+            //foreach (var cult in CultureInfo.GetCultures(CultureTypes.AllCultures).Distinct())
+            //{
+            //    Console.WriteLine(cult.DisplayName + " : " + cult.TwoLetterISOLanguageName);
+            //}
+
+            //MainRun();
 
         }
+        class FileData
+        {
+            public bool WindowsFlag = false;
+            public bool Is32Bit = false;
+            public bool Is64Bit = false;
+            public bool IsOther = false;
+            public bool IsDebugVersion = false;
+            public string FullFilePath = "";
+            public string FileNameOnly = "";
+            public DateTime LastModifiedDate = DateTime.MinValue;
+        }
+
+        static void GenerateJSONOutput(string outputPath)
+        {
+            string BasePath = "";
+            bool ReadAllVersions = false;
+            List<string> IgnoreFolderHints = new List<string>();
+
+            // Load the INI Data
+            string inifilepath = AppDomain.CurrentDomain.BaseDirectory + "settings.ini";
+
+            if (inifilepath.FileExists() == false) { throw new FileNotFoundException(BasePath); }
+            var _data = inifilepath.ReadAllText().SplitString(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            BasePath = _data[0].Substring(_data[0].IndexOf(":") + 1);
+            ReadAllVersions = _data[1].Substring(_data[1].IndexOf(":") + 1).ToBool(false);
+            IgnoreFolderHints.AddRange(_data[2].Substring(_data[2].IndexOf(":") + 1).SplitString(";", StringSplitOptions.RemoveEmptyEntries));
+
+            var _NuGetFiles = Directory.GetFiles(BasePath, "*.nupkg", SearchOption.AllDirectories);
+
+            Dictionary<string, List<FileData>> _Files = new Dictionary<string, List<FileData>>();
+
+            foreach (var file in _NuGetFiles)
+            {
+                if (file.ToLower().Contains(IgnoreFolderHints, true)) { continue; }
+
+                if (file.EndsWith(".nupkg"))
+                {
+                    FileData _tmpFile = new FileData();
+                    _tmpFile.FullFilePath = file;
+                    _tmpFile.FileNameOnly = file.GetFileNameFromFullPath();
+                    var _PackageGroupName = "";
+                    if (file.GetFileNameWithoutExtension().IndexOf(".") > 0)
+                    {
+                        _PackageGroupName = file.GetFileNameWithoutExtension().Substring(0, file.GetFileNameWithoutExtension().IndexOf("."));
+                    }
+                    else
+                    {
+                        _PackageGroupName = file.GetFileNameWithoutExtension();
+                    }
+
+                    if (file.ToLower().Contains("windows")) { _tmpFile.WindowsFlag = true; }
+                    if (file.ToLower().Contains("debug")) { _tmpFile.IsDebugVersion = true; }
+                    if (file.ToLower().Contains("release")) { _tmpFile.IsDebugVersion = false; }
+                    if (file.ToLower().Contains("x86")) { _tmpFile.Is32Bit = true; }
+                    if (file.ToLower().Contains("x64")) { _tmpFile.Is64Bit = true; }
+                    _tmpFile.FullFilePath = file;
+                    _tmpFile.FileNameOnly = file.GetFileNameFromFullPath();
+                    if (!_Files.ContainsKey(_PackageGroupName)) { _Files[_PackageGroupName] = new List<FileData>() { _tmpFile }; }
+                    else { _Files[_PackageGroupName].Add(_tmpFile); }
+                }
+            }
+
+            string _Data = Newtonsoft.Json.JsonConvert.SerializeObject(_Files, Newtonsoft.Json.Formatting.Indented);
+            System.IO.File.WriteAllText(outputPath.EnsureDirectoryFormat() + DateTime.Now.ToUnixTime().ToString() + ".json", _Data);
+        }
+        /*
         public static void MainRun()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -19,6 +106,17 @@ namespace ACT.PackageManager
 
             string BasePath = "";
             bool ReadAllVersions = false;
+            List<string> IgnoreFolderHints = new List<string>();
+
+            // Load the INI Data
+            string inifilepath = AppDomain.CurrentDomain.BaseDirectory + "settings.ini";
+
+            if (inifilepath.FileExists() == false) { throw new FileNotFoundException(BasePath); }
+            var _data = inifilepath.ReadAllText().SplitString(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            BasePath = _data[0].Substring(_data[0].IndexOf(":") + 1);
+            ReadAllVersions = _data[1].Substring(_data[1].IndexOf(":") + 1).ToBool(false);
+            IgnoreFolderHints.AddRange(_data[2].Substring(_data[2].IndexOf(":") + 1).SplitString(";", StringSplitOptions.RemoveEmptyEntries));
 
             string OperatingSystemFilter = "";
 
@@ -57,14 +155,8 @@ namespace ACT.PackageManager
 
 
 
-            // Load the INI Data
-            string inifilepath = AppDomain.CurrentDomain.BaseDirectory + "settings.ini";
 
-            if (inifilepath.FileExists() == false) { throw new FileNotFoundException(BasePath); }
-            var _data = inifilepath.ReadAllText().SplitString(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
 
-            BasePath = _data[0].Substring(_data[0].IndexOf(":") + 1);
-            ReadAllVersions = _data[1].Substring(_data[1].IndexOf(":") + 1).ToBool(false);
 
             var _NuGetFiles = System.IO.Directory.GetFiles(BasePath, "*.nupkg", SearchOption.AllDirectories);
             var _Files = new List<string>();
@@ -95,5 +187,8 @@ namespace ACT.PackageManager
 
             System.Console.ReadLine();
         }
+        */
     }
+
+
 }

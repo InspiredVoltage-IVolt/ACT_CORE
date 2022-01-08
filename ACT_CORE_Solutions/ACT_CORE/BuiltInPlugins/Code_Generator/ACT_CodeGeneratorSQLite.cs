@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ACT.Core.Enums;
 using ACT.Core.Extensions;
 using ACT.Core.Interfaces.CodeGeneration;
-using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.Interfaces.Security;
 using ACT.Core.Interfaces.Common;
-using ACT.Core.Enums;
-using ACT.Core.Extensions.CodeGenerator;
-using System.CodeDom.Compiler;
-using System.Diagnostics;
+using ACT.Core.Interfaces.DataAccess;
 using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.Text;
 
 
 namespace ACT.Plugins.CodeGeneration
@@ -30,9 +24,9 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        public List<I_GeneratedCode> GenerateWebFormCode(I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateWebFormCode(I_Code_Generation_Settings CodeSettings)
         {
-            List<I_GeneratedCode> _TmpReturn = new List<I_GeneratedCode>();
+            List<I_Generated_Code> _TmpReturn = new List<I_Generated_Code>();
 
             var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent();
 
@@ -58,7 +52,7 @@ namespace ACT.Plugins.CodeGeneration
                     p2 = _ASPTemplateCodeFile;
 
 
-                    p1 = T.StandardReplaceMent(p1, RepacementStandard.UPPERCASE);
+                    p1 = T.(p1, RepacementStandard.UPPERCASE);
                     p2 = T.StandardReplaceMent(p2, RepacementStandard.UPPERCASE);
 
                     string _rowoutput = "";
@@ -66,7 +60,7 @@ namespace ACT.Plugins.CodeGeneration
                     foreach (var C in T.Columns)
                     {
                         r = _ASPTemplateRow;
-                        r = C.StandardReplaceMent(r, RepacementStandard.UPPERCASE);
+                        r = C.PerformStandardTextReplacement().StandardReplaceMent(r, RepacementStandard.UPPERCASE);
 
                         string _ControlTemplate = "";
                         if (C.DataType.IsStringType())
@@ -105,7 +99,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        internal string GenerateUpdateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        internal string GenerateUpdateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -171,7 +165,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        internal string GenerateDeleteMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        internal string GenerateDeleteMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -224,7 +218,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns>System.String.</returns>
-        internal string GenerateCreateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        internal string GenerateCreateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -273,9 +267,9 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Database">ACT.Core.Interfaces.DataAccess.IDb - Database Containing the Extracted Meta Data</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.CodeGeneration.ICodeGenerationSettings - Code Generation Settings</param>
         /// <returns>Generated Code in a List</returns>
-        public List<I_GeneratedCode> GenerateCode(I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_Code_Generation_Settings CodeSettings)
         {
-            
+
             var DataAccess = new ACT.Plugins.DataAccess.ACT_SQLite3(); //ACT.Core.CurrentCore<IDataAccess>.GetCurrent();
 
             string _ConnectionString = ACT.Core.SystemSettings.GetSettingByName(CodeSettings.DatabaseConnectionName).Value;
@@ -303,7 +297,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">ACT.Core.Interfaces.DataAccess.IDbTable - Table Information</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.DataAccess.ICodeGenerationSettings - Code Settings</param>
         /// <returns></returns>
-        public I_GeneratedCode GenerateCode(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        public I_Generated_Code GenerateCode(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             // bool _UseDatabaseConnectionName = false;
 
@@ -666,7 +660,7 @@ namespace ACT.Plugins.CodeGeneration
 
             _Temp += "\n\r\t}";
             _Temp += "\n\r}";
-             ACT_GeneratedCode _NewREturn = new ACT_GeneratedCode();
+            ACT_GeneratedCode _NewREturn = new ACT_GeneratedCode();
             _NewREturn.FileName = Table.ShortName + ".cs";
             _NewREturn.Code = _Temp;
 
@@ -701,7 +695,7 @@ namespace ACT.Plugins.CodeGeneration
             return _NewREturn;
         }
 
-        public I_GeneratedCode GenerateViewAccess(I_Db Database, I_CodeGenerationSettings CodeSettings)
+        public I_Generated_Code GenerateViewAccess(I_Db Database, I_Code_Generation_Settings CodeSettings)
         {
             // TODO MARK
             string _ViewTemplate = ACT.Core.SystemSettings.GetSettingByName("AccessViewClassTemplate").Value;
@@ -736,7 +730,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="CodeSettings"></param>
         /// <param name="DataBase"></param>
         /// <returns></returns>
-        public I_GeneratedCode GenerateStoredProcedureClass(I_CodeGenerationSettings CodeSettings, I_Db DataBase)
+        public I_Generated_Code GenerateStoredProcedureClass(I_Code_Generation_Settings CodeSettings, I_Db DataBase)
         {
             var DataAccess = ACT.Core.CurrentCore<I_DataAccess>.GetCurrent();
             string _ConnectionString = ACT.Core.SystemSettings.GetSettingByName(CodeSettings.DatabaseConnectionName).Value;
@@ -863,7 +857,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        public I_GeneratedCode GenerateStaticClass(I_CodeGenerationSettings CodeSettings)
+        public I_Generated_Code GenerateStaticClass(I_Code_Generation_Settings CodeSettings)
         {
 
             string _Temp = "";
@@ -896,7 +890,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Database">ACT.Core.Interfaces.DataAccess.IDb - Database Containing the Extracted Meta Data</param>
         /// <param name="CodeSettings">ACT.Core.Interfaces.CodeGeneration.ICodeGenerationSettings - Code Generation Settings</param>
         /// <returns>Generated Code in a List</returns>
-        public List<I_GeneratedCode> GenerateCode(I_Db Database, I_CodeGenerationSettings CodeSettings)
+        public List<I_Generated_Code> GenerateCode(I_Db Database, I_Code_Generation_Settings CodeSettings)
         {
 
             #region Test the Database Configuration Log Errors Only
@@ -917,7 +911,7 @@ namespace ACT.Plugins.CodeGeneration
             #endregion
 
             // The Variable that Holds The Generated Code
-            List<I_GeneratedCode> _TmpReturn = new List<I_GeneratedCode>();
+            List<I_Generated_Code> _TmpReturn = new List<I_Generated_Code>();
 
             // Generate The Static Class
             _TmpReturn.Add(GenerateStaticClass(CodeSettings));
@@ -983,7 +977,7 @@ namespace ACT.Plugins.CodeGeneration
         }
 
         #region Code To Create Files
-        private void GenerateStoredProcedures(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateStoredProcedures(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (!System.IO.Directory.Exists(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\"))
             {
@@ -999,7 +993,7 @@ namespace ACT.Plugins.CodeGeneration
             }
         }
 
-        private void GenerateUserLayer(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateUserLayer(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (System.IO.Directory.Exists(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "User\\"))
             {
@@ -1015,7 +1009,7 @@ namespace ACT.Plugins.CodeGeneration
             }
         }
 
-        private void GenerateBaseLayer(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateBaseLayer(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (System.IO.Directory.Exists(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\"))
             {
@@ -1032,7 +1026,7 @@ namespace ACT.Plugins.CodeGeneration
                 System.IO.File.WriteAllText(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\" + c.FileName.Replace(".cs", "") + "_Base" + ".cs", c.Code);
             }
         }
-        private void GenerateCSProject(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateCSProject(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (System.IO.Directory.Exists(CodeSettings.RootOutputDirectory + "Project\\"))
             {
@@ -1074,7 +1068,7 @@ namespace ACT.Plugins.CodeGeneration
 
         }
 
-        private void GenerateViewAccessCode(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void GenerateViewAccessCode(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
             if (!System.IO.Directory.Exists(CodeSettings.RootOutputDirectory.EnsureDirectoryFormat() + "Base\\"))
             {
@@ -1098,7 +1092,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="OnlyBase"></param>
         /// <param name="Code"></param>
         /// <param name="CodeSettings"></param>
-        private void Compile(List<I_GeneratedCode> Code, I_CodeGenerationSettings CodeSettings)
+        private void Compile(List<I_Generated_Code> Code, I_Code_Generation_Settings CodeSettings)
         {
 
             List<string> _BaseCode = new List<string>();
@@ -1168,7 +1162,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        public I_GeneratedCode GenerateEnums(I_CodeGenerationSettings CodeSettings)
+        public I_Generated_Code GenerateEnums(I_Code_Generation_Settings CodeSettings)
         {
             bool _UseDatabaseConnectionName = false;
             if (CodeSettings.DatabaseConnectionName != "")
@@ -1234,7 +1228,7 @@ namespace ACT.Plugins.CodeGeneration
         /// </summary>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        public string GenerateGenericDBAccess(I_CodeGenerationSettings CodeSettings)
+        public string GenerateGenericDBAccess(I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder("\n\r\n\r");
 
@@ -1259,7 +1253,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        private string GenerateExportMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateExportMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _TmpReturn = "";
             _TmpReturn = "\tpublic string Export(string Format)\n\r";
@@ -1288,7 +1282,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        private string GenerateBlankUpdateMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateBlankUpdateMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
             _TmpBuilder.Append("public virtual void Update()\n\r");
@@ -1301,21 +1295,21 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table"></param>
         /// <param name="CodeSettings"></param>
         /// <returns></returns>
-        private string GenerateBlankDeleteMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateBlankDeleteMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
             _TmpBuilder.Append("public virtual void Delete()\n\r");
             _TmpBuilder.Append("{\n\r // No Primary Keys Found Must Define Manually \n }");
             return _TmpBuilder.ToString();
         }
- 
+
         // TODO
-        private string GenerateChildDeleteMethods(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateChildDeleteMethods(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             return "";
         }
 
-        private string GenerateSearchMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             if (Table.GetPrimaryColumnNames.Count() == 0) { return ""; }
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -1374,7 +1368,7 @@ namespace ACT.Plugins.CodeGeneration
             return _TmpBuilder.ToString();
         }
 
-        private string GenerateSearchMethodManyParams(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethodManyParams(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             if (Table.GetPrimaryColumnNames.Count() == 0) { return ""; }
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -1434,7 +1428,7 @@ namespace ACT.Plugins.CodeGeneration
             return _TmpBuilder.ToString();
         }
 
-        private string GenerateGenericSearchMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateGenericSearchMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             StringBuilder _TmpBuilder = new StringBuilder();
 
@@ -1473,7 +1467,7 @@ namespace ACT.Plugins.CodeGeneration
             return _TmpBuilder.ToString();
         }
 
-        private string GenerateSearchMethodPaging(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateSearchMethodPaging(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
 
             StringBuilder _TmpBuilder = new StringBuilder();
@@ -1516,7 +1510,7 @@ namespace ACT.Plugins.CodeGeneration
 
 
         #region OverRidden Methods
-        public override I_TestResult HealthCheck()
+        public override I_Result HealthCheck()
         {
             return ValidatePluginRequirements();
         }
@@ -1527,7 +1521,7 @@ namespace ACT.Plugins.CodeGeneration
             return _S.ToList<string>();
         }
 
-        public override I_TestResult ValidatePluginRequirements()
+        public override I_Result ValidatePluginRequirements()
         {
             var _TmpReturn = ACT.Core.SystemSettings.MeetsExpectations((ACT.Core.Interfaces.Common.I_Plugin)this);
 

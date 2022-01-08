@@ -151,7 +151,7 @@ namespace ACT.Plugins.DataAccess
         #endregion
         #region ICore Members
 
-        public override I_TestResult ImportXMLData(string XML)
+        public override I_Result ImportXMLData(string XML)
         {
             //try
             //{

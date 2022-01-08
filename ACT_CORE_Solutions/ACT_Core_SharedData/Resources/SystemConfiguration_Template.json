@@ -519,7 +519,7 @@
       "plugins": []
     },
     {
-      "name": "ACT.Core.Interfaces.Common.I_TestResultExpanded",
+      "name": "ACT.Core.Interfaces.Common.I_ResultExpanded",
       "type": "Core",
       "plugins": []
     },
@@ -569,7 +569,7 @@
       "plugins": []
     },
     {
-      "name": "ACT.Core.Interfaces.Common.I_TestResult",
+      "name": "ACT.Core.Interfaces.Common.I_Result",
       "type": "Core",
       "plugins": []
     },
@@ -674,7 +674,7 @@
       "plugins": []
     },
     {
-      "name": "ACT.Core.Interfaces.CodeGeneration.I_CodeGenerationSettings",
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_Code_Generation_Settings",
       "type": "Core",
       "plugins": []
     },
@@ -714,7 +714,7 @@
       "plugins": []
     },
     {
-      "name": "ACT.Core.Interfaces.CodeGeneration.I_GeneratedCode",
+      "name": "ACT.Core.Interfaces.CodeGeneration.I_Generated_Code",
       "type": "Core",
       "plugins": []
     },

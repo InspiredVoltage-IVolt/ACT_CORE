@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using System.Reflection;
-using System.ComponentModel;
-using ACT.Core.Interfaces.Common;
-using ACT.Core.Interfaces.Security;
+﻿using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.Interfaces;
-using ACT.Core;
-using ACT.Core.Enums;
 
 namespace ACT.Plugins.DataAccess
 {
@@ -42,9 +31,19 @@ namespace ACT.Plugins.DataAccess
             set;
         }
 
-        public override I_TestResult ValidatePluginRequirements()
+        public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
         {
-            var _TR = ACT.Core.CurrentCore<I_TestResult>.GetCurrent();
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReturnSystemSettingRequirements(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override I_Result ValidatePluginRequirements()
+        {
+            var _TR = ACT.Core.CurrentCore<I_Result>.GetCurrent();
             _TR.Success = true;
             return _TR;
         }

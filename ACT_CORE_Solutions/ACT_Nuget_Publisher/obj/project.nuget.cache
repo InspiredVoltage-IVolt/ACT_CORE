@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yfFkSly9bYfDdw/JxrNAINeTOxUFUR66KCx0IWxfELKkWGIqqhoiaJt5yyzME9pCf1tAFAW5rr6lZcDYZbinZg==",
+  "dgSpecHash": "wKL2ZrTPPJ97HdUctiO5ghCa4ofnY0qnqW6IZJvC+Rz6BNohN9cLNvrrtZ7NaEFx8j6TXCGy6TmMPY8NFBlJYw==",
   "success": true,
   "projectFilePath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_Nuget_Publisher\\ACT_Nuget_Publisher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\fastexcel\\3.0.13\\fastexcel.3.0.13.nupkg.sha512",
-    "C:\\Users\\MarkAlicz\\.nuget\\packages\\ivolt_act_extensionlibrary\\2.1.1\\ivolt_act_extensionlibrary.2.1.1.nupkg.sha512",
+    "C:\\Users\\MarkAlicz\\.nuget\\packages\\ivolt_act_extensionlibrary\\2.0.9\\ivolt_act_extensionlibrary.2.0.9.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",

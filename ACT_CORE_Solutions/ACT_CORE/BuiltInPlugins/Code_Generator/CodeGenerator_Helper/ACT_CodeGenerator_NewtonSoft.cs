@@ -6,25 +6,13 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using ACT.Core.Enums;
-using ACT.Core.Extensions;
-using ACT.Core.Extensions.CodeGenerator;
 using ACT.Core.Interfaces.CodeGeneration;
-using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
-using ACT.Core.TemplateEngine;
-using Microsoft.CSharp;
-using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 
 namespace ACT.Plugins.CodeGeneration
 {
@@ -35,15 +23,55 @@ namespace ACT.Plugins.CodeGeneration
     /// </summary>
     /// <seealso cref="ACT.Plugins.ACT_Core" />
     /// <seealso cref="ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator" />
-    public partial class ACT_CodeGenerator : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_CodeGenerator
+    public class ACT_CodeGenerator_JSON : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.CodeGeneration.I_Code_Generator
     {
+        public string GenerateBasicStoredProcCode(string ConnectionName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GenerateBasicViewsCode(string ConnectionName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<I_Generated_Code> GenerateCode(I_Code_Generation_Settings CodeSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<I_Generated_Code> GenerateCode(I_Db Database, I_Code_Generation_Settings CodeSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<I_Generated_Code> GenerateCode(I_MSSQL_CodeGeneration_Settings CodeSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<I_Generated_Code> GenerateWebFormCode(I_Code_Generation_Settings CodeSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReturnSystemSettingRequirements(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Generate The Export Method Currently Supports XML and JSON
         /// </summary>
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        private string GenerateExportMethod(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        private string GenerateExportMethod(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _TmpReturn = "";
             _TmpReturn = "\tpublic string Export(string Format)" + Environment.NewLine;

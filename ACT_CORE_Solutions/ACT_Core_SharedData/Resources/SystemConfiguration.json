@@ -46,6 +46,19 @@
       "file_name": "ACTPlugins.dll",
       "type": "Core",
       "store_once": true,
+      "required_data_files": [ "" ],
+      "arguments": [ "" ],
+      "checksum": "",
+      "license_key": "",
+      "order": 1
+    },
+    {
+      "id": "C2A879D3-3179-4D87-8D89-ADB9D231C4D8",
+      "registration_id": "",
+      "file_name": "ACT_Localization.dll",      
+      "type": "Core",
+      "store_once": true,
+      "required_data_files": [ "/Resources/Localization/supportedlanguages.json", "/Resources/Localization/readme.txt", "/Resources/Localization/sqlschema.sql" ]
       "arguments": [ "" ],
       "checksum": "",
       "license_key": "",

@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -43,7 +43,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string GenerateExcelExportProcess(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        public string GenerateExcelExportProcess(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _Temp = "";
             _Temp += Environment.NewLine + Environment.NewLine;
@@ -148,7 +148,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string GenerateExcelImportProcess(I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        public string GenerateExcelImportProcess(I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _Temp = "";
             _Temp += Environment.NewLine + Environment.NewLine;

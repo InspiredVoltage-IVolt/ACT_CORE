@@ -1,0 +1,1 @@
+﻿ACT Localization Configuration Files.

@@ -29,6 +29,8 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "http://actnuget.homeunix.com:5555/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
@@ -51,7 +53,7 @@
           "dependencies": {
             "IVolt_ACT_ExtensionLibrary": {
               "target": "Package",
-              "version": "[2.1.1, )"
+              "version": "[2.0.9, )"
             }
           },
           "imports": [

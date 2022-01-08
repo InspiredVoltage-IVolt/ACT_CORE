@@ -6,7 +6,7 @@
 // Last Modified By : MarkAlicz
 // Last Modified On : 02-27-2019
 // ***********************************************************************
-// <copyright file="ACT_CodeGenerator.cs" company="Stonegate Intel">
+// <copyright file="ACT_CodeGenerator.cs" company="IVOLT">
 //     Copyright ©  2019
 // </copyright>
 // <summary></summary>
@@ -45,7 +45,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="CodeSettings">The code settings.</param>
         /// <param name="FileName">Name of the file.</param>
         /// <returns>System.String.</returns>
-        public string GenerateGenericCalls(I_DbTable Table, I_CodeGenerationSettings CodeSettings, string FileName = "")
+        public string GenerateGenericCalls(I_DbTable Table, I_Code_Generation_Settings CodeSettings, string FileName = "")
         {
             string _TmpReturn = "";
 
@@ -90,7 +90,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string ParseFile(string TEXT, string BaseFileName, I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        public string ParseFile(string TEXT, string BaseFileName, I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             TEXT = TEXT.Replace("###TYPE_NAME###", Table.ShortName.ToCSharpFriendlyName());
             TEXT = TEXT.Replace("###SHORT_TABLE_NAME###", Table.ShortName);
@@ -155,7 +155,7 @@ namespace ACT.Plugins.CodeGeneration
         /// <param name="Table">The table.</param>
         /// <param name="CodeSettings">The code settings.</param>
         /// <returns>System.String.</returns>
-        public string ParseColumnLoopAdditive(string AdditiveText, I_DbTable Table, I_CodeGenerationSettings CodeSettings)
+        public string ParseColumnLoopAdditive(string AdditiveText, I_DbTable Table, I_Code_Generation_Settings CodeSettings)
         {
             string _TmpReturn = "";
 

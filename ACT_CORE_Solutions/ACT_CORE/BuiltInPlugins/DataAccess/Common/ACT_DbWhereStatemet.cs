@@ -196,9 +196,9 @@ namespace ACT.Plugins.DataAccess
         /// This class is always healthy as there are no dependancies required.
         /// </summary>
         /// <returns>Healthy Test Result</returns>
-        public override  I_TestResult HealthCheck()
+        public override  I_Result HealthCheck()
         {
-            return ACT.Core.CurrentCore<I_TestResult>.GetCurrent();
+            return ACT.Core.CurrentCore<I_Result>.GetCurrent();
         }
     }
 }
