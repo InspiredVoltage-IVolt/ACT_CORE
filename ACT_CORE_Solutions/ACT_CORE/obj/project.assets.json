@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "ACT_Enums/2.0.9": {
+      "ACT_Enums/2.1.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/ACT_Enums.dll": {}
@@ -18,10 +18,11 @@
           }
         }
       },
-      "ACT_Interfaces/2.0.7": {
+      "ACT_Interfaces/2.1.3": {
         "type": "package",
         "dependencies": {
           "ACT_Enums": "2.0.6",
+          "Newtonsoft.Json": "13.0.1",
           "System.Data.SqlClient": "4.8.3",
           "System.Drawing.Common": "6.0.0"
         },
@@ -39,11 +40,13 @@
           }
         }
       },
-      "ACT_Security/2.0.2": {
+      "ACT_Security/2.0.6": {
         "type": "package",
         "dependencies": {
           "IVolt_ACT_ExtensionLibrary": "2.0.5",
-          "System.Security.Cryptography.Primitives": "4.3.0"
+          "System.Management": "6.0.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Security.Cryptography.ProtectedData": "6.0.0"
         },
         "compile": {
           "lib/net6.0/ACT_Security.dll": {}
@@ -186,7 +189,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NLog/4.7.13": {
+      "NLog/4.7.14": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NLog.dll": {}
@@ -195,7 +198,7 @@
           "lib/netstandard2.0/NLog.dll": {}
         }
       },
-      "NLog.Schema/4.7.13": {
+      "NLog.Schema/4.7.14": {
         "type": "package",
         "contentFiles": {
           "contentFiles/any/any/NLog.xsd": {
@@ -408,13 +411,16 @@
           }
         }
       },
-      "System.CodeDom/4.7.0": {
+      "System.CodeDom/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.CodeDom.dll": {}
+          "lib/net6.0/System.CodeDom.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.CodeDom.dll": {}
+          "lib/net6.0/System.CodeDom.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -692,6 +698,27 @@
         },
         "runtime": {
           "lib/netstandard1.6/System.Linq.dll": {}
+        }
+      },
+      "System.Management/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.CodeDom": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.Management.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/System.Management.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Management.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Reflection/4.3.0": {
@@ -1111,45 +1138,45 @@
     }
   },
   "libraries": {
-    "ACT_Enums/2.0.9": {
-      "sha512": "ikLb/0QMjcDlESWbNrdutQO+dvGsdG2caT1y6rF2vp9c1adaL7vRlymhMznxqbwTgiu9VQDhNrFUGhE7UTpSEg==",
+    "ACT_Enums/2.1.0": {
+      "sha512": "E9yj/LJ34I0GkfBZMkK2eXIN+q9fHNgeLfweNsjIfBpDEWLUjjvQJyeObmbCVB9zIu1TFWED8AsoBCGQAO8E5w==",
       "type": "package",
-      "path": "act_enums/2.0.9",
+      "path": "act_enums/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ACT_Common_Icon.png",
-        "act_enums.2.0.9.nupkg.sha512",
+        "act_enums.2.1.0.nupkg.sha512",
         "act_enums.nuspec",
         "content/Icon.ico",
         "contentFiles/any/net6.0/Icon.ico",
         "lib/net6.0/ACT_Enums.dll"
       ]
     },
-    "ACT_Interfaces/2.0.7": {
-      "sha512": "GisvQnY7lOKtIaneeWpXLWhP8usQA5PJJPv8lV1w2BhWQhH2HQwvXjSt68fWs5SJTXOG5lKdXF5IqSQsxf09+g==",
+    "ACT_Interfaces/2.1.3": {
+      "sha512": "zL1uw2FwXIhzKuIrBnRDmEu5pBgyYb/KNnPfbWhRLUfGnK/nmQezAUOEFEhSauPxp6ociv9tTHxmdoviGbiJNw==",
       "type": "package",
-      "path": "act_interfaces/2.0.7",
+      "path": "act_interfaces/2.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ACT_Common_Icon.png",
-        "act_interfaces.2.0.7.nupkg.sha512",
+        "act_interfaces.2.1.3.nupkg.sha512",
         "act_interfaces.nuspec",
         "content/ACT_Interfaces.ico",
         "contentFiles/any/net6.0/ACT_Interfaces.ico",
         "lib/net6.0/ACT_Interfaces.dll"
       ]
     },
-    "ACT_Security/2.0.2": {
-      "sha512": "l5OFVAaanOZpj4N1wWXLH70DN/E1kWjVWyKxOq+JGL7dGFGl+HnwDQRVbfPmDX3YhzNAqXMHCXhxbpCbuL3btw==",
+    "ACT_Security/2.0.6": {
+      "sha512": "RS3Hp8Kth8H/bnjzjeYW/BZir9sxqqZ7fAH2g0e8P2fVNZESYIkJ8zE4UmA6wqBB7/urtBuOAPE8QuvFIdangg==",
       "type": "package",
-      "path": "act_security/2.0.2",
+      "path": "act_security/2.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ACT_Security_Icon.png",
-        "act_security.2.0.2.nupkg.sha512",
+        "act_security.2.0.6.nupkg.sha512",
         "act_security.nuspec",
         "content/ACT_Security_Icon.ico",
         "contentFiles/any/net6.0/ACT_Security_Icon.ico",
@@ -1444,10 +1471,10 @@
         "packageIcon.png"
       ]
     },
-    "NLog/4.7.13": {
-      "sha512": "AvoGpCuq36B+0wY313XA6gC+YeMvk24rqF8P+HS9fInBGOjCzPjpXp2ln9ATZjPOJtXgHfc8zNmTjyswFGLxvg==",
+    "NLog/4.7.14": {
+      "sha512": "R1Nn+Zi2mSiKf82zII+8ZhGTr66CmCDLlpDq/0N0Y22TDrioYeP6t3XWzJVTi3OXaHJ/jiXId/okXQu8e0g3uw==",
       "type": "package",
-      "path": "nlog/4.7.13",
+      "path": "nlog/4.7.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1473,20 +1500,20 @@
         "lib/wp8/NLog.xml",
         "lib/xamarinios10/NLog.dll",
         "lib/xamarinios10/NLog.xml",
-        "nlog.4.7.13.nupkg.sha512",
+        "nlog.4.7.14.nupkg.sha512",
         "nlog.nuspec"
       ]
     },
-    "NLog.Schema/4.7.13": {
-      "sha512": "IlbHsTRzA1YeAbrJTVETZRWkYXqo5YnaF/ppJBdE6kKD4/IjuA0CUaZMSQKbOLzwxGARMx3An1V38zjGEjRekA==",
+    "NLog.Schema/4.7.14": {
+      "sha512": "ExtaAbkpoF7RgiVj6FcNPU1+VrCUt60S/5NLEcnusrmMTWlmQ4HCCUTXFOMPUGcK3q9bJtxwzgdiake0Ttifyw==",
       "type": "package",
-      "path": "nlog.schema/4.7.13",
+      "path": "nlog.schema/4.7.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "content/NLog.xsd",
         "contentFiles/any/any/NLog.xsd",
-        "nlog.schema.4.7.13.nupkg.sha512",
+        "nlog.schema.4.7.14.nupkg.sha512",
         "nlog.schema.nuspec"
       ]
     },
@@ -1772,27 +1799,27 @@
         "stub.system.data.sqlite.core.netstandard.nuspec"
       ]
     },
-    "System.CodeDom/4.7.0": {
-      "sha512": "Hs9pw/kmvH3lXaZ1LFKj3pLQsiGfj2xo3sxSzwiLlRL6UcMZUTeCfoJ9Udalvn3yq5dLlPEZzYegrTQ1/LhPOQ==",
+    "System.CodeDom/6.0.0": {
+      "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
       "type": "package",
-      "path": "system.codedom/4.7.0",
+      "path": "system.codedom/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/System.CodeDom.dll",
         "lib/net461/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
         "lib/netstandard2.0/System.CodeDom.dll",
         "lib/netstandard2.0/System.CodeDom.xml",
-        "ref/net461/System.CodeDom.dll",
-        "ref/net461/System.CodeDom.xml",
-        "ref/netstandard2.0/System.CodeDom.dll",
-        "ref/netstandard2.0/System.CodeDom.xml",
-        "system.codedom.4.7.0.nupkg.sha512",
+        "system.codedom.6.0.0.nupkg.sha512",
         "system.codedom.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Collections/4.3.0": {
@@ -2800,6 +2827,34 @@
         "ref/xamarinwatchos10/_._",
         "system.linq.4.3.0.nupkg.sha512",
         "system.linq.nuspec"
+      ]
+    },
+    "System.Management/6.0.0": {
+      "sha512": "sHsESYMmPDhQuOC66h6AEOs/XowzKsbT9srMbX71TCXP58hkpn1BqBjdmKj1+DCA/WlBETX1K5WjQHwmV0Txrg==",
+      "type": "package",
+      "path": "system.management/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Management.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/_._",
+        "lib/net6.0/System.Management.dll",
+        "lib/net6.0/System.Management.xml",
+        "lib/netcoreapp3.1/System.Management.dll",
+        "lib/netcoreapp3.1/System.Management.xml",
+        "lib/netstandard2.0/System.Management.dll",
+        "lib/netstandard2.0/System.Management.xml",
+        "runtimes/win/lib/net6.0/System.Management.dll",
+        "runtimes/win/lib/net6.0/System.Management.xml",
+        "runtimes/win/lib/netcoreapp3.1/System.Management.dll",
+        "runtimes/win/lib/netcoreapp3.1/System.Management.xml",
+        "system.management.6.0.0.nupkg.sha512",
+        "system.management.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Reflection/4.3.0": {
@@ -4183,12 +4238,12 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ACT_Enums >= 2.0.9",
-      "ACT_Interfaces >= 2.0.7",
-      "ACT_Security >= 2.0.2",
+      "ACT_Enums >= 2.1.0",
+      "ACT_Interfaces >= 2.1.3",
+      "ACT_Security >= 2.0.6",
       "IVolt_ACT_ExtensionLibrary >= 2.0.9",
-      "NLog >= 4.7.13",
-      "NLog.Schema >= 4.7.13",
+      "NLog >= 4.7.14",
+      "NLog.Schema >= 4.7.14",
       "Newtonsoft.Json >= 13.0.1",
       "SharpCompress >= 0.30.1",
       "System.Collections >= 4.3.0",
@@ -4200,9 +4255,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MarkAlicz\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\MarkAlicz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "2.0.5",
@@ -4213,25 +4266,18 @@
       "packagesPath": "C:\\Users\\MarkAlicz\\.nuget\\packages\\",
       "outputPath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_CORE\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
         "C:\\Users\\MarkAlicz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "http://actnuget.homeunix.com:5555/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4253,15 +4299,15 @@
         "dependencies": {
           "ACT_Enums": {
             "target": "Package",
-            "version": "[2.0.9, )"
+            "version": "[2.1.0, )"
           },
           "ACT_Interfaces": {
             "target": "Package",
-            "version": "[2.0.7, )"
+            "version": "[2.1.3, )"
           },
           "ACT_Security": {
             "target": "Package",
-            "version": "[2.0.2, )"
+            "version": "[2.0.6, )"
           },
           "IVolt_ACT_ExtensionLibrary": {
             "target": "Package",
@@ -4269,11 +4315,11 @@
           },
           "NLog": {
             "target": "Package",
-            "version": "[4.7.13, )"
+            "version": "[4.7.14, )"
           },
           "NLog.Schema": {
             "target": "Package",
-            "version": "[4.7.13, )"
+            "version": "[4.7.14, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -4323,7 +4369,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

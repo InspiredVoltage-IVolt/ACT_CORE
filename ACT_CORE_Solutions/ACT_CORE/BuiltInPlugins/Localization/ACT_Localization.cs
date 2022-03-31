@@ -1,6 +1,6 @@
 ﻿namespace ACT.Core.BuiltInPlugins.Localization
 {
-    internal class ACT_Localization
+    public class ACT_Localization
     {
 
 

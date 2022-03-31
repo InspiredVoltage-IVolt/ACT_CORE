@@ -2,11 +2,21 @@
 {
     public class Localization : Attribute
     {
-        public string CultureName { get; set; } = "en-us";
         /// <summary>
-        /// Fallback Culture - Language for missing translations
+        /// The Default Language
         /// </summary>
-        public string DefaultCultureForMissingTranslations { get; set; } = "en-us";
+        public string DefaultLanguage { get; set; } = "en-us";
+
+        /// <summary>
+        /// Auto Translate All Fields
+        /// </summary>
+        public bool AutoTranslateAllFields { get; set; } = true;
+
+        /// <summary>
+        /// Decides if when matching a translation lower case matching is used.
+        /// </summary>
+        public bool UseLowerCaseMatching { get; set; } = true;
+
         /// <summary>
         /// Enable Cache
         /// </summary>

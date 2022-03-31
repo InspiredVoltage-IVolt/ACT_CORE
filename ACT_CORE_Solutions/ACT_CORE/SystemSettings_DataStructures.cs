@@ -130,7 +130,7 @@ namespace ACT.Core.Structs
         public string Updatesource { get; set; }
 
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-        public Guid? Id { get; set; }
+        public string Id { get; set; }
     }
 
     public class Dll
@@ -142,8 +142,7 @@ namespace ACT.Core.Structs
         public string Filename { get; set; }
 
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long? Id { get; set; }
+        public string Id { get; set; }
     }
 
     public class NugetPackage
@@ -158,13 +157,13 @@ namespace ACT.Core.Structs
         public string MinVersion { get; set; }
 
         [JsonProperty("package_source", NullValueHandling = NullValueHandling.Ignore)]
-        public Uri PackageSource { get; set; }
+        public string PackageSource { get; set; }
     }
 
     public class EncryptionKey
     {
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-        public Guid? Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
@@ -260,7 +259,7 @@ namespace ACT.Core.Structs
         public string LicenseKey { get; set; }
 
         [JsonProperty("order", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Order { get; set; }
+        public string Order { get; set; }
     }
 
 }
