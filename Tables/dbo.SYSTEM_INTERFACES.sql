@@ -1,0 +1,16 @@
+CREATE TABLE [dbo].[SYSTEM_INTERFACES]
+(
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_SYSTEM_INTERFACES_ID] DEFAULT (newid()),
+[Application_ID] [uniqueidentifier] NULL,
+[Name] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[FullClassName] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[Type] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Is_Core] [bit] NOT NULL CONSTRAINT [DF_SYSTEM_INTERFACES_Is_Core] DEFAULT ((0)),
+[DateAdded] [datetime] NOT NULL CONSTRAINT [DF_SYSTEM_INTERFACES_DateAdded] DEFAULT (getdate()),
+[DateModified] [datetime] NOT NULL CONSTRAINT [DF_SYSTEM_INTERFACES_DateModified] DEFAULT (getdate())
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_INTERFACES] ADD CONSTRAINT [PK_SYSTEM_INTERFACES] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SYSTEM_TABLES', 'SCHEMA', N'dbo', 'TABLE', N'SYSTEM_INTERFACES', NULL, NULL
+GO

@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[SYSTEM_DEPENDENCIES]
+(
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_DEPENDENCIES_LIST_ID] DEFAULT (newid()),
+[Name] [nvarchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[FileName] [nvarchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[FileVersion] [nvarchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Source] [nvarchar] (400) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[UpdateSource] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[CoreRequired] [bit] NOT NULL CONSTRAINT [DF_DEPENDENCIES_LIST_CoreRequired] DEFAULT ((1)),
+[DBVersion] [int] NOT NULL CONSTRAINT [DF_DEPENDENCIES_LIST_DBVersion] DEFAULT ((1)),
+[DateAdded] [datetime] NOT NULL CONSTRAINT [DF_DEPENDENCIES_LIST_DateAdded] DEFAULT (getdate())
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_DEPENDENCIES] ADD CONSTRAINT [PK_DEPENDENCIES_LIST] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SYSTEM_TABLES', 'SCHEMA', N'dbo', 'TABLE', N'SYSTEM_DEPENDENCIES', NULL, NULL
+GO

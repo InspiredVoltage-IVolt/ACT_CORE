@@ -1,0 +1,24 @@
+CREATE TABLE [dbo].[SYSTEM_MENUS]
+(
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_ID] DEFAULT (newid()),
+[Parent_ID] [uniqueidentifier] NULL,
+[Page_ID] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL CONSTRAINT [DF_SYSTEM_MENUS_Page_ID] DEFAULT ('DEFAULT'),
+[MenuName] [nvarchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Caption] [nvarchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[RelativeLink] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[DirectLink] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SystemAdminOnly] [bit] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_SystemAdminOnly] DEFAULT ((0)),
+[EmployeeOnly] [bit] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_EmployeeOnly] DEFAULT ((0)),
+[HasClientVersion] [bit] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_HasClientVersion] DEFAULT ((0)),
+[DateAdded] [datetime] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_DateAdded] DEFAULT (getdate()),
+[DateModified] [datetime] NOT NULL CONSTRAINT [DF_SYSTEM_MENUS_DateModified] DEFAULT (getdate())
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_MENUS] ADD CONSTRAINT [PK_SYSTEM_MENUS] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_SYSTEM_MENUS] ON [dbo].[SYSTEM_MENUS] ([Page_ID]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_MENUS] ADD CONSTRAINT [FK_SYSTEM_MENUS_SYSTEM_MENUS] FOREIGN KEY ([Parent_ID]) REFERENCES [dbo].[SYSTEM_MENUS] ([ID])
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SYSTEM_TABLES', 'SCHEMA', N'dbo', 'TABLE', N'SYSTEM_MENUS', NULL, NULL
+GO

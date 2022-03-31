@@ -1,0 +1,24 @@
+CREATE TABLE [dbo].[SYSTEM_CONFIGURATION_DATA]
+(
+[ID] [int] NOT NULL IDENTITY(1, 1),
+[Template_ID] [uniqueidentifier] NOT NULL,
+[Product_ID] [uniqueidentifier] NULL,
+[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[DefaultValue] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[Encrypted] [bit] NOT NULL,
+[InternalEncryption] [bit] NOT NULL,
+[Description] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Tags] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[BaseRequired] [bit] NOT NULL,
+[DateAdded] [datetime] NOT NULL,
+[DateModified] [datetime] NOT NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_CONFIGURATION_DATA] ADD CONSTRAINT [PK_ID_SYSTEM_CONFIGURATION_DATA] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[SYSTEM_CONFIGURATION_DATA] ADD CONSTRAINT [FK_SYSTEM_CONFIGURATION_DATA_Products] FOREIGN KEY ([Product_ID]) REFERENCES [dbo].[Products] ([ID])
+GO
+ALTER TABLE [dbo].[SYSTEM_CONFIGURATION_DATA] ADD CONSTRAINT [FK_SYSTEM_CONFIGURATION_DATA_SYSTEM_CONFIGURATION_DATA_TEMPLATES] FOREIGN KEY ([Template_ID]) REFERENCES [dbo].[SYSTEM_CONFIGURATION_DATA_TEMPLATES] ([ID])
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SYSTEM_TABLES', 'SCHEMA', N'dbo', 'TABLE', N'SYSTEM_CONFIGURATION_DATA', NULL, NULL
+GO

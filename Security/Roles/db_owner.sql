@@ -1,0 +1,4 @@
+ALTER ROLE [db_owner] ADD MEMBER [act_core]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [ACT_CORE_SVS]
+GO
