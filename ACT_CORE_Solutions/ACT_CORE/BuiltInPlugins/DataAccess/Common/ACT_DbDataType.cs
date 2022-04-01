@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
-    public class ACT_DbDataType : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.DataAccess.I_DbDataType
+    public class ACT_DbDataType : ACT_Core, Interfaces.DataAccess.I_DbDataType
     {
 
         public int SystemTypeID { get; set; }

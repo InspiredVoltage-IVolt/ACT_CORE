@@ -47,7 +47,7 @@
           "dependencies": {
             "ACT_Enums": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[2.1.2, )"
             },
             "ACT_Interfaces": {
               "target": "Package",
@@ -55,19 +55,19 @@
             },
             "ACT_Security": {
               "target": "Package",
-              "version": "[2.0.6, )"
+              "version": "[2.1.0, )"
             },
             "IVolt_ACT_ExtensionLibrary": {
               "target": "Package",
-              "version": "[2.0.9, )"
+              "version": "[2.1.1, )"
             },
             "NLog": {
               "target": "Package",
-              "version": "[4.7.14, )"
+              "version": "[5.0.0-rc2, )"
             },
             "NLog.Schema": {
               "target": "Package",
-              "version": "[4.7.14, )"
+              "version": "[5.0.0-rc2, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -75,7 +75,7 @@
             },
             "SharpCompress": {
               "target": "Package",
-              "version": "[0.30.1, )"
+              "version": "[0.31.0, )"
             },
             "System.Collections": {
               "target": "Package",
@@ -95,7 +95,7 @@
             },
             "System.Security.Cryptography.ProtectedData": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0-preview.2.22152.2, )"
             },
             "System.Security.SecureString": {
               "target": "Package",

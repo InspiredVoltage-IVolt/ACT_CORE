@@ -13,13 +13,24 @@
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\sqlschema.sql" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\readme.txt" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\supportedlanguages.json" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration.json" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration_Template.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration_Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)NLog.config" />
+    <None Include="$(MSBuildThisFileDirectory)NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="$(MSBuildThisFileDirectory)NLog.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\JSON_USERTYPES.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\Logs\" />
   </ItemGroup>
 </Project>

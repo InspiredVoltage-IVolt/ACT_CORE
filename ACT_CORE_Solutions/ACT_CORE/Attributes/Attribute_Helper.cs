@@ -1,4 +1,4 @@
-﻿using ACT.Core.Structs.Attribute_Support;
+﻿using ACT.Core.ACT_Types.Attribute_Support;
 
 namespace ACT.Core.Attributes
 {

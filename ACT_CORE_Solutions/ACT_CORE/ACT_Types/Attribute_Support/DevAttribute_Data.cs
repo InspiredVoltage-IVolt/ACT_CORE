@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ACT.Core.Structs.Attribute_Support
+namespace ACT.Core.ACT_Types.Attribute_Support
 {
     public class Attribute_Development_Data
     {

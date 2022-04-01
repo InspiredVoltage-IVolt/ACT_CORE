@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     /// <summary>
     /// ACT Query Result - Represents the I_QueryResult Execution Results
     /// </summary>
     [ACT.Core.CustomAttributes.ClassID("ACT.Plugins.ACTQueryResult")]
-    public class ACT_QueryResult : ACT.Plugins.ACT_Core, I_QueryResult
+    public class ACT_QueryResult : ACT_Core, I_QueryResult
     {
 
         #region Private Fields

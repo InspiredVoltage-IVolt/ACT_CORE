@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
 
 

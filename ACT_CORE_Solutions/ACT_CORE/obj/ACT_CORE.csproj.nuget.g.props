@@ -13,9 +13,9 @@
     <SourceRoot Include="C:\Users\MarkAlicz\.nuget\packages\" />
   </ItemGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <None Include="$(NuGetPackageRoot)nlog.schema\4.7.14\contentFiles\any\any\NLog.xsd" Condition="Exists('$(NuGetPackageRoot)nlog.schema\4.7.14\contentFiles\any\any\NLog.xsd')">
+    <None Include="$(NuGetPackageRoot)nlog.schema\5.0.0-rc2\contentFiles\any\any\NLog.xsd" Condition="Exists('$(NuGetPackageRoot)nlog.schema\5.0.0-rc2\contentFiles\any\any\NLog.xsd')">
       <NuGetPackageId>NLog.Schema</NuGetPackageId>
-      <NuGetPackageVersion>4.7.14</NuGetPackageVersion>
+      <NuGetPackageVersion>5.0.0-rc2</NuGetPackageVersion>
       <NuGetItemType>None</NuGetItemType>
       <Pack>false</Pack>
       <Private>False</Private>
@@ -23,19 +23,9 @@
     </None>
   </ItemGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Content Include="$(NuGetPackageRoot)act_security\2.0.6\contentFiles\any\net6.0\ACT_Security_Icon.ico" Condition="Exists('$(NuGetPackageRoot)act_security\2.0.6\contentFiles\any\net6.0\ACT_Security_Icon.ico')">
-      <NuGetPackageId>ACT_Security</NuGetPackageId>
-      <NuGetPackageVersion>2.0.6</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <Pack>false</Pack>
-      <Private>False</Private>
-      <Link>ACT_Security_Icon.ico</Link>
-    </Content>
-  </ItemGroup>
-  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Content Include="$(NuGetPackageRoot)act_enums\2.1.0\contentFiles\any\net6.0\Icon.ico" Condition="Exists('$(NuGetPackageRoot)act_enums\2.1.0\contentFiles\any\net6.0\Icon.ico')">
+    <Content Include="$(NuGetPackageRoot)act_enums\2.1.2\contentFiles\any\net6.0\Icon.ico" Condition="Exists('$(NuGetPackageRoot)act_enums\2.1.2\contentFiles\any\net6.0\Icon.ico')">
       <NuGetPackageId>ACT_Enums</NuGetPackageId>
-      <NuGetPackageVersion>2.1.0</NuGetPackageVersion>
+      <NuGetPackageVersion>2.1.2</NuGetPackageVersion>
       <NuGetItemType>Content</NuGetItemType>
       <Pack>false</Pack>
       <Private>False</Private>
@@ -50,6 +40,16 @@
       <Pack>false</Pack>
       <Private>False</Private>
       <Link>ACT_Interfaces.ico</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)act_security\2.1.0\contentFiles\any\net6.0\ACT_Security_Icon.ico" Condition="Exists('$(NuGetPackageRoot)act_security\2.1.0\contentFiles\any\net6.0\ACT_Security_Icon.ico')">
+      <NuGetPackageId>ACT_Security</NuGetPackageId>
+      <NuGetPackageVersion>2.1.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ACT_Security_Icon.ico</Link>
     </Content>
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">

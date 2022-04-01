@@ -12,12 +12,12 @@ using ACT.Core.Interfaces;
 using ACT.Core;
 using ACT.Core.Enums;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     /// <summary>
     /// Represents a Where Statement
     /// </summary>
-    public class ACT_IDbWhereStatemet : ACT.Plugins.ACT_Core, I_DbWhereStatement
+    public class ACT_IDbWhereStatemet : ACT_Core, I_DbWhereStatement
     {
         /// <summary>
         /// Blanket Constructor

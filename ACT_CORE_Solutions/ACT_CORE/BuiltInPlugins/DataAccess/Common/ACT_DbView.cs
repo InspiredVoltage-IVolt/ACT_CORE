@@ -13,12 +13,12 @@ using ACT.Core;
 using ACT.Core.Enums;
 using ACT.Core.Extensions;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     /// <summary>
     /// ACT Database View
     /// </summary>
-    public class ACT_IDbView : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.DataAccess.I_DbView
+    public class ACT_IDbView : ACT_Core, ACT.Core.Interfaces.DataAccess.I_DbView
     {
         /// <summary>
         /// Parent Database

@@ -1,9 +1,10 @@
 ﻿using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
+using ACT.Core.Interfaces.Security;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
-    public class ACT_DbStoredProcedure : ACT.Plugins.ACT_Core, ACT.Core.Interfaces.DataAccess.I_DbStoredProcedure
+    public class ACT_DbStoredProcedure : ACT_Core, I_DbStoredProcedure
     {
 
         int _AgeInDays = -1;
@@ -69,6 +70,20 @@ namespace ACT.Plugins.DataAccess
         /// Returns the Code
         /// </summary>
         public string Code { get; set; }
+
+        public I_Author Author => throw new NotImplementedException();
+
+        public bool IsACTInternal => throw new NotImplementedException();
+
+        public string DLLFileName => throw new NotImplementedException();
+
+        public string SubIdentifier => throw new NotImplementedException();
+
+        public Dictionary<Type, Dictionary<int, string>> TypesAndClassNames => throw new NotImplementedException();
+
+        public string GitHubPackageName => throw new NotImplementedException();
+
+        public string GitHubPackageVersion => throw new NotImplementedException();
 
 
         /// <summary>

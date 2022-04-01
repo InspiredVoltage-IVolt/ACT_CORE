@@ -1,4 +1,4 @@
-﻿namespace ACT.Plugins.DataAccess
+﻿namespace ACT.Core.BuiltInPlugins.DataAccess
 {/*
     public class ACT_SQLite3 : ACT.Core.BuiltInPlugins.Common., I_DataAccess
     {

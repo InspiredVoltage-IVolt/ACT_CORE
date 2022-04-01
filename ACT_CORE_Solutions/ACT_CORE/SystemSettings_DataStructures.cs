@@ -3,7 +3,7 @@ using ACT.Core.Encoding.JSON;
 using ACT.Core.Extensions;
 using Newtonsoft.Json;
 
-namespace ACT.Core.Structs
+namespace ACT.Core.ACT_Types
 {
 
 

@@ -1,4 +1,5 @@
 ﻿using ACT.Core;
+using ACT.Core.Enums;
 using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
 using ACT.Core.Interfaces.Security;
@@ -6,13 +7,13 @@ using System.ComponentModel;
 using System.Text;
 
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
 
     /// <summary>
     /// This class Implements the IDB Interface
     /// </summary>
-    public class ACT_IDb : ACT.Plugins.ACT_Core, I_Db
+    public class ACT_IDb :  I_Db
     {
         #region Fields (3)
 
@@ -22,6 +23,8 @@ namespace ACT.Plugins.DataAccess
         private List<I_DbView> _Views = new List<I_DbView>();
         private List<I_DbDataType> _Types = new List<I_DbDataType>();
         private List<I_DbStoredProcedure> _Procedures = new List<I_DbStoredProcedure>();
+
+        public event EventHandler ClassChanged;
 
         /// <summary>
         /// Get / Set the Tables
@@ -147,6 +150,28 @@ namespace ACT.Plugins.DataAccess
                 _Name = value;
             }
         }
+
+        public I_Author Author => throw new NotImplementedException();
+
+        public bool IsACTInternal => throw new NotImplementedException();
+
+        public string DLLFileName => throw new NotImplementedException();
+
+        public string SubIdentifier => throw new NotImplementedException();
+
+        public Dictionary<Type, Dictionary<int, string>> TypesAndClassNames => throw new NotImplementedException();
+
+        public string GitHubPackageName => throw new NotImplementedException();
+
+        public string GitHubPackageVersion => throw new NotImplementedException();
+
+        public List<string> RequiredProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ConfigurationJSONFileName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool CacheErrors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool HasChanged { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<string> PropertiesMonitoredForChange { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public List<string> PublicProperties => throw new NotImplementedException();
 
 
         #endregion Fields
@@ -465,7 +490,7 @@ namespace ACT.Plugins.DataAccess
         /// <summary>
         /// Disposes the Class
         /// </summary>
-        public override void Dispose()
+        public void Dispose()
         {
             _Tables.Clear();
             _Tables = null;
@@ -479,7 +504,7 @@ namespace ACT.Plugins.DataAccess
         /// Sets the Impersonation of the User Making Database Commands Which are not implmented.
         /// </summary>
         /// <param name="UserInfo"></param>
-        public override void SetImpersonate(I_UserInfo UserInfo)
+        public void SetImpersonate(I_UserInfo UserInfo)
         {
             _Current_UserInfo = UserInfo;
         }
@@ -488,7 +513,7 @@ namespace ACT.Plugins.DataAccess
         /// Returns a List of SystemSettingRequirements
         /// </summary>
         /// <returns></returns>
-        public override List<string> ReturnSystemSettingRequirements()
+        public List<string> ReturnSystemSettingRequirements()
         {
             List<string> _tmpReturn = new List<string>();
             _tmpReturn.Add("I_DbColumn");
@@ -508,7 +533,7 @@ namespace ACT.Plugins.DataAccess
         /// Validate the Plugin
         /// </summary>
         /// <returns></returns>
-        public override I_Result ValidatePluginRequirements()
+        public I_Result ValidatePluginRequirements()
         {
             var _TmpReturn = ACT.Core.SystemSettings.MeetsExpectations(this);
 
@@ -558,7 +583,7 @@ namespace ACT.Plugins.DataAccess
         /// Override the ExportXML to Provide XML Functionality
         /// </summary>
         /// <returns></returns>
-        public override string ExportXMLData()
+        public string ExportXMLData()
         {
             StringBuilder _TmpExport = new StringBuilder("<Database name=\"");
             _TmpExport.Append(_Name);
@@ -581,6 +606,41 @@ namespace ACT.Plugins.DataAccess
         }
 
         public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public dynamic GetConfigurationValue(string Key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PerformStandardTextReplacement(string instr, RepacementStandard ReplacementFormats)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Exception> GetCachedErrors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public I_Result HealthCheck()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetPropertyValue(string PropertyName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Type GetPropertyType(string PropertyName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public I_Result SetPropertyValue(string PropertyName, object value)
         {
             throw new NotImplementedException();
         }

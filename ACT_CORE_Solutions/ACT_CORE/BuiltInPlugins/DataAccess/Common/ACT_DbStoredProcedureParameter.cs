@@ -1,7 +1,8 @@
 ﻿using ACT.Core.Interfaces.Common;
 using ACT.Core.Interfaces.DataAccess;
+using ACT.Core.Interfaces.Security;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     public class ACT_DbStoredProcedureParameter : ACT_Core, I_DbStoredProcedureParameter
     {
@@ -30,6 +31,20 @@ namespace ACT.Plugins.DataAccess
             get;
             set;
         }
+
+        public I_Author Author => throw new NotImplementedException();
+
+        public bool IsACTInternal => throw new NotImplementedException();
+
+        public string DLLFileName => throw new NotImplementedException();
+
+        public string SubIdentifier => throw new NotImplementedException();
+
+        public Dictionary<Type, Dictionary<int, string>> TypesAndClassNames => throw new NotImplementedException();
+
+        public string GitHubPackageName => throw new NotImplementedException();
+
+        public string GitHubPackageVersion => throw new NotImplementedException();
 
         public List<string> ReturnRequiredFiles(bool PerformReplacements = false)
         {

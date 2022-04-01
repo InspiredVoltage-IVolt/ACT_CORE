@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "ACT_Enums/2.1.0": {
+      "ACT_Enums/2.1.2": {
         "type": "package",
         "compile": {
           "lib/net6.0/ACT_Enums.dll": {}
@@ -40,13 +40,15 @@
           }
         }
       },
-      "ACT_Security/2.0.6": {
+      "ACT_Security/2.1.0": {
         "type": "package",
         "dependencies": {
-          "IVolt_ACT_ExtensionLibrary": "2.0.5",
+          "ACT_Interfaces": "2.1.3",
+          "BouncyCastle.NetCore": "1.8.10",
+          "IVolt_ACT_ExtensionLibrary": "2.0.9",
           "System.Management": "6.0.0",
           "System.Security.Cryptography.Primitives": "4.3.0",
-          "System.Security.Cryptography.ProtectedData": "6.0.0"
+          "System.Security.Cryptography.ProtectedData": "7.0.0-preview.1.22076.8"
         },
         "compile": {
           "lib/net6.0/ACT_Security.dll": {}
@@ -60,6 +62,15 @@
             "codeLanguage": "any",
             "copyToOutput": false
           }
+        }
+      },
+      "BouncyCastle.NetCore/1.8.10": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
       "EntityFramework/6.4.4": {
@@ -93,7 +104,7 @@
           "lib/netstandard2.0/FastExcel.dll": {}
         }
       },
-      "IVolt_ACT_ExtensionLibrary/2.0.9": {
+      "IVolt_ACT_ExtensionLibrary/2.1.1": {
         "type": "package",
         "dependencies": {
           "FastExcel": "3.0.13",
@@ -189,7 +200,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NLog/4.7.14": {
+      "NLog/5.0.0-rc2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NLog.dll": {}
@@ -198,7 +209,7 @@
           "lib/netstandard2.0/NLog.dll": {}
         }
       },
-      "NLog.Schema/4.7.14": {
+      "NLog.Schema/5.0.0-rc2": {
         "type": "package",
         "contentFiles": {
           "contentFiles/any/any/NLog.xsd": {
@@ -375,7 +386,7 @@
           }
         }
       },
-      "SharpCompress/0.30.1": {
+      "SharpCompress/0.31.0": {
         "type": "package",
         "compile": {
           "lib/net5.0/SharpCompress.dll": {}
@@ -922,7 +933,7 @@
           "lib/netstandard1.3/System.Security.Cryptography.Primitives.dll": {}
         }
       },
-      "System.Security.Cryptography.ProtectedData/6.0.0": {
+      "System.Security.Cryptography.ProtectedData/7.0.0-preview.2.22152.2": {
         "type": "package",
         "compile": {
           "lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {}
@@ -931,7 +942,7 @@
           "lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {}
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll": {
@@ -1138,15 +1149,15 @@
     }
   },
   "libraries": {
-    "ACT_Enums/2.1.0": {
-      "sha512": "E9yj/LJ34I0GkfBZMkK2eXIN+q9fHNgeLfweNsjIfBpDEWLUjjvQJyeObmbCVB9zIu1TFWED8AsoBCGQAO8E5w==",
+    "ACT_Enums/2.1.2": {
+      "sha512": "KyinDcEu75tG2Xyr/CYq13uk1MRHgDJCZZcCKGVDtNnsCW/zsY3HyCYj0W1evQaIwVHX8nWgWYE4TKET6YahmA==",
       "type": "package",
-      "path": "act_enums/2.1.0",
+      "path": "act_enums/2.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ACT_Common_Icon.png",
-        "act_enums.2.1.0.nupkg.sha512",
+        "act_enums.2.1.2.nupkg.sha512",
         "act_enums.nuspec",
         "content/Icon.ico",
         "contentFiles/any/net6.0/Icon.ico",
@@ -1168,19 +1179,44 @@
         "lib/net6.0/ACT_Interfaces.dll"
       ]
     },
-    "ACT_Security/2.0.6": {
-      "sha512": "RS3Hp8Kth8H/bnjzjeYW/BZir9sxqqZ7fAH2g0e8P2fVNZESYIkJ8zE4UmA6wqBB7/urtBuOAPE8QuvFIdangg==",
+    "ACT_Security/2.1.0": {
+      "sha512": "hf/PsSTZJCOJz4Oq5eEx0xeiVv4EJAA7H77V3bZKc7IYmC14a3ETenP0l6BHv1dmepfleXhHP2fO3L8hwBK/4g==",
       "type": "package",
-      "path": "act_security/2.0.6",
+      "path": "act_security/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ACT_Security_Icon.png",
-        "act_security.2.0.6.nupkg.sha512",
+        "act_security.2.1.0.nupkg.sha512",
         "act_security.nuspec",
         "content/ACT_Security_Icon.ico",
         "contentFiles/any/net6.0/ACT_Security_Icon.ico",
         "lib/net6.0/ACT_Security.dll"
+      ]
+    },
+    "BouncyCastle.NetCore/1.8.10": {
+      "sha512": "Uqd1mSV+ewDNuX4G0lXds4TM2DYyFTnCUZAjZLxmxglKSCbTZe2R+TQV/u369J/bXaNZ6s/1sedCtl/5u+66iQ==",
+      "type": "package",
+      "path": "bouncycastle.netcore/1.8.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bouncycastle.netcore.1.8.10.nupkg.sha512",
+        "bouncycastle.netcore.nuspec",
+        "lib/Mono/BouncyCastle.Crypto.dll",
+        "lib/Mono/BouncyCastle.Crypto.xml",
+        "lib/MonoAndroid/BouncyCastle.Crypto.dll",
+        "lib/MonoAndroid/BouncyCastle.Crypto.xml",
+        "lib/MonoMac/BouncyCastle.Crypto.dll",
+        "lib/MonoMac/BouncyCastle.Crypto.xml",
+        "lib/MonoTouch/BouncyCastle.Crypto.dll",
+        "lib/MonoTouch/BouncyCastle.Crypto.xml",
+        "lib/net20/BouncyCastle.Crypto.dll",
+        "lib/net20/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "lib/xamarinios/BouncyCastle.Crypto.dll",
+        "lib/xamarinios/BouncyCastle.Crypto.xml"
       ]
     },
     "EntityFramework/6.4.4": {
@@ -1253,16 +1289,15 @@
         "lib/netstandard2.0/FastExcel.xml"
       ]
     },
-    "IVolt_ACT_ExtensionLibrary/2.0.9": {
-      "sha512": "9OagUk+wrGzlbbLfImP1R1/t00x8jaVginsLbelJn8jQes6wVLhb8MNafRSn9GkODC0vjzdzFUa5MQvQT8TqdQ==",
+    "IVolt_ACT_ExtensionLibrary/2.1.1": {
+      "sha512": "X/GoOjoDMHN/pdxsLGpy0Lpr6JPfe/BquiigSQakOGntCUO6zEPflhuonn1Pgz4s3xQOA02ayd9Mhr3okTTT+w==",
       "type": "package",
-      "path": "ivolt_act_extensionlibrary/2.0.9",
+      "path": "ivolt_act_extensionlibrary/2.1.1",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ACT_Common_Icon.png",
         "README.md",
-        "ivolt_act_extensionlibrary.2.0.9.nupkg.sha512",
+        "ivolt_act_extensionlibrary.2.1.1.nupkg.sha512",
         "ivolt_act_extensionlibrary.nuspec",
         "lib/net6.0/ACTExtLib.dll"
       ]
@@ -1471,49 +1506,40 @@
         "packageIcon.png"
       ]
     },
-    "NLog/4.7.14": {
-      "sha512": "R1Nn+Zi2mSiKf82zII+8ZhGTr66CmCDLlpDq/0N0Y22TDrioYeP6t3XWzJVTi3OXaHJ/jiXId/okXQu8e0g3uw==",
+    "NLog/5.0.0-rc2": {
+      "sha512": "F+y9t2obY9y0bxAaxvJJtbpBqFWkkqXZjMJPeT3SLqVvSNZq7aFax5cu57hkssHSDF1C/RsHT5uymcmPXgY9Vw==",
       "type": "package",
-      "path": "nlog/4.7.14",
+      "path": "nlog/5.0.0-rc2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/monoandroid44/NLog.dll",
-        "lib/monoandroid44/NLog.xml",
+        "N.png",
         "lib/net35/NLog.dll",
         "lib/net35/NLog.xml",
-        "lib/net40-client/NLog.dll",
-        "lib/net40-client/NLog.xml",
         "lib/net45/NLog.dll",
         "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
         "lib/netstandard1.3/NLog.dll",
         "lib/netstandard1.3/NLog.xml",
         "lib/netstandard1.5/NLog.dll",
         "lib/netstandard1.5/NLog.xml",
         "lib/netstandard2.0/NLog.dll",
         "lib/netstandard2.0/NLog.xml",
-        "lib/sl4/NLog.dll",
-        "lib/sl4/NLog.xml",
-        "lib/sl5/NLog.dll",
-        "lib/sl5/NLog.xml",
-        "lib/wp8/NLog.dll",
-        "lib/wp8/NLog.xml",
-        "lib/xamarinios10/NLog.dll",
-        "lib/xamarinios10/NLog.xml",
-        "nlog.4.7.14.nupkg.sha512",
+        "nlog.5.0.0-rc2.nupkg.sha512",
         "nlog.nuspec"
       ]
     },
-    "NLog.Schema/4.7.14": {
-      "sha512": "ExtaAbkpoF7RgiVj6FcNPU1+VrCUt60S/5NLEcnusrmMTWlmQ4HCCUTXFOMPUGcK3q9bJtxwzgdiake0Ttifyw==",
+    "NLog.Schema/5.0.0-rc2": {
+      "sha512": "jfOhjdlu+OMKvs2IyUSxMTn2IKXIdNklwGVtALlGM7edHYbhx0pXMk7CRIFFR4VMqVlkVVhAAUct0+a0S+54rg==",
       "type": "package",
-      "path": "nlog.schema/4.7.14",
+      "path": "nlog.schema/5.0.0-rc2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "content/NLog.xsd",
         "contentFiles/any/any/NLog.xsd",
-        "nlog.schema.4.7.14.nupkg.sha512",
+        "nlog.schema.5.0.0-rc2.nupkg.sha512",
         "nlog.schema.nuspec"
       ]
     },
@@ -1762,10 +1788,10 @@
         "version.txt"
       ]
     },
-    "SharpCompress/0.30.1": {
-      "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
+    "SharpCompress/0.31.0": {
+      "sha512": "wFf5N0ysnlKbG54beDDm4Z1uqM0EAKTupEkTxyG4EGVE1uZgTtohuBd2BhTHR2gNweJ6agxKbMFzmzk181qqjw==",
       "type": "package",
-      "path": "sharpcompress/0.30.1",
+      "path": "sharpcompress/0.31.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1774,7 +1800,7 @@
         "lib/netcoreapp3.1/SharpCompress.dll",
         "lib/netstandard2.0/SharpCompress.dll",
         "lib/netstandard2.1/SharpCompress.dll",
-        "sharpcompress.0.30.1.nupkg.sha512",
+        "sharpcompress.0.31.0.nupkg.sha512",
         "sharpcompress.nuspec"
       ]
     },
@@ -3570,37 +3596,39 @@
         "system.security.cryptography.primitives.nuspec"
       ]
     },
-    "System.Security.Cryptography.ProtectedData/6.0.0": {
-      "sha512": "rp1gMNEZpvx9vP0JW0oHLxlf8oSiQgtno77Y4PLUBjSiDYoD77Y8uXHr1Ea5XG4/pIKhqAdxZ8v8OTUtqo9PeQ==",
+    "System.Security.Cryptography.ProtectedData/7.0.0-preview.2.22152.2": {
+      "sha512": "zyoIjyvgq7GIhbadaxw/iW16RlCvnkwUZmNNBP1x1zoqNxEi5G+654Lv6wdngnk0A8chCgSQRLJCERfghbcDlg==",
       "type": "package",
-      "path": "system.security.cryptography.protecteddata/6.0.0",
+      "path": "system.security.cryptography.protecteddata/7.0.0-preview.2.22152.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Security.Cryptography.ProtectedData.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Security.Cryptography.ProtectedData.targets",
-        "buildTransitive/netcoreapp3.1/_._",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
-        "lib/net461/System.Security.Cryptography.ProtectedData.dll",
-        "lib/net461/System.Security.Cryptography.ProtectedData.xml",
+        "lib/net462/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net462/System.Security.Cryptography.ProtectedData.xml",
         "lib/net6.0/System.Security.Cryptography.ProtectedData.dll",
         "lib/net6.0/System.Security.Cryptography.ProtectedData.xml",
+        "lib/net7.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net7.0/System.Security.Cryptography.ProtectedData.xml",
         "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
         "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "runtimes/win/lib/net461/System.Security.Cryptography.ProtectedData.dll",
-        "runtimes/win/lib/net461/System.Security.Cryptography.ProtectedData.xml",
         "runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll",
         "runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.xml",
-        "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
-        "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
-        "system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.ProtectedData.xml",
+        "system.security.cryptography.protecteddata.7.0.0-preview.2.22152.2.nupkg.sha512",
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -4238,19 +4266,19 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ACT_Enums >= 2.1.0",
+      "ACT_Enums >= 2.1.2",
       "ACT_Interfaces >= 2.1.3",
-      "ACT_Security >= 2.0.6",
-      "IVolt_ACT_ExtensionLibrary >= 2.0.9",
-      "NLog >= 4.7.14",
-      "NLog.Schema >= 4.7.14",
+      "ACT_Security >= 2.1.0",
+      "IVolt_ACT_ExtensionLibrary >= 2.1.1",
+      "NLog >= 5.0.0-rc2",
+      "NLog.Schema >= 5.0.0-rc2",
       "Newtonsoft.Json >= 13.0.1",
-      "SharpCompress >= 0.30.1",
+      "SharpCompress >= 0.31.0",
       "System.Collections >= 4.3.0",
       "System.Collections.Concurrent >= 4.3.0",
       "System.Collections.Specialized >= 4.3.0",
       "System.Data.SQLite >= 1.0.115.5",
-      "System.Security.Cryptography.ProtectedData >= 6.0.0",
+      "System.Security.Cryptography.ProtectedData >= 7.0.0-preview.2.22152.2",
       "System.Security.SecureString >= 4.3.0"
     ]
   },
@@ -4299,7 +4327,7 @@
         "dependencies": {
           "ACT_Enums": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[2.1.2, )"
           },
           "ACT_Interfaces": {
             "target": "Package",
@@ -4307,19 +4335,19 @@
           },
           "ACT_Security": {
             "target": "Package",
-            "version": "[2.0.6, )"
+            "version": "[2.1.0, )"
           },
           "IVolt_ACT_ExtensionLibrary": {
             "target": "Package",
-            "version": "[2.0.9, )"
+            "version": "[2.1.1, )"
           },
           "NLog": {
             "target": "Package",
-            "version": "[4.7.14, )"
+            "version": "[5.0.0-rc2, )"
           },
           "NLog.Schema": {
             "target": "Package",
-            "version": "[4.7.14, )"
+            "version": "[5.0.0-rc2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -4327,7 +4355,7 @@
           },
           "SharpCompress": {
             "target": "Package",
-            "version": "[0.30.1, )"
+            "version": "[0.31.0, )"
           },
           "System.Collections": {
             "target": "Package",
@@ -4347,7 +4375,7 @@
           },
           "System.Security.Cryptography.ProtectedData": {
             "target": "Package",
-            "version": "[6.0.0, )"
+            "version": "[7.0.0-preview.2.22152.2, )"
           },
           "System.Security.SecureString": {
             "target": "Package",

@@ -115,6 +115,8 @@ namespace ACT.Core
         public string[] AvailableEncodingFormats => throw new NotImplementedException();
 
         public List<string> PropertiesMonitoredForChange { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<string> RequiredProperties { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ConfigurationJSONFileName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         #endregion Public Properties
 
@@ -384,6 +386,11 @@ namespace ACT.Core
         }
 
         public I_Result SetPropertyValue(string PropertyName, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public dynamic GetConfigurationValue(string Key)
         {
             throw new NotImplementedException();
         }

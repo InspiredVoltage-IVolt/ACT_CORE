@@ -6,7 +6,7 @@ using ACT.Core.Interfaces.DataAccess;
 using ACT.Core.Interfaces.Security;
 using System.Data;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
 
     /// <summary>
@@ -958,6 +958,19 @@ namespace ACT.Plugins.DataAccess
         {
             get { return _ConnectionString; }
         }
+
+        public I_Author Author => "Mark Alicz";
+        public bool IsACTInternal => throw new NotImplementedException();
+
+        public string DLLFileName => throw new NotImplementedException();
+
+        public string SubIdentifier => throw new NotImplementedException();
+
+        public Dictionary<Type, Dictionary<int, string>> TypesAndClassNames => throw new NotImplementedException();
+
+        public string GitHubPackageName => throw new NotImplementedException();
+
+        public string GitHubPackageVersion => throw new NotImplementedException();
 
         /// <summary>
         /// Not Implemented

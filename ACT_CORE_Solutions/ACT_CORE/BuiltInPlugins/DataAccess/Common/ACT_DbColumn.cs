@@ -13,12 +13,12 @@ using ACT.Core;
 using ACT.Core.Enums;
 using ACT.Core.Extensions;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     /// <summary>
     /// Represents a IDbColumn 
     /// </summary>
-    public class ACT_IDbColumn :  ACT.Plugins.ACT_Core, I_DbColumn
+    public class ACT_IDbColumn :  ACT_Core, I_DbColumn
     {
 
 		#region Fields (13) 
@@ -151,7 +151,7 @@ namespace ACT.Plugins.DataAccess
         #endregion
         #region ICore Members
 
-        public override I_Result ImportXMLData(string XML)
+        public I_Result ImportXMLData(string XML)
         {
             //try
             //{

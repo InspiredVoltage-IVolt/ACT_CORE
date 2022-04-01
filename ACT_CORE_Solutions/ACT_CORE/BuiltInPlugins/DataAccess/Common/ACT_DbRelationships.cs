@@ -13,13 +13,13 @@ using ACT.Core;
 using ACT.Core.Enums;
 using System.Data;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
 
     /// <summary>
     /// This represents a IDbRelationship
     /// </summary>
-    public class ACT_IDbRelationships : ACT.Plugins.ACT_Core, I_DbRelationship
+    public class ACT_IDbRelationships : ACT_Core, I_DbRelationship
     {
 
         public ACT_IDbRelationships()

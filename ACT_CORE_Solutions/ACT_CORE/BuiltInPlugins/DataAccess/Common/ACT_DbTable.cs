@@ -13,12 +13,12 @@ using ACT.Core;
 using ACT.Core.Enums;
 using ACT.Core.Extensions;
 
-namespace ACT.Plugins.DataAccess
+namespace ACT.Core.BuiltInPlugins.DataAccess
 {
     /// <summary>
     /// This class Implements the IDbTable Interface
     /// </summary>
-    public class ACT_IDbTable : ACT.Plugins.ACT_Core, I_DbTable
+    public class ACT_IDbTable : ACT_Core, I_DbTable
     {
 
         #region Fields (8)

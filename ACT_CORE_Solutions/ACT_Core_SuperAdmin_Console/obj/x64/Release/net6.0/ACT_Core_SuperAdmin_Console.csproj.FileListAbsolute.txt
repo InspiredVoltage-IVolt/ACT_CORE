@@ -3,3 +3,14 @@ D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Co
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.AssemblyInfoInputs.cache
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.AssemblyInfo.cs
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.csproj.CoreCompileInputs.cache
+D:\IVolt_Releases\ACT-SuperAdmin-Console\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.exe
+D:\IVolt_Releases\ACT-SuperAdmin-Console\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.deps.json
+D:\IVolt_Releases\ACT-SuperAdmin-Console\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.runtimeconfig.json
+D:\IVolt_Releases\ACT-SuperAdmin-Console\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.dll
+D:\IVolt_Releases\ACT-SuperAdmin-Console\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.csproj.CopyComplete
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\refint\ACT_Core_SuperAdmin_Console.dll
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.pdb
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ACT_Core_SuperAdmin_Console.genruntimeconfig.cache
+D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\x64\Release\net6.0\ref\ACT_Core_SuperAdmin_Console.dll
