@@ -240,7 +240,7 @@ namespace ACT.Core
         ///-------------------------------------------------------------------------------------------------
         /// <summary>   Returns system setting requirements. </summary>
         ///
-        /// <remarks>   Mark Alicz, 7/20/2019. </remarks>
+        /// <remarks>   Mark Alicz, 7/20/2022. </remarks>
         ///
         /// <returns>   The system setting requirements. </returns>
         ///-------------------------------------------------------------------------------------------------

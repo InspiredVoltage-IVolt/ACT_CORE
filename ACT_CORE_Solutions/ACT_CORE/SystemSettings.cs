@@ -6,7 +6,7 @@ using ACT.Core.ACT_Types;
 namespace ACT.Core
 {
     /// <summary>
-    /// Important Class
+    /// Important Class - Uses SystemConfiguration as the Holder Class
     /// 
     ///  FIRST METHOD CALLED ALWAYS
     ///     ProcessFirstStartup() 
@@ -22,9 +22,9 @@ namespace ACT.Core
 
         private bool HasStartedUpProperly = false;
 
-        internal SystemSettingsData _LoadedConfigurationData = null;
+        internal SystemConfiguration _LoadedConfigurationData = null;
 
-        internal Dictionary<string, SystemSettingsData> _AdditionalConfiguration = new Dictionary<string, SystemSettingsData>();
+        internal Dictionary<string, SystemConfiguration> _AdditionalLoadedConfiguration = new Dictionary<string, SystemConfiguration>();
 
         private string LicFilePath { get { return AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "lic.txt"; } }
 
@@ -175,13 +175,13 @@ namespace ACT.Core
         public bool LoadConfigurationFile(string Path, string configType = "default")
         {
             //var _tmpConfig = 
-            var _tmpConfig = SystemSettingsData.FromJson(Path.ReadAllText());
+            var _tmpConfig = SystemConfiguration.FromJson(Path.ReadAllText());
 
             if (configType == "default") { _LoadedConfigurationData = _tmpConfig; }
             else
             {
-                if (_AdditionalConfiguration.ContainsKey(configType)) { _AdditionalConfiguration[configType] = _tmpConfig; }
-                else { _AdditionalConfiguration.Add(configType, _tmpConfig); }
+                if (_AdditionalLoadedConfiguration.ContainsKey(configType)) { _AdditionalLoadedConfiguration[configType] = _tmpConfig; }
+                else { _AdditionalLoadedConfiguration.Add(configType, _tmpConfig); }
             }
 
             if (_LoadedConfigurationData == null) { HasStartedUpProperly = false; return false; }
@@ -278,7 +278,7 @@ namespace ACT.Core
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        public ACT_Types.SystemSettingsData GetAndSet_ActiveConfig(string Name = "")
+        public ACT_Types.SystemConfiguration GetAndSet_ActiveConfig(string Name = "")
         {
             if (Name.NullOrEmpty()) { Name = "Default"; }
 
@@ -287,9 +287,9 @@ namespace ACT.Core
             if (Name == "default") { return _LoadedConfigurationData; }
             else
             {
-                if (_AdditionalConfiguration.ContainsKey(Name))
+                if (_AdditionalLoadedConfiguration.ContainsKey(Name))
                 {
-                    return _AdditionalConfiguration[Name];
+                    return _AdditionalLoadedConfiguration[Name];
                 }
                 else
                 {

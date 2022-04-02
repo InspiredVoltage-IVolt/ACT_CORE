@@ -1,0 +1,251 @@
+﻿<table aria-label="Table 1" class="table table-sm">
+    <thead>
+        <tr>
+            <th>Format specifier</th>
+            <th>Description</th>
+            <th>Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>"d"</td>
+            <td>The day of the month, from 1 through 31.<br><br> More information: <a href="#dSpecifier" data-linktype="self-bookmark">The "d" Custom Format Specifier</a>.</td>
+            <td>2009-06-01T13:45:30 -&gt; 1<br><br> 2009-06-15T13:45:30 -&gt; 15</td>
+        </tr>
+        <tr>
+            <td>"dd"</td>
+            <td>The day of the month, from 01 through 31.<br><br> More information: <a href="#ddSpecifier" data-linktype="self-bookmark">The "dd" Custom Format Specifier</a>.</td>
+            <td>2009-06-01T13:45:30 -&gt; 01<br><br> 2009-06-15T13:45:30 -&gt; 15</td>
+        </tr>
+        <tr>
+            <td>"ddd"</td>
+            <td>The abbreviated name of the day of the week.<br><br> More information: <a href="#dddSpecifier" data-linktype="self-bookmark">The "ddd" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; Mon (en-US)<br><br> 2009-06-15T13:45:30 -&gt; Пн (ru-RU)<br><br> 2009-06-15T13:45:30 -&gt; lun. (fr-FR)</td>
+        </tr>
+        <tr>
+            <td>"dddd"</td>
+            <td>The full name of the day of the week.<br><br> More information: <a href="#ddddSpecifier" data-linktype="self-bookmark">The "dddd" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; Monday (en-US)<br><br> 2009-06-15T13:45:30 -&gt; понедельник (ru-RU)<br><br> 2009-06-15T13:45:30 -&gt; lundi (fr-FR)</td>
+        </tr>
+        <tr>
+            <td>"f"</td>
+            <td>The tenths of a second in a date and time value.<br><br> More information: <a href="#fSpecifier" data-linktype="self-bookmark">The "f" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; 6<br><br> 2009-06-15T13:45:30.05 -&gt; 0</td>
+        </tr>
+        <tr>
+            <td>"ff"</td>
+            <td>The hundredths of a second in a date and time value.<br><br> More information: <a href="#ffSpecifier" data-linktype="self-bookmark">The "ff" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; 61<br><br> 2009-06-15T13:45:30.0050000 -&gt; 00</td>
+        </tr>
+        <tr>
+            <td>"fff"</td>
+            <td>The milliseconds in a date and time value.<br><br> More information: <a href="#fffSpecifier" data-linktype="self-bookmark">The "fff" Custom Format Specifier</a>.</td>
+            <td>6/15/2009 13:45:30.617 -&gt; 617<br><br> 6/15/2009 13:45:30.0005 -&gt; 000</td>
+        </tr>
+        <tr>
+            <td>"ffff"</td>
+            <td>The ten thousandths of a second in a date and time value.<br><br> More information: <a href="#ffffSpecifier" data-linktype="self-bookmark">The "ffff" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175000 -&gt; 6175<br><br> 2009-06-15T13:45:30.0000500  -&gt; 0000</td>
+        </tr>
+        <tr>
+            <td>"fffff"</td>
+            <td>The hundred thousandths of a second in a date and time value.<br><br> More information: <a href="#fffffSpecifier" data-linktype="self-bookmark">The "fffff" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175400 -&gt; 61754<br><br> 6/15/2009 13:45:30.000005 -&gt; 00000</td>
+        </tr>
+        <tr>
+            <td>"ffffff"</td>
+            <td>The millionths of a second in a date and time value.<br><br> More information: <a href="#ffffffSpecifier" data-linktype="self-bookmark">The "ffffff" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175420 -&gt; 617542<br><br> 2009-06-15T13:45:30.0000005 -&gt; 000000</td>
+        </tr>
+        <tr>
+            <td>"fffffff"</td>
+            <td>The ten millionths of a second in a date and time value.<br><br> More information: <a href="#fffffffSpecifier" data-linktype="self-bookmark">The "fffffff" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175425 -&gt; 6175425<br><br> 2009-06-15T13:45:30.0001150 -&gt; 0001150</td>
+        </tr>
+        <tr>
+            <td>"F"</td>
+            <td>If non-zero, the tenths of a second in a date and time value.<br><br> More information: <a href="#F_Specifier" data-linktype="self-bookmark">The "F" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; 6<br><br> 2009-06-15T13:45:30.0500000 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FF"</td>
+            <td>If non-zero, the hundredths of a second in a date and time value.<br><br> More information: <a href="#FF_Specifier" data-linktype="self-bookmark">The "FF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; 61<br><br> 2009-06-15T13:45:30.0050000 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FFF"</td>
+            <td>If non-zero, the milliseconds in a date and time value.<br><br> More information: <a href="#FFF_Specifier" data-linktype="self-bookmark">The "FFF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; 617<br><br> 2009-06-15T13:45:30.0005000 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FFFF"</td>
+            <td>If non-zero, the ten thousandths of a second in a date and time value.<br><br> More information: <a href="#FFFF_Specifier" data-linktype="self-bookmark">The "FFFF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.5275000 -&gt; 5275<br><br> 2009-06-15T13:45:30.0000500 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FFFFF"</td>
+            <td>If non-zero, the hundred thousandths of a second in a date and time value.<br><br> More information: <a href="#FFFFF_Specifier" data-linktype="self-bookmark">The "FFFFF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175400 -&gt; 61754<br><br> 2009-06-15T13:45:30.0000050 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FFFFFF"</td>
+            <td>If non-zero, the millionths of a second in a date and time value.<br><br> More information: <a href="#FFFFFF_Specifier" data-linktype="self-bookmark">The "FFFFFF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175420 -&gt; 617542<br><br> 2009-06-15T13:45:30.0000005 -&gt; (no output)</td>
+        </tr>
+        <tr>
+            <td>"FFFFFFF"</td>
+            <td>If non-zero, the ten millionths of a second in a date and time value.<br><br> More information: <a href="#FFFFFFF_Specifier" data-linktype="self-bookmark">The "FFFFFFF" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6175425 -&gt; 6175425<br><br> 2009-06-15T13:45:30.0001150 -&gt; 000115</td>
+        </tr>
+        <tr>
+            <td>"g", "gg"</td>
+            <td>The period or era.<br><br> More information: <a href="#gSpecifier" data-linktype="self-bookmark">The "g" or "gg" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30.6170000 -&gt; A.D.</td>
+        </tr>
+        <tr>
+            <td>"h"</td>
+            <td>The hour, using a 12-hour clock from 1 to 12.<br><br> More information: <a href="#hSpecifier" data-linktype="self-bookmark">The "h" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:45:30 -&gt; 1<br><br> 2009-06-15T13:45:30 -&gt; 1</td>
+        </tr>
+        <tr>
+            <td>"hh"</td>
+            <td>The hour, using a 12-hour clock from 01 to 12.<br><br> More information: <a href="#hhSpecifier" data-linktype="self-bookmark">The "hh" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:45:30 -&gt; 01<br><br> 2009-06-15T13:45:30 -&gt; 01</td>
+        </tr>
+        <tr>
+            <td>"H"</td>
+            <td>The hour, using a 24-hour clock from 0 to 23.<br><br> More information: <a href="#H_Specifier" data-linktype="self-bookmark">The "H" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:45:30 -&gt; 1<br><br> 2009-06-15T13:45:30 -&gt; 13</td>
+        </tr>
+        <tr>
+            <td>"HH"</td>
+            <td>The hour, using a 24-hour clock from 00 to 23.<br><br> More information: <a href="#HH_Specifier" data-linktype="self-bookmark">The "HH" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:45:30 -&gt; 01<br><br> 2009-06-15T13:45:30 -&gt; 13</td>
+        </tr>
+        <tr>
+            <td>"K"</td>
+            <td>Time zone information.<br><br> More information: <a href="#KSpecifier" data-linktype="self-bookmark">The "K" Custom Format Specifier</a>.</td>
+            <td>With <a href="/en-us/dotnet/api/system.datetime" class="no-loc" data-linktype="absolute-path">DateTime</a> values:<br><br> 2009-06-15T13:45:30, Kind Unspecified -&gt;<br><br> 2009-06-15T13:45:30, Kind Utc -&gt; Z<br><br> 2009-06-15T13:45:30, Kind Local -&gt; -07:00 (depends on local computer settings)<br><br> With <a href="/en-us/dotnet/api/system.datetimeoffset" class="no-loc" data-linktype="absolute-path">DateTimeOffset</a> values:<br><br> 2009-06-15T01:45:30-07:00 --&gt; -07:00<br><br> 2009-06-15T08:45:30+00:00 --&gt; +00:00</td>
+        </tr>
+        <tr>
+            <td>"m"</td>
+            <td>The minute, from 0 through 59.<br><br> More information: <a href="#mSpecifier" data-linktype="self-bookmark">The "m" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:09:30 -&gt; 9<br><br> 2009-06-15T13:29:30 -&gt; 29</td>
+        </tr>
+        <tr>
+            <td>"mm"</td>
+            <td>The minute, from 00 through 59.<br><br> More information: <a href="#mmSpecifier" data-linktype="self-bookmark">The "mm" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T01:09:30 -&gt; 09<br><br> 2009-06-15T01:45:30 -&gt; 45</td>
+        </tr>
+        <tr>
+            <td>"M"</td>
+            <td>The month, from 1 through 12.<br><br> More information: <a href="#M_Specifier" data-linktype="self-bookmark">The "M" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; 6</td>
+        </tr>
+        <tr>
+            <td>"MM"</td>
+            <td>The month, from 01 through 12.<br><br> More information: <a href="#MM_Specifier" data-linktype="self-bookmark">The "MM" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; 06</td>
+        </tr>
+        <tr>
+            <td>"MMM"</td>
+            <td>The abbreviated name of the month.<br><br> More information: <a href="#MMM_Specifier" data-linktype="self-bookmark">The "MMM" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; Jun (en-US)<br><br> 2009-06-15T13:45:30 -&gt; juin (fr-FR)<br><br> 2009-06-15T13:45:30 -&gt; Jun (zu-ZA)</td>
+        </tr>
+        <tr>
+            <td>"MMMM"</td>
+            <td>The full name of the month.<br><br> More information: <a href="#MMMM_Specifier" data-linktype="self-bookmark">The "MMMM" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; June (en-US)<br><br> 2009-06-15T13:45:30 -&gt; juni (da-DK)<br><br> 2009-06-15T13:45:30 -&gt; uJuni (zu-ZA)</td>
+        </tr>
+        <tr>
+            <td>"s"</td>
+            <td>The second, from 0 through 59.<br><br> More information: <a href="#sSpecifier" data-linktype="self-bookmark">The "s" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:09 -&gt; 9</td>
+        </tr>
+        <tr>
+            <td>"ss"</td>
+            <td>The second, from 00 through 59.<br><br> More information: <a href="#ssSpecifier" data-linktype="self-bookmark">The "ss" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:09 -&gt; 09</td>
+        </tr>
+        <tr>
+            <td>"t"</td>
+            <td>The first character of the AM/PM designator.<br><br> More information: <a href="#tSpecifier" data-linktype="self-bookmark">The "t" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; P (en-US)<br><br> 2009-06-15T13:45:30 -&gt; 午 (ja-JP)<br><br> 2009-06-15T13:45:30 -&gt;  (fr-FR)</td>
+        </tr>
+        <tr>
+            <td>"tt"</td>
+            <td>The AM/PM designator.<br><br> More information: <a href="#ttSpecifier" data-linktype="self-bookmark">The "tt" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; PM (en-US)<br><br> 2009-06-15T13:45:30 -&gt; 午後 (ja-JP)<br><br> 2009-06-15T13:45:30 -&gt;  (fr-FR)</td>
+        </tr>
+        <tr>
+            <td>"y"</td>
+            <td>The year, from 0 to 99.<br><br> More information: <a href="#ySpecifier" data-linktype="self-bookmark">The "y" Custom Format Specifier</a>.</td>
+            <td>0001-01-01T00:00:00 -&gt; 1<br><br> 0900-01-01T00:00:00 -&gt; 0<br><br> 1900-01-01T00:00:00 -&gt; 0<br><br> 2009-06-15T13:45:30 -&gt; 9<br><br> 2019-06-15T13:45:30 -&gt; 19</td>
+        </tr>
+        <tr>
+            <td>"yy"</td>
+            <td>The year, from 00 to 99.<br><br> More information: <a href="#yySpecifier" data-linktype="self-bookmark">The "yy" Custom Format Specifier</a>.</td>
+            <td>0001-01-01T00:00:00 -&gt; 01<br><br> 0900-01-01T00:00:00 -&gt; 00<br><br> 1900-01-01T00:00:00 -&gt; 00<br><br> 2019-06-15T13:45:30 -&gt; 19</td>
+        </tr>
+        <tr>
+            <td>"yyy"</td>
+            <td>The year, with a minimum of three digits.<br><br> More information: <a href="#yyySpecifier" data-linktype="self-bookmark">The "yyy" Custom Format Specifier</a>.</td>
+            <td>0001-01-01T00:00:00 -&gt; 001<br><br> 0900-01-01T00:00:00 -&gt; 900<br><br> 1900-01-01T00:00:00 -&gt; 1900<br><br> 2009-06-15T13:45:30 -&gt; 2009</td>
+        </tr>
+        <tr>
+            <td>"yyyy"</td>
+            <td>The year as a four-digit number.<br><br> More information: <a href="#yyyySpecifier" data-linktype="self-bookmark">The "yyyy" Custom Format Specifier</a>.</td>
+            <td>0001-01-01T00:00:00 -&gt; 0001<br><br> 0900-01-01T00:00:00 -&gt; 0900<br><br> 1900-01-01T00:00:00 -&gt; 1900<br><br> 2009-06-15T13:45:30 -&gt; 2009</td>
+        </tr>
+        <tr>
+            <td>"yyyyy"</td>
+            <td>The year as a five-digit number.<br><br> More information: <a href="#yyyyySpecifier" data-linktype="self-bookmark">The "yyyyy" Custom Format Specifier</a>.</td>
+            <td>0001-01-01T00:00:00 -&gt; 00001<br><br> 2009-06-15T13:45:30 -&gt; 02009</td>
+        </tr>
+        <tr>
+            <td>"z"</td>
+            <td>Hours offset from UTC, with no leading zeros.<br><br> More information: <a href="#zSpecifier" data-linktype="self-bookmark">The "z" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30-07:00 -&gt; -7</td>
+        </tr>
+        <tr>
+            <td>"zz"</td>
+            <td>Hours offset from UTC, with a leading zero for a single-digit value.<br><br> More information: <a href="#zzSpecifier" data-linktype="self-bookmark">The "zz" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30-07:00 -&gt; -07</td>
+        </tr>
+        <tr>
+            <td>"zzz"</td>
+            <td>Hours and minutes offset from UTC.<br><br> More information: <a href="#zzzSpecifier" data-linktype="self-bookmark">The "zzz" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30-07:00 -&gt; -07:00</td>
+        </tr>
+        <tr>
+            <td>":"</td>
+            <td>The time separator.<br><br> More information: <a href="#timeSeparator" data-linktype="self-bookmark">The ":" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; : (en-US)<br><br> 2009-06-15T13:45:30 -&gt; . (it-IT)<br><br> 2009-06-15T13:45:30 -&gt; : (ja-JP)</td>
+        </tr>
+        <tr>
+            <td>"/"</td>
+            <td>The date separator.<br><br> More Information: <a href="#dateSeparator" data-linktype="self-bookmark">The "/" Custom Format Specifier</a>.</td>
+            <td>2009-06-15T13:45:30 -&gt; / (en-US)<br><br> 2009-06-15T13:45:30 -&gt; - (ar-DZ)<br><br> 2009-06-15T13:45:30 -&gt; . (tr-TR)</td>
+        </tr>
+        <tr>
+            <td>"<em>string</em>"<br><br> '<em>string</em>'</td>
+            <td>Literal string delimiter.<br><br> More information: <a href="#Literals" data-linktype="self-bookmark">Character literals</a>.</td>
+            <td>2009-06-15T13:45:30 ("arr:" h:m t) -&gt; arr: 1:45 P<br><br> 2009-06-15T13:45:30 ('arr:' h:m t) -&gt; arr: 1:45 P</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Defines the following character as a custom format specifier.<br><br> More information:<a href="#UsingSingleSpecifiers" data-linktype="self-bookmark">Using Single Custom Format Specifiers</a>.</td>
+            <td>2009-06-15T13:45:30 (%h) -&gt; 1</td>
+        </tr>
+        <tr>
+            <td>\</td>
+            <td>The escape character.<br><br> More information: <a href="#Literals" data-linktype="self-bookmark">Character literals</a> and <a href="#escape" data-linktype="self-bookmark">Using the Escape Character</a>.</td>
+            <td>2009-06-15T13:45:30 (h \h) -&gt; 1 h</td>
+        </tr>
+        <tr>
+            <td>Any other character</td>
+            <td>The character is copied to the result string unchanged.<br><br> More information: <a href="#Literals" data-linktype="self-bookmark">Character literals</a>.</td>
+            <td>2009-06-15T01:45:30 (arr hh:mm t) -&gt; arr 01:45 A</td>
+        </tr>
+    </tbody>
+</table>

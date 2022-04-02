@@ -10,9 +10,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-Format-Info.html" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Kinguin_API_Icon.ico" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\sqlschema.sql" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\readme.txt" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\supportedlanguages.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Logs\about.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -28,9 +33,19 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-FormatHelper.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-FormatHelper.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\ACT_Common_Icon.pdn" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\GPL3-29.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\Lic.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\JSON_USERTYPES.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\Logs\" />
   </ItemGroup>
 </Project>

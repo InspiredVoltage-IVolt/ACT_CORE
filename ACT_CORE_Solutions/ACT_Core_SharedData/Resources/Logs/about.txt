@@ -1,0 +1,3 @@
+﻿\\\\\Resources\Log\
+
+This contains logs from both NLog and Internal Methods.
