@@ -11,6 +11,7 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-Format-Info.html" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Icon.ico" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Kinguin_API_Icon.ico" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\sqlschema.sql" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\readme.txt" />

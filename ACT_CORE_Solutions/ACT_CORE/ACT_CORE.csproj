@@ -45,6 +45,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\MarkAlicz\.nuget\packages\act_enums\2.1.2\contentFiles\any\net6.0\Icon.ico" />
     <Content Remove="C:\Users\MarkAlicz\.nuget\packages\act_interfaces\2.1.3\contentFiles\any\net6.0\ACT_Interfaces.ico" />
     <Content Remove="C:\Users\MarkAlicz\.nuget\packages\act_security\2.1.0\contentFiles\any\net6.0\ACT_Security_Icon.ico" />
   </ItemGroup>
