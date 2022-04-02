@@ -11,24 +11,31 @@ namespace ACT.Core.Managers
 {
     public static class Development_Attribute_Manager
     {
-
+        /// <summary>
+        /// Generates the Development Attribute Report
+        /// </summary>
+        /// <param name="DLL_PATH">DLL To Evaluate</param>
+        /// <param name="ExportLogTo">Location To save Report To</param>
+        /// <returns></returns>
         public static string Generate_Development_Status_Report(string DLL_PATH, string ExportLogTo = null)
         {
             string _OriginalPath = DLL_PATH;
 
-            if (ExportLogTo == null) {
-                var logEventInfo = new LogEventInfo { TimeStamp = DateTime.Now };                
-                ExportLogTo = (LogManager.Configuration.FindTargetByName("file") as FileTarget).FileName.Render(logEventInfo);             
+            if (ExportLogTo == null)
+            {
+                var logEventInfo = new LogEventInfo { TimeStamp = DateTime.Now };
+                ExportLogTo = (LogManager.Configuration.FindTargetByName("file") as FileTarget).FileName.Render(logEventInfo);
             }
+
             if (ExportLogTo.DirectoryExists() == false)
             {
                 try
                 {
                     ExportLogTo.CreateDirectoryStructure(null);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    ExportLogTo = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Logs\\";                        
+                    ExportLogTo = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Logs\\";
                     _.LogBasicInfoWithException("ACT.Core.Managers.Generate_Development_Status_Report(DLL Path) NO FLL FOUND...", ex);
                     throw;
                 }
@@ -47,28 +54,24 @@ namespace ACT.Core.Managers
                     throw _ex;
                 }
             }
-                   
+
+            string DevReportFileName = DateTime.Now.ToString("MM-dd-yyyy-ff") + "-DEV-TODO-REPORT.txt";
+
             string _Code = GetDevReport(DLL_PATH);
-      
-            string DevReportFileName = ""
 
-            if (ExportLogTo.GetDirectoryFromFileLocation().EnsureDirectoryFormat().DirectoryExists() == false
-                || _ExportToLocation.ToLower().EndsWith(".json") == false)
-            {
-                SC.WriteLine("Error Invalid Path. Please Try Again.");
-                goto GetExportLocation;
-            }
-            _Code.SaveAllText(_ExportToLocation);
+            System.IO.File.WriteAllText(ExportLogTo.EnsureDirectoryFormat(), _Code);
 
-            SC.WriteLine("");
-            SC.Write("Report Saved: Press Any Key To Continue: ");
-            SC.ReadKey();
-            goto mainMenu;
+            return ExportLogTo.EnsureDirectoryFormat() + DevReportFileName;
         }
 
+        /// <summary>
+        /// Shortcut to attribute Method
+        /// </summary>
+        /// <param name="Path">Path Tp DLL</param>
+        /// <returns>REPORT TEXT</returns>
         static string GetDevReport(string Path)
         {
-            return ACT.Core.Attributes.Helper.GenerateJSONDevelopmentReport(Path, true);
+            return Attributes.Helper.GenerateJSONDevelopmentReport(Path, true);
         }
     }
 }
