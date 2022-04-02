@@ -19,7 +19,7 @@ using Newtonsoft.Json.Converters;
 namespace ACT.Core
 {
 
-    public partial class SystemConfiguration
+    public class SystemConfiguration
     {
         [JsonProperty("file_version", NullValueHandling = NullValueHandling.Ignore)]
         public double? FileVersion { get; set; }

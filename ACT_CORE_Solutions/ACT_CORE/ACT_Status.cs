@@ -24,7 +24,7 @@ namespace ACT.Core
         public static string LicenceFileFileLocation = LicenceFilePath + "Lic.enc";
         public static string SettingsINIFileLocation = ResourcesDirectory + "Settings.ini";
         public static string SysConfigFileLocation = ResourcesDirectory + "SystemConfiguration.json";
-        public static string SysConfigEncFileLocationc = ResourcesDirectory + "SystemConfiguration.enc";
+        public static string SysConfigEncFileLocation = ResourcesDirectory + "SystemConfiguration.enc";
         #endregion
 
         #region INIFILE SETTINGS
@@ -40,7 +40,7 @@ namespace ACT.Core
         private static bool _ACT_Core_Ready = false; 
         
         public static bool SettingsNeedSaving { get { return _ACT_Needs_Saving; } internal set { _ACT_Needs_Saving = value; } }
-        public static bool ACT_Core_Ready { get { if (_ACT_Core_Ready && SystemSettings._LoadedConfigurationData != null) { return true; } else { return false; } } }
+        public static bool ACT_Core_Ready { get { if (_ACT_Core_Ready && SystemSettings.Primary_Loaded_SystemConfigurationFile != null) { return true; } else { return false; } } internal set { _ACT_Core_Ready = value; } }
 
 
         

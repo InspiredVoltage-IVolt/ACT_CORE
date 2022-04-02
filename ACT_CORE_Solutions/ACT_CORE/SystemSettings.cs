@@ -2,6 +2,7 @@
 using ACT.Core.Exceptions;
 using ACT.Core.Extensions;
 using ACT.Core.ACT_Types;
+using ACT.Core.Security;
 
 namespace ACT.Core
 {
@@ -42,26 +43,20 @@ namespace ACT.Core
 
             // Load Configuration
 
-            _ACT_Core_Ready = false;
-            if (ACT_Core_Ready == false) { ProcessFirstStartup(); }
-
-
-            
+            ACT_Status.ACT_Core_Ready = false;
+            if (ACT_Status.ACT_Core_Ready == false) { ProcessFirstStartup(); }
 
 
         }
 
-        #region public Variables
+        #region Public Configuration Variables
 
-        public static SystemConfiguration _LoadedConfigurationData = null;
+        public static SystemConfiguration Primary_Loaded_SystemConfigurationFile = null;
         public static Dictionary<string, SystemConfiguration> _AdditionalLoadedConfiguration = new Dictionary<string, SystemConfiguration>();
 
-       
         #endregion
 
         #region Methods
-
-
 
         /// <summary>
         /// Checks to see if this is the first time ACT_Core has been used.
@@ -75,172 +70,108 @@ namespace ACT.Core
         /// <returns>true / false</returns>
         private static bool ProcessFirstStartup()
         {
-            bool _IsEncrypted = false;
-
-            // Check If Config Is Encrypted
-            if (ACT_Status.SysConfigEncFileLocationc.FileExists()) { _IsEncrypted = true; }
-            else
+            // Check If Config Is Encrypted and Needed
+            if (ACT_Status.EncryptConfigFile)
             {
-
-            }
-
-
-            // Loop over all Encrypted Files
-            // If Found Nothing Left to Do.
-            foreach (string x in _FileLocationsEncrypted)
-            {
-                if (x.FileExists(x))
+                if (ACT_Status.SysConfigEncFileLocation.FileExists() == false)
                 {
-                    _FoundLocation = x;
-                    _IsEncrypted = true;
-                    goto foundFileLabel;
-                }
-            }
-
-            // If No Encrypted File Is Found
-            if (_FoundLocation == null)
-            {
-                foreach (string x in _FileLocationsPlainText)
-                {
-                    if (x.FileExists())
+                    // Search For Encrypted File
+                    ACT_Status.SysConfigEncFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.enc", true);
+                    if (ACT_Status.SysConfigEncFileLocation == "")
                     {
-                        _IsEncrypted = false;
-                        _FoundLocation = x;
-                        goto foundFileLabel;
+                        var ex = new FileNotFoundException("The Encryption File Was Not Found and is Required By the Settings INI");
+                        _.LogFatalError("SystemConfiguration Encrypted File Not Found", ex);
+                        throw ex;
                     }
                 }
-            }
-
-            ACT_Core_Ready = false;
-            return false;
-
-        foundFileLabel:
-
-            // Make Sure the Settings File Is Encrypted UNLESS config.noprotect file exists
-            if (_IsEncrypted == false)
-            {
-                if ((ResourceDirectory + "config.noprotect").FileExists() == true)
-                {
-                    return LoadConfigurationFile(_FoundLocation);
-                }
-                else
-                {
-                    ProtectConfigurationFile(_FoundLocation);
-                    return LoadConfigurationFile(_FoundLocation);
-                }
+                return LoadConfigurationFile(false);
             }
             else
             {
-                return LoadConfigurationFile(_FoundLocation);
+                if (ACT_Status.SysConfigFileLocation.FileExists() == false)
+                    // Search For SystemConfiguratioin File
+                    ACT_Status.SysConfigFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.json", true);
+                if (ACT_Status.SysConfigFileLocation == "")
+                {
+                    var ex = new FileNotFoundException("The UnEncrypted SysConfig File Was Not Found.");
+                    _.LogFatalError("The UnEncrypted SysConfig File Was Not Found.", ex);
+                    throw ex;
+                }
             }
+            return LoadConfigurationFile(true);
+        }
+
+        /// <summary>
+        /// Load the Configuration File As Defined and Found
+        /// </summary>
+        /// <param name="IsEncrypted">True if Using Encrypted Path Or Not</param>
+        /// <returns>true/false if Success</returns>
+        internal static bool LoadConfigurationFile(bool IsEncrypted)
+        {
+            if (ACT_Status.EncryptConfigFile == true && IsEncrypted == false) { ProtectConfigurationFile(); }
+            
+
+            if (IsEncrypted)
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    Primary_Loaded_SystemConfigurationFile = SystemConfiguration.FromJson(ACT_Status.SysConfigFileLocation.ReadAllText());
+                    return true;
+                }
+                catch
+                {
+                    var _ex = new ApplicationException("Critical Data Error");
+                    _.LogFatalError("Error Loading Primary Config File: " + ACT_Status.SysConfigFileLocation, _ex);
+                    throw _ex;
+                }
+            }
+        }
+
+        // Uses Microsoft Protection Machine Level To Protect Data
+        internal static bool ProtectConfigurationFile()
+        {
+            string _Data = "";
+            _Data = ACT_Status.SysConfigFileLocation.ReadAllText().FromBase64();
+
+            var _ProtectedData = _Data.ProtectByMachine();
+
+            if (_ProtectedData.NullOrEmpty()) 
+            {
+                _.LogFatalError("ACT.Core.Security.ProtectByMachine Unable To Protect  the Data: " + _ProtectedData, new Exception("Unable To Encrypt File"));
+                return false; 
+            }
+
+            try
+            {
+                File.WriteAllText(ACT_Status.SysConfigEncFileLocation, _ProtectedData, System.Text.Encoding.Default);
+            }
+            catch (Exception ex)
+            {
+                _.LogFatalError("Unable To Create Encrypted File", ex);
+                throw;
+            }
+
+            if (ACT_Status.SysConfigFileLocation.FileExists())
+            {
+                try { ACT_Status.SysConfigFileLocation.DeleteFile(50, true); }
+                catch (Exception ex)
+                {
+                    _.LogFatalError("Unable To Delete The Unencrypted ConfigurationFile", ex);
+                    throw;
+                }
+            }
+
+            return true;
         }
 
         #endregion
 
-        public bool LoadConfigurationFile(string Path, bool IsEncrypted, string configType = "default")
-        {
-            return false;
-        }
 
 
-
-        internal bool ProtectConfigurationFile(string Path)
-        {
-            return false;
-            string _Data = "";
-            _Data = Path.ReadAllText();
-
-            if ((AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.enc").FileExists())
-            {
-                //string _BackupConfigFile = (AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.enc").CopyFile_Passivly();
-                _Data.SaveAllText(AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.enc");
-            }
-
-            _Data.SaveAllText(AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.enc");
-
-            if ((AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.json").FileExists())
-            {
-                (AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\SystemConfiguration.json").DeleteFile(4999);
-            }
-
-            Path.DeleteFile(2000);
-        }
-
-
-
-
-        /// <summary>
-        /// Loads and Encrypts the configuration file.
-        /// </summary>
-        /// <param name="Path"></param>
-        /// <param name="IsEncrypted"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public bool LoadConfigurationFile(string Path, string configType = "default")
-        {
-            //var _tmpConfig = 
-            var _tmpConfig = SystemConfiguration.FromJson(Path.ReadAllText());
-
-            if (configType == "default") { _LoadedConfigurationData = _tmpConfig; }
-            else
-            {
-                if (_AdditionalLoadedConfiguration.ContainsKey(configType)) { _AdditionalLoadedConfiguration[configType] = _tmpConfig; }
-                else { _AdditionalLoadedConfiguration.Add(configType, _tmpConfig); }
-            }
-
-            if (_LoadedConfigurationData == null) { ACT_Core_Ready = false; return false; }
-
-            ACT_Core_Ready = true;
-            return true;
-        }
-
-
-        /// <summary>
-        /// Load the Encryption Key
-        /// </summary>
-        internal System.Security.SecureString Default_EncryptionKey
-        {
-            get
-            {
-                if (_StorageKeyData != null) { return _StorageKeyData["default"]; }
-                else
-                {
-                    if (_LoadedConfigurationData.EncryptionKeys.Exists(x => x.Identifier == "default" && x.KeyValue.NullOrEmpty() == false))
-                    {
-                        _Storage = _LoadedConfigurationData.EncryptionKeys.First(x => x.Identifier == "default").KeyValue.ToCharArray();
-                        _StorageKeyData.Add("default", new System.Security.SecureString());
-                        _Storage.ForEach(c => _StorageKeyData["default"].AppendChar(c));
-                    }
-                }
-
-                if (_StorageKeyData == null) { throw new Missing_Encryption_Key(); }
-                return _StorageKeyData[default];
-            }
-        }
-
-        /// <summary>
-        /// Load a secondary or seperate key
-        /// </summary>
-        /// <param name="Identifier"></param>
-        /// <returns></returns>
-        public bool LoadEncryptionKey(string Identifier)
-        {
-            if (SettingsLoaded == false) { throw new Exception("Settings Not Loaded"); }
-
-            try
-            {
-                if (_LoadedConfigurationData.EncryptionKeys.Exists(x => x.Identifier == Identifier && x.KeyValue.NullOrEmpty() == false))
-                {
-                    _Storage = _LoadedConfigurationData.EncryptionKeys.First(x => x.Identifier == Identifier).KeyValue.ToCharArray();
-                    _StorageKeyData.Add(Identifier, new System.Security.SecureString());
-                    _Storage.ForEach(c => _StorageKeyData[Identifier].AppendChar(c));
-                    return true;
-                }
-            }
-            catch { }
-
-            return false;
-        }
 
         /// <summary>
         /// Search For Sensitive Files and Auto Encrypt Them
@@ -250,7 +181,7 @@ namespace ACT.Core
         {
             if (SettingsLoaded == false) { throw new Exception("Settings Not Loaded"); }
 
-            var _Keywords = _LoadedConfigurationData.ComplexSettings.First(x => x.GroupName.ToLower() == "system" && x.Name.ToLower() == "sensitivefiles").Values;
+            var _Keywords = Primary_Loaded_SystemConfigurationFile.ComplexSettings.First(x => x.GroupName.ToLower() == "system" && x.Name.ToLower() == "sensitivefiles").Values;
             if (_Keywords == null || _Keywords.Count == 0) { return null; }
 
             return _Keywords;
@@ -266,13 +197,13 @@ namespace ACT.Core
         {
             if (SettingsLoaded == false) { return null; }
 
-            if (_LoadedConfigurationData.BasicSettings.Exists(x => x.Name == Name))
+            if (Primary_Loaded_SystemConfigurationFile.BasicSettings.Exists(x => x.Name == Name))
             {
-                return _LoadedConfigurationData.BasicSettings.First(x => x.Name == Name).Value;
+                return Primary_Loaded_SystemConfigurationFile.BasicSettings.First(x => x.Name == Name).Value;
             }
-            else if (_LoadedConfigurationData.ComplexSettings.Exists(x => x.Name == Name))
+            else if (Primary_Loaded_SystemConfigurationFile.ComplexSettings.Exists(x => x.Name == Name))
             {
-                return _LoadedConfigurationData.ComplexSettings.First(x => x.Name == Name).Value;
+                return Primary_Loaded_SystemConfigurationFile.ComplexSettings.First(x => x.Name == Name).Value;
             }
             return "";
         }
@@ -288,7 +219,7 @@ namespace ACT.Core
 
             if (SettingsLoaded == false) { return null; }
 
-            if (Name == "default") { return _LoadedConfigurationData; }
+            if (Name == "default") { return Primary_Loaded_SystemConfigurationFile; }
             else
             {
                 if (_AdditionalLoadedConfiguration.ContainsKey(Name))
