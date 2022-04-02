@@ -10,8 +10,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-Format-Info.html" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Icon.ico" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Settings.ini" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-Format-Info.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="$(MSBuildThisFileDirectory)Resources\Assets\Icons\Kinguin_API_Icon.ico" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\sqlschema.sql" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Localization\readme.txt" />
@@ -44,8 +49,8 @@
     <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\GPL3-29.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\Lic.txt">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\Lic.enc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\JSON_USERTYPES.sql" />
   </ItemGroup>

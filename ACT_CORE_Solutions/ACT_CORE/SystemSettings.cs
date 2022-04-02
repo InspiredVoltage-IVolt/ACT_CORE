@@ -16,62 +16,52 @@ namespace ACT.Core
     /// 
     /// 
     /// </summary>
-    internal class SystemSettings
+    public static class SystemSettings
     {
-        #region Private Variable
-
-        private bool HasStartedUpProperly = false;
-
-        internal SystemConfiguration _LoadedConfigurationData = null;
-
-        internal Dictionary<string, SystemConfiguration> _AdditionalLoadedConfiguration = new Dictionary<string, SystemConfiguration>();
-
-        private string LicFilePath { get { return AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "lic.txt"; } }
-
-        private char[] _Storage = null;
-
-        private Dictionary<string, System.Security.SecureString> _StorageKeyData = new Dictionary<string, System.Security.SecureString>();
-
-        #endregion
-
-        #region Public Properties
-
-        // Public Path Locations
-        public static string BaseDirectory { get { return AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat(); } }
-        public static string ResourceDirectory { get { return AppDomain.CurrentDomain.BaseDirectory.EnsureDirectoryFormat() + "Resources\\"; } }
-        internal static string SysConfig = AppDomain.CurrentDomain.BaseDirectory.FindFileReturnPath("SystemConfiguration.json");
-
-
-
-        internal static string SysConfigEnc = AppDomain.CurrentDomain.BaseDirectory.FindFileReturnPath("SystemConfiguration.enc");
-
-        public bool SettingsLoaded { get { if (HasStartedUpProperly && _LoadedConfigurationData != null) { return true; } else { return false; } } }
-        public bool SettingsNeedSaving { get; internal set; }
-        public string SettingsPath { get; internal set; } = "";
-        
-
-        #endregion
-
-        #region Constructor
-
         /// <summary>
-        /// Constructor For the System Settings Class
+        /// Constructor
         /// </summary>
-        public SystemSettings()
+        static SystemSettings()
         {
-            HasStartedUpProperly = false;
-            if (HasStartedUpProperly == false) { ProcessFirstStartup(); }
+            if (!ACT_Status.SysConfigFileLocation.FileExists()) { ACT_Status.SysConfigFileLocation = ACT_Status.BaseDirectory.FindFileReturnPath("SystemConfiguration.json", true); }
+            else
+            {
+                _ACT_Core_Ready = false;
+                var _EX = new FileNotFoundException("SystemConfiguration.json Not Found");
+                _.LogFatalError("Unable To Locate System Configuration Anywhere under or in the base directory.", _EX);
+                throw _EX;
+            }
+
+            #region Load Settings.ini File
+
+            var _INIData = ACT_Status.SettingsINIFileLocation.ReadAllText().SplitString(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+            if (_INIData[0].ToLower() == "encrypt_configfile") { ACT_Status.EncryptConfigFile = Convert.ToBoolean(_INIData[0].Substring(_INIData[0].IndexOf(":") + 1)); }
+            if (_INIData[1].ToLower() == "verbose-logging") { ACT_Status.VerboseDebugging = Convert.ToBoolean(_INIData[1].Substring(_INIData[1].IndexOf(":") + 1)); }
+
+            #endregion
+
+            // Load Configuration
+
+            _ACT_Core_Ready = false;
+            if (ACT_Core_Ready == false) { ProcessFirstStartup(); }
+
+
+            
+
+
         }
 
+        #region public Variables
+
+        public static SystemConfiguration _LoadedConfigurationData = null;
+        public static Dictionary<string, SystemConfiguration> _AdditionalLoadedConfiguration = new Dictionary<string, SystemConfiguration>();
+
+       
         #endregion
 
- 
-        public bool LoadConfigurationFile(string Path, bool IsEncrypted, string configType = "default")
-        {
-            return false;
-        }
+        #region Methods
 
-     
+
 
         /// <summary>
         /// Checks to see if this is the first time ACT_Core has been used.
@@ -83,12 +73,17 @@ namespace ACT.Core
         /// LoadConfigurationFile()
         /// </dependson>
         /// <returns>true / false</returns>
-        private bool ProcessFirstStartup()
+        private static bool ProcessFirstStartup()
         {
-            string[] _FileLocationsEncrypted = new string[] { BaseDirectory + "SystemConfiguration.enc", BaseDirectory + "Resources\\SystemConfiguration.enc", BaseDirectory + "Data\\SystemConfiguration.enc" };
-            string[] _FileLocationsPlainText = new string[] { BaseDirectory + "SystemConfiguration.json", BaseDirectory + "Resources\\SystemConfiguration.json", BaseDirectory + "Data\\SystemConfiguration.json" };
+            bool _IsEncrypted = false;
 
-            string _FoundLocation = null; bool _IsEncrypted = false;
+            // Check If Config Is Encrypted
+            if (ACT_Status.SysConfigEncFileLocationc.FileExists()) { _IsEncrypted = true; }
+            else
+            {
+
+            }
+
 
             // Loop over all Encrypted Files
             // If Found Nothing Left to Do.
@@ -116,7 +111,7 @@ namespace ACT.Core
                 }
             }
 
-            HasStartedUpProperly = false;
+            ACT_Core_Ready = false;
             return false;
 
         foundFileLabel:
@@ -139,6 +134,15 @@ namespace ACT.Core
                 return LoadConfigurationFile(_FoundLocation);
             }
         }
+
+        #endregion
+
+        public bool LoadConfigurationFile(string Path, bool IsEncrypted, string configType = "default")
+        {
+            return false;
+        }
+
+
 
         internal bool ProtectConfigurationFile(string Path)
         {
@@ -184,9 +188,9 @@ namespace ACT.Core
                 else { _AdditionalLoadedConfiguration.Add(configType, _tmpConfig); }
             }
 
-            if (_LoadedConfigurationData == null) { HasStartedUpProperly = false; return false; }
+            if (_LoadedConfigurationData == null) { ACT_Core_Ready = false; return false; }
 
-            HasStartedUpProperly = true;
+            ACT_Core_Ready = true;
             return true;
         }
 
