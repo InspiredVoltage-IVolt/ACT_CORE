@@ -12,7 +12,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
     /// <summary>
     /// ACT Query Result - Represents the I_QueryResult Execution Results
     /// </summary>
-    [ACT.Core.CustomAttributes.ClassID("ACT.Plugins.ACTQueryResult")]
+  //  [ACT.Core.CustomAttributes.ClassID("ACT.Plugins.ACTQueryResult")]
     public class ACT_QueryResult : ACT_Core, I_QueryResult
     {
 

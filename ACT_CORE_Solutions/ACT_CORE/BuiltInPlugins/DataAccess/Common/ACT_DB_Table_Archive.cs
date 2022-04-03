@@ -30,15 +30,15 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
 
         public string GitHubPackageVersion => throw new NotImplementedException();
 
-        public string ArchiveAllData(string TableName, string EncryptionKey = "", Plugin PluginConfigInfo = null)
+        public string ArchiveAllData(string TableName, string EncryptionKey = "", I_Plugin PluginConfigInfo = null)
         {
             throw new NotImplementedException();
         }
 
-        public ACT_Package ArchiveToPackage(string TableName, string EncryptionKey = "", Plugin PluginConfigInfo = null)
-        {
-            throw new NotImplementedException();
-        }
+        //public ACT_Package ArchiveToPackage(string TableName, string EncryptionKey = "", I_Plugin PluginConfigInfo = null)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public string GenerateArchiveSQL(string TableName)
         {

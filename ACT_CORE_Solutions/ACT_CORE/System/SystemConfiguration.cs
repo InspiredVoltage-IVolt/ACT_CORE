@@ -24,6 +24,9 @@ namespace ACT.Core
         [JsonProperty("file_version", NullValueHandling = NullValueHandling.Ignore)]
         public double? FileVersion { get; set; }
 
+        [JsonProperty("optional_custom_name", NullValueHandling = NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
         [JsonProperty("installation_info", NullValueHandling = NullValueHandling.Ignore)]
         public InstallationInfo InstallationInfo { get; set; }
 

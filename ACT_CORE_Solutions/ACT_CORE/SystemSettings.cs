@@ -1,4 +1,5 @@
-﻿using ACT.Core.Enums;
+﻿using System.Linq;
+using ACT.Core.Enums;
 using ACT.Core.Exceptions;
 using ACT.Core.Extensions;
 using ACT.Core.ACT_Types;
@@ -19,44 +20,177 @@ namespace ACT.Core
     /// </summary>
     public static class SystemSettings
     {
+        #region Events
+        public static event Delegate.OnChanged AddSystemTimerCheck;
+        #endregion
+
+        #region MAIN SYSTEM TIMER
+
+        static System.Timers.Timer ChangeManagementTimer;
+
+        private static void ChangeManagementTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (ACT_Status.ACT_Core_Ready == false) { ACT_Status.CHECKREADY("ChangeManagementTimer_Elapsed");}
+
+            ChangeManagementTimer.Stop();
+
+            if (ACT_Status.SystemConfigurationFileChanged)
+            {
+                if (ACT_Status.AutoSaveChangedSystemConfigurationChanges)
+                {
+                    string _NewJSON = "";
+                    lock (ACT_Status.Primary_Loaded_SystemConfigurationFile)
+                    {
+                        _NewJSON = ACT_Status.Primary_Loaded_SystemConfigurationFile.ToJson();
+                    }
+                    if (ACT_Status.EncryptConfigFile)
+                    {
+                        string _EncNewJSON = _NewJSON.ProtectByMachine();
+                        _EncNewJSON.SaveAllText(ACT_Status.SysConfigEncFileLocation);
+
+                        if (ACT_Status.KeepPlaintextConfigfile)
+                        {
+                            _NewJSON.SaveAllText(ACT_Status.SysConfigFileLocation);
+                        }
+                    }
+
+                }
+            }
+
+            if (AddSystemTimerCheck != null)
+            {
+                foreach(Delegate.OnChanged _EventToHandle in AddSystemTimerCheck.GetInvocationList())
+                {
+                    _EventToHandle(ACT_Status.GetChangedItemsForDelegate);
+                }
+            }
+
+            ChangeManagementTimer.Start();
+        }
+
+        #endregion
+
         /// <summary>
-        /// Constructor
+        /// Static Constructor (Runs First Always)
         /// </summary>
         static SystemSettings()
         {
-            if (!ACT_Status.SysConfigFileLocation.FileExists()) { ACT_Status.SysConfigFileLocation = ACT_Status.BaseDirectory.FindFileReturnPath("SystemConfiguration.json", true); }
+            #region Load Settings.ini File
+            if (!ACT_Status.SettingsINIFileLocation.FileExists())
+            {
+                _.LogBasicInfo("MISSING INI FILE AT: " + ACT_Status.SettingsINIFileLocation);
+                ACT_Status.MissingIniFile = true;
+            }
             else
             {
-                _ACT_Core_Ready = false;
-                var _EX = new FileNotFoundException("SystemConfiguration.json Not Found");
+                ACT_Status.MissingIniFile = false;
+                LoadIniFile();
+            }
+            #endregion
+
+            #region Config File Checks
+            ValidateSystemConfigFileLocations();
+            #endregion
+
+            #region Load Configuration File
+            ACT_Status.ACT_Core_Ready = ProcessFirstStartup();
+
+            if (ACT_Status.ACT_Core_Ready == false)
+            {
+                Exception _FatalFinal = new ApplicationException("ACT CORE SYSTEM FAILED TO START");
+                _.LogFatalError(_FatalFinal.Message + " __ CHECK LOGS FOR MORE INFO ", _FatalFinal);
+                throw _FatalFinal;
+            }
+            #endregion
+
+            #region Configure Main System Timer
+            ChangeManagementTimer = new System.Timers.Timer(ACT_Status.MainTimerInterval);
+            ChangeManagementTimer.Elapsed += ChangeManagementTimer_Elapsed;
+            ChangeManagementTimer.Start();
+            #endregion
+        }
+
+
+        #region Methods
+
+        /// <summary>
+        /// Validate Location of Plain Text And/Or Encrypted File Location Based on INI Settings
+        /// </summary>
+        internal static void ValidateSystemConfigFileLocations()
+        {
+            bool _ConfigCriticalError = false;
+            if (!ACT_Status.SysConfigFileLocation.FileExists())
+            {
+                ACT_Status.SysConfigFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.json", true);
+            }
+
+            if (!ACT_Status.SysConfigEncFileLocation.FileExists())
+            {
+                ACT_Status.SysConfigEncFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.enc", true);
+            }
+
+            if (ACT_Status.EncryptConfigFile == false)
+            {
+                if (ACT_Status.SysConfigFileLocation.NullOrEmpty()) { _ConfigCriticalError = true; }
+            }
+            else
+            {
+                if (ACT_Status.SysConfigFileLocation.NullOrEmpty() && ACT_Status.SysConfigEncFileLocation.NullOrEmpty()) { _ConfigCriticalError = true; }
+            }
+
+            if (_ConfigCriticalError)
+            {
+                ACT_Status.ACT_Core_Ready = false;
+                var _EX = new FileNotFoundException("SystemConfiguration Not Found");
                 _.LogFatalError("Unable To Locate System Configuration Anywhere under or in the base directory.", _EX);
                 throw _EX;
             }
 
-            #region Load Settings.ini File
-
-            var _INIData = ACT_Status.SettingsINIFileLocation.ReadAllText().SplitString(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-            if (_INIData[0].ToLower() == "encrypt_configfile") { ACT_Status.EncryptConfigFile = Convert.ToBoolean(_INIData[0].Substring(_INIData[0].IndexOf(":") + 1)); }
-            if (_INIData[1].ToLower() == "verbose-logging") { ACT_Status.VerboseDebugging = Convert.ToBoolean(_INIData[1].Substring(_INIData[1].IndexOf(":") + 1)); }
-
-            #endregion
-
-            // Load Configuration
-
-            ACT_Status.ACT_Core_Ready = false;
-            if (ACT_Status.ACT_Core_Ready == false) { ProcessFirstStartup(); }
-
-
         }
 
-        #region Public Configuration Variables
+        /// <summary>
+        /// Loads the INI File Settings
+        /// </summary>
+        internal static void LoadIniFile()
+        {
+            try
+            {
+                ACT.Core.Managers.ini_File_Manager _IniManager = new Managers.ini_File_Manager(ACT_Status.SettingsINIFileLocation);
 
-        public static SystemConfiguration Primary_Loaded_SystemConfigurationFile = null;
-        public static Dictionary<string, SystemConfiguration> _AdditionalLoadedConfiguration = new Dictionary<string, SystemConfiguration>();
+                // SECTION configurationfile
+                ACT_Status.EncryptConfigFile = _IniManager.GetValue("encryptconfigfile", "configurationfile").ToBool(false);
+                ACT_Status.KeepPlaintextConfigfile = _IniManager.GetValue("KeepPlainTextConfigfile", "configurationfile").ToBool(true);
+                ACT_Status.EnableAutoEncryptSensitiveSettings = _IniManager.GetValue("enableautoencryptsensitivesettings", "configurationfile").ToBool(false);
+                
+                // ARRAY BAR SEPERATED STRINGS
+                string _TmpAdditionalKeywords = _IniManager.GetValue("additionalsensitivekeywords", "configurationfile");
+                if (_TmpAdditionalKeywords.NullOrEmpty() == false)
+                {
+                    if (_TmpAdditionalKeywords.Contains("|"))
+                    {
+                        foreach (string keyword in _TmpAdditionalKeywords.SplitString("|", StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            if (ACT_Status.AdditionalSensitiveKeywords.Contains(keyword)) { continue; }
+                            ACT_Status.AdditionalSensitiveKeywords.Add(keyword);
+                        }
+                    }
+                    else
+                    {
+                        ACT_Status.AdditionalSensitiveKeywords.Add(_TmpAdditionalKeywords);
+                    }
+                }
 
-        #endregion
-
-        #region Methods
+                // SECTION actbasicsettings
+                ACT_Status.VerboseDebugging = _IniManager.GetValue("verboselogging", "actbasicsettings").ToBool(false);
+                ACT_Status.MainTimerInterval = _IniManager.GetValue("maintimerinterval", "actbasicsettings").ToInt(10000);
+                ACT_Status.AutoSaveChangedSystemConfigurationChanges = _IniManager.GetValue("autosavechangedsystemconfigurationchanges", "actbasicsettings").ToBool(false);
+            }
+            catch (Exception ex)
+            {
+                ACT_Status.MissingIniFile = true;
+                _.LogBasicInfo("Error Loading INI File, using Defaults." + ex.Message);
+            }
+        }
 
         /// <summary>
         /// Checks to see if this is the first time ACT_Core has been used.
@@ -73,53 +207,60 @@ namespace ACT.Core
             // Check If Config Is Encrypted and Needed
             if (ACT_Status.EncryptConfigFile)
             {
-                if (ACT_Status.SysConfigEncFileLocation.FileExists() == false)
+                if (ACT_Status.SysConfigEncFileLocation.NullOrEmpty() == true)
                 {
-                    // Search For Encrypted File
-                    ACT_Status.SysConfigEncFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.enc", true);
-                    if (ACT_Status.SysConfigEncFileLocation == "")
-                    {
-                        var ex = new FileNotFoundException("The Encryption File Was Not Found and is Required By the Settings INI");
-                        _.LogFatalError("SystemConfiguration Encrypted File Not Found", ex);
-                        throw ex;
-                    }
+                    return LoadDefaultConfigurationFile(false);
                 }
-                return LoadConfigurationFile(false);
+                else
+                {
+                    return LoadDefaultConfigurationFile(true);
+                }
             }
             else
             {
-                if (ACT_Status.SysConfigFileLocation.FileExists() == false)
-                    // Search For SystemConfiguratioin File
-                    ACT_Status.SysConfigFileLocation = ACT_Status.ResourcesDirectory.FindFileReturnPath("SystemConfiguration.json", true);
-                if (ACT_Status.SysConfigFileLocation == "")
+                if (ACT_Status.SysConfigFileLocation.NullOrEmpty() == false)
+                {
+                    return LoadDefaultConfigurationFile(false);
+                }
+                else
                 {
                     var ex = new FileNotFoundException("The UnEncrypted SysConfig File Was Not Found.");
                     _.LogFatalError("The UnEncrypted SysConfig File Was Not Found.", ex);
                     throw ex;
                 }
             }
-            return LoadConfigurationFile(true);
         }
 
         /// <summary>
         /// Load the Configuration File As Defined and Found
         /// </summary>
-        /// <param name="IsEncrypted">True if Using Encrypted Path Or Not</param>
+        /// <param name="EncryptedFileExists">True if Using Encrypted Path Or Not</param>
         /// <returns>true/false if Success</returns>
-        internal static bool LoadConfigurationFile(bool IsEncrypted)
+        internal static bool LoadDefaultConfigurationFile(bool EncryptedFileExists)
         {
-            if (ACT_Status.EncryptConfigFile == true && IsEncrypted == false) { ProtectConfigurationFile(); }
-            
+            if (ACT_Status.EncryptConfigFile == true && EncryptedFileExists == false) { ProtectConfigurationFile(); }
 
-            if (IsEncrypted)
+            if (EncryptedFileExists)
             {
-
+                try
+                {
+                    var _EncData = ACT_Status.SysConfigEncFileLocation.ReadAllText();
+                    var _Data = Protection.UnProtectByMachine(_EncData);
+                    ACT_Status.Primary_Loaded_SystemConfigurationFile = SystemConfiguration.FromJson(_Data);
+                    return true;
+                }
+                catch
+                {
+                    var _ex = new ApplicationException("Critical Encrypted Data Error");
+                    _.LogFatalError("Error Loading Primary Encrypted Config File: " + ACT_Status.SysConfigEncFileLocation, _ex);
+                    throw _ex;
+                }
             }
             else
             {
                 try
                 {
-                    Primary_Loaded_SystemConfigurationFile = SystemConfiguration.FromJson(ACT_Status.SysConfigFileLocation.ReadAllText());
+                    ACT_Status.Primary_Loaded_SystemConfigurationFile = SystemConfiguration.FromJson(ACT_Status.SysConfigFileLocation.ReadAllText());
                     return true;
                 }
                 catch
@@ -131,7 +272,10 @@ namespace ACT.Core
             }
         }
 
-        // Uses Microsoft Protection Machine Level To Protect Data
+        /// <summary>
+        /// Uses Microsoft Protection Machine Level To Protect Data
+        /// </summary>
+        /// <returns>True If It Worked, False If Something Broke</returns>
         internal static bool ProtectConfigurationFile()
         {
             string _Data = "";
@@ -139,10 +283,10 @@ namespace ACT.Core
 
             var _ProtectedData = _Data.ProtectByMachine();
 
-            if (_ProtectedData.NullOrEmpty()) 
+            if (_ProtectedData.NullOrEmpty())
             {
                 _.LogFatalError("ACT.Core.Security.ProtectByMachine Unable To Protect  the Data: " + _ProtectedData, new Exception("Unable To Encrypt File"));
-                return false; 
+                return false;
             }
 
             try
@@ -168,69 +312,63 @@ namespace ACT.Core
             return true;
         }
 
-        #endregion
-
-
-
-
+        [DEV(ToDo = true, Priority = 10, ToDo_Description = "Check All Settings For Sensitive Data")]
         /// <summary>
         /// Search For Sensitive Files and Auto Encrypt Them
         /// </summary>
-        /// <returns></returns>
-        public List<string> DetectSensitiveFiles(List<string> CustomKeywords)
+        /// <returns>Count Of Items Found</returns>
+        internal static int AutoEncryptSensitiveFiles(bool AutoUpdateFile = true, List<string> CustomKeywords = null)
         {
-            if (SettingsLoaded == false) { throw new Exception("Settings Not Loaded"); }
+            if (ACT_Status.ACT_Core_Ready == false) { ACT_Status.CHECKREADY("AutoEncryptSensitiveFiles"); }
 
-            var _Keywords = Primary_Loaded_SystemConfigurationFile.ComplexSettings.First(x => x.GroupName.ToLower() == "system" && x.Name.ToLower() == "sensitivefiles").Values;
-            if (_Keywords == null || _Keywords.Count == 0) { return null; }
+            List<string> _Keywords = new List<string>();
+            if (ACT_Status.AdditionalSensitiveKeywords!= null) { _Keywords.AddRange(ACT_Status.AdditionalSensitiveKeywords); }
 
-            return _Keywords;
+
+            return -1;           
         }
 
         /// <summary>
-        /// Search For a Specific Setting
+        /// Search All Settings For a Setting Wtith a Name
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="SectionsToSearch"></param>
-        /// <returns></returns>
-        public string GetSettingByName(string Name, SystemSettingsSections SectionsToSearch = (SystemSettingsSections.Basic | SystemSettingsSections.Complex))
+        /// <param name="Name">Name OF Property</param>
+        /// <param name="SectionsToSearch">One Or More Types Of Sections To Search</param>
+        /// <returns>String or Delimited String if Complex Item Is Foound, Null IF NOT FOUND</returns>
+        internal static string GetSettingByName(string Name, SystemSettingsSections SectionsToSearch = (SystemSettingsSections.Basic | SystemSettingsSections.Complex))
         {
-            if (SettingsLoaded == false) { return null; }
-
-            if (Primary_Loaded_SystemConfigurationFile.BasicSettings.Exists(x => x.Name == Name))
+            if (ACT_Status.ACT_Core_Ready == false) { ACT_Status.CHECKREADY("GetSettingByName"); }
+            
+            if (ACT_Status.Primary_Loaded_SystemConfigurationFile.BasicSettings.Exists(x => x.Name == Name))
             {
-                return Primary_Loaded_SystemConfigurationFile.BasicSettings.First(x => x.Name == Name).Value;
+                return ACT_Status.Primary_Loaded_SystemConfigurationFile.BasicSettings.First(x => x.Name == Name).Value;
             }
-            else if (Primary_Loaded_SystemConfigurationFile.ComplexSettings.Exists(x => x.Name == Name))
+            else if (ACT_Status.Primary_Loaded_SystemConfigurationFile.ComplexSettings.Exists(x => x.Name == Name))
             {
-                return Primary_Loaded_SystemConfigurationFile.ComplexSettings.First(x => x.Name == Name).Value;
+                return ACT_Status.Primary_Loaded_SystemConfigurationFile.ComplexSettings.First(x => x.Name == Name).Values.ToDelimitedString("###");
             }
-            return "";
+            return null;
         }
 
+        [DEV(ToDo = true, Priority = 10, ToDo_Description = "Code this Shit")]
         /// <summary>
         /// Gets Active Config
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        public ACT_Types.SystemConfiguration GetAndSet_ActiveConfig(string Name = "")
+        public static void ChangePrimaryLoadedSystemConfiguration(string Name = "")
         {
-            if (Name.NullOrEmpty()) { Name = "Default"; }
+            if (ACT_Status.ACT_Core_Ready == false) { ACT_Status.CHECKREADY("ChangePrimaryLoadedSystemConfiguration"); }
 
-            if (SettingsLoaded == false) { return null; }
-
-            if (Name == "default") { return Primary_Loaded_SystemConfigurationFile; }
+            if (Name.NullOrEmpty()) { return; }
+            
+            string _Current = ACT_Status.Primary_Loaded_SystemConfigurationFile.Name;
+            if (_Current == Name) { return; }
             else
             {
-                if (_AdditionalLoadedConfiguration.ContainsKey(Name))
-                {
-                    return _AdditionalLoadedConfiguration[Name];
-                }
-                else
-                {
-                    return null;
-                }
+                return;
             }
-        }
+        } 
+        
+        #endregion
     }
 }

@@ -30,12 +30,14 @@
 
         public string Encrypt(string clearText)
         {
-            return ACT.Core.Security.Encryption.EncryptString(clearText, "asd");
+            return "";
+            //return ACT.Core.Security.Encryption.EncryptString(clearText, "asd");
         }
 
         public string Encrypt(string clearText, string Password)
         {
-            return ACT.Core.Security.Encryption.EncryptString(clearText, Password);
+            return "";
+           // return ACT.Core.Security.Encryption.EncryptString(clearText, Password);
         }
 
         public byte[] Encrypt(byte[] clearData, string Password)
@@ -64,6 +66,16 @@
         }
 
         public string MD5ALT(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string NarrowDecrypt(string ClearText, bool UseUser = true, bool UseMachine = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string NarrowEncrypt(string ClearText, bool UseUser = true, bool UseMachine = false)
         {
             throw new NotImplementedException();
         }

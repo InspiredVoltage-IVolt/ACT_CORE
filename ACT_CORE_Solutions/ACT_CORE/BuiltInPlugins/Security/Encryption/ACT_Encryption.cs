@@ -454,5 +454,15 @@ namespace ACT.Core.BuiltInPlugins.Security.Encryption
         {
             throw new NotImplementedException();
         }
+
+        public string NarrowEncrypt(string ClearText, bool UseUser = true, bool UseMachine = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string NarrowDecrypt(string ClearText, bool UseUser = true, bool UseMachine = false)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
