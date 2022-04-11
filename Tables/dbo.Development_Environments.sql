@@ -19,3 +19,5 @@ ALTER TABLE [dbo].[Development_Environments] ADD CONSTRAINT [FK_Development_Envi
 GO
 ALTER TABLE [dbo].[Development_Environments] ADD CONSTRAINT [FK_Development_Environments_Members_Member_ID_TO_Member_ID] FOREIGN KEY ([Member_ID]) REFERENCES [dbo].[Members] ([ID])
 GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'DEVELOPMENT/ENVIRONMENTS', 'SCHEMA', N'dbo', 'TABLE', N'Development_Environments', NULL, NULL
+GO

@@ -108,4 +108,7 @@ SET NOCOUNT ON
 
 
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'MAINTENANCE', 'SCHEMA', N'dbo', 'PROCEDURE', N'__MAINT_FIX_MISSING_PRIMARY_KEYS', NULL, NULL
 GO

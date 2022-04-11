@@ -36,4 +36,7 @@ BEGIN
 
 
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'PLUGINS', 'SCHEMA', N'dbo', 'PROCEDURE', N'PROC_PLUGINS_CREATE_PLUGIN', NULL, NULL
 GO

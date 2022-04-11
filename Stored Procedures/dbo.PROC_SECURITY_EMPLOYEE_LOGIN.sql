@@ -31,4 +31,7 @@ BEGIN
 
 	SELECT @EmployeeID AS EmployeeID
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SECURITY', 'SCHEMA', N'dbo', 'PROCEDURE', N'PROC_SECURITY_EMPLOYEE_LOGIN', NULL, NULL
 GO

@@ -31,3 +31,5 @@ ALTER TABLE [dbo].[Common_Address_Data] ADD CONSTRAINT [FK_Common_Address_Data_C
 GO
 ALTER TABLE [dbo].[Common_Address_Data] ADD CONSTRAINT [FK_Common_Address_Data_Members_ID_TO_Members_ID] FOREIGN KEY ([Member_ID]) REFERENCES [dbo].[Members] ([ID])
 GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SHARED_COMMON', 'SCHEMA', N'dbo', 'TABLE', N'Common_Address_Data', NULL, NULL
+GO

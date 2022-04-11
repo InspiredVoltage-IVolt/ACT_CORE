@@ -52,4 +52,7 @@ BEGIN
 
 	SELECT @EmployeeID AS EmployeeID, @tmpKey AS EncryptionKey
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SECURITY', 'SCHEMA', N'dbo', 'PROCEDURE', N'INSTALLATION_GENERATE_ENCRYPTIONFILE_FOR_COMPANY', NULL, NULL
 GO

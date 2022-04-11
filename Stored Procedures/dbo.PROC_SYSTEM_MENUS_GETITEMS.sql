@@ -29,4 +29,7 @@ BEGIN
 			
 
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'SYSTEM', 'SCHEMA', N'dbo', 'PROCEDURE', N'PROC_SYSTEM_MENUS_GETITEMS', NULL, NULL
 GO

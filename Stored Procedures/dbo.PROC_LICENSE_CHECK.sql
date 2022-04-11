@@ -27,4 +27,7 @@ BEGIN
 
 
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'LICENSE_MANAGEMENT', 'SCHEMA', N'dbo', 'PROCEDURE', N'PROC_LICENSE_CHECK', NULL, NULL
 GO

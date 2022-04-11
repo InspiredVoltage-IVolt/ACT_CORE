@@ -26,4 +26,7 @@ FROM    sys.indexes AS i
 WHERE   i.is_primary_key = 1 AND sys.columns.system_type_id != 36
 ORDER BY OBJECT_NAME(ic.OBJECT_ID)
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'MAINTENANCE', 'SCHEMA', N'dbo', 'PROCEDURE', N'__MAINT_LIST_ALL_INT_PRIMARYKEYS_MISSING_IDENTITY', NULL, NULL
 GO

@@ -12,3 +12,5 @@ CREATE TABLE [dbo].[Environment_Keys]
 GO
 ALTER TABLE [dbo].[Environment_Keys] ADD CONSTRAINT [PK_Environment_Keys] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'ENVIRONMENTS', 'SCHEMA', N'dbo', 'TABLE', N'Environment_Keys', NULL, NULL
+GO

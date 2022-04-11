@@ -1,6 +1,7 @@
 CREATE TABLE [dbo].[SYSTEM_BASIC_SETTINGS]
 (
 [ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_SYSTEM_BASIC_SETTINGS_ID] DEFAULT (newid()),
+[Application_ID] [uniqueidentifier] NULL,
 [Name] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [Value] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [GroupName] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,

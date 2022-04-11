@@ -19,4 +19,7 @@ BEGIN
     -- Insert statements for procedure here
 	SELECT * FROM Clients WHERE Company_Name = @ClientName
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'CLIENTS', 'SCHEMA', N'dbo', 'PROCEDURE', N'CLIENT_FIND_BY_NAME', NULL, NULL
 GO

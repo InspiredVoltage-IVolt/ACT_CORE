@@ -15,3 +15,5 @@ CREATE TABLE [dbo].[Development_Environment_Members]
 GO
 ALTER TABLE [dbo].[Development_Environment_Members] ADD CONSTRAINT [PK_Development_Environment_Members] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]
 GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'DEVELOPMENT/ENVIRONMENTS', 'SCHEMA', N'dbo', 'TABLE', N'Development_Environment_Members', NULL, NULL
+GO

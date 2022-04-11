@@ -51,4 +51,7 @@ BEGIN
 
 	
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'APPLICATIONS', 'SCHEMA', N'dbo', 'PROCEDURE', N'DEVELOPER_LIST_APPLICATIONS', NULL, NULL
 GO

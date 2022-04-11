@@ -18,4 +18,7 @@ BEGIN
     -- Insert statements for procedure here
 	
 END
+
+GO
+EXEC sp_addextendedproperty N'VirtualFolder', N'ORDERS', 'SCHEMA', N'dbo', 'PROCEDURE', N'PROC_ORDERS_GET_INSTALLATION_INFORMATION', NULL, NULL
 GO
