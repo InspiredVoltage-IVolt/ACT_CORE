@@ -1,16 +1,18 @@
 CREATE TABLE [dbo].[Member_Invitations]
 (
 [ID] [int] NOT NULL IDENTITY(1, 1),
-[EmailAddress] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-[InvitationID] [uniqueidentifier] NOT NULL,
+[Invitation_ID] [uniqueidentifier] NOT NULL,
 [Application_ID] [uniqueidentifier] NOT NULL,
-[CustomMessage] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [Member_ID] [uniqueidentifier] NULL,
 [Client_ID] [uniqueidentifier] NULL,
-[AsAdmin] [bit] NOT NULL,
-[InitialPermissions] [bigint] NOT NULL,
-[DateAdded] [datetime] NOT NULL,
-[DateModified] [datetime] NOT NULL
+[To_EmailAddress] [nvarchar] (250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[CustomMessage] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Invite_As_Admin] [bit] NOT NULL CONSTRAINT [DF_Member_Invitations_AsAdmin] DEFAULT ((0)),
+[Initial_Permissions] [bigint] NOT NULL CONSTRAINT [DF_Member_Invitations_Initial_Permissions] DEFAULT ((0)),
+[Has_Read] [bit] NOT NULL CONSTRAINT [DF_Member_Invitations_Has_Read] DEFAULT ((0)),
+[Has_Denied] [bit] NOT NULL CONSTRAINT [DF_Member_Invitations_Has_Denied] DEFAULT ((0)),
+[DateAdded] [datetime] NOT NULL CONSTRAINT [DF_Member_Invitations_DateAdded] DEFAULT (getdate()),
+[DateModified] [datetime] NOT NULL CONSTRAINT [DF_Member_Invitations_DateModified] DEFAULT (getdate())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[Member_Invitations] ADD CONSTRAINT [PK_ID_Member_Invitations] PRIMARY KEY CLUSTERED ([ID]) ON [PRIMARY]

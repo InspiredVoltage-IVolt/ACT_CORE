@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[SYSTEM_CONFIGURATION_DATA_TEMPLATES]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_SYSTEM_CONFIGURATION_DATA_TEMPLATES_ID] DEFAULT ('newid()'),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_SYSTEM_CONFIGURATION_DATA_TEMPLATES_ID] DEFAULT (newid()),
 [Application_ID] [uniqueidentifier] NULL,
 [Member_ID] [uniqueidentifier] NULL,
 [Environment_ID] [uniqueidentifier] NULL,

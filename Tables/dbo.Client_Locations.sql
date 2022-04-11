@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Client_Locations]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Client_Locations_ID] DEFAULT ('newid()'),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Client_Locations_ID] DEFAULT (newid()),
 [Client_ID] [uniqueidentifier] NOT NULL,
 [FirstName] [nvarchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [LastName] [nvarchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,

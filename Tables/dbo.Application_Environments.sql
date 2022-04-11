@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Application_Environments]
 (
-[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Application_Environments_ID] DEFAULT ('newid()'),
+[ID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Application_Environments_ID] DEFAULT (newid()),
 [Application_ID] [uniqueidentifier] NULL,
 [Member_ID] [uniqueidentifier] NULL,
 [Name] [nvarchar] (250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,

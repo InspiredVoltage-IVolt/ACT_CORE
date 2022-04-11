@@ -29,7 +29,7 @@ BEGIN
 	--PRINT 'here'
 	--PRINT @EmailAddress
 	--PRINT @Password
-	SET @MemberID = (SELECT ID FROM Members WHERE Email = @EmailAddress AND [Password] = @Password AND Deleted = 0 AND ConfirmationCode IS NULL)
+	SET @MemberID = (SELECT ID FROM Members WHERE Email_Address = @EmailAddress AND [Password] = @Password AND Deleted = 0 AND ConfirmationCode IS NULL)
 
 	DECLARE @SuccessTmp AS BIT
 
