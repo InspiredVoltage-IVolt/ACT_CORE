@@ -364,6 +364,13 @@ namespace ACT.Core
         {
             throw new NotImplementedException();
         }
+        
+
+        public void LogError(string className, string summary, Exception ex, string additionInformation, Enums.Common.Error_Code_Severity  errorType)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public void LogError(string className, string summary, Exception ex, string additionInformation, string errorType)
         {

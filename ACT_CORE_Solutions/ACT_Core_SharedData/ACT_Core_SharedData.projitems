@@ -10,7 +10,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Examples\DevelopmentReport\ExampleJSONReport.JSON" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_ObjectArray.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Object.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_ChangeLog.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Change.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Author.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Author_Chain.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Permission_Assignment.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_PermissionDefinitions.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_PermissionGroups.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_RoleMembers.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\JSON_Schemas\JSON_Roles.json" />
     <Content Include="$(MSBuildThisFileDirectory)Resources\Settings.ini" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\Scalar_Finctions\FN_SCALAR_GENERATE_ACT_KEY.sql" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Temp\about.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\Temp\Compression\about.json" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Assets\CheatSheets\ToString-Format-Info.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -30,6 +44,16 @@
     <Content Include="$(MSBuildThisFileDirectory)Resources\SystemConfiguration_Template.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28OBJECT%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28AUTHOR%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28CHANGE%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28OBJECTARRAY%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28AUTHOR_CHAIN%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%28CHANGELOG%29%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPES_END.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPES_START.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\UserDefined_DataTypes\USERTYPE%28JSON%29.sql" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\Views\VW_GET_NEWID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)NLog.config">
@@ -52,6 +76,5 @@
     <None Include="$(MSBuildThisFileDirectory)Resources\Licenses\Lic.enc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Resources\SQL_Scripts\JSON_USERTYPES.sql" />
   </ItemGroup>
 </Project>

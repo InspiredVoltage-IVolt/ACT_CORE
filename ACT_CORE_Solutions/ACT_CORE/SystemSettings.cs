@@ -4,6 +4,7 @@ using ACT.Core.Exceptions;
 using ACT.Core.Extensions;
 using ACT.Core.ACT_Types;
 using ACT.Core.Security;
+using ACT.Core.SystemConfig;
 
 namespace ACT.Core
 {
@@ -15,7 +16,7 @@ namespace ACT.Core
     ///         - Looks For Both Plain Text and Encrypted ConfigurationFiles
     ///         - If Found it Loads the Configuration and Encrypts the File using ProtectedData - UserLevel
     /// 
-    /// 
+    ///  D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SharedData\
     /// 
     /// </summary>
     public static class SystemSettings
@@ -155,7 +156,7 @@ namespace ACT.Core
         {
             try
             {
-                ACT.Core.Managers.ini_File_Manager _IniManager = new Managers.ini_File_Manager(ACT_Status.SettingsINIFileLocation);
+                ACT.Core.Managers.Ini_File_Manager _IniManager = new Managers.Ini_File_Manager(ACT_Status.SettingsINIFileLocation);
 
                 // SECTION configurationfile
                 ACT_Status.EncryptConfigFile = _IniManager.GetValue("encryptconfigfile", "configurationfile").ToBool(false);
@@ -334,7 +335,7 @@ namespace ACT.Core
         /// <param name="Name">Name OF Property</param>
         /// <param name="SectionsToSearch">One Or More Types Of Sections To Search</param>
         /// <returns>String or Delimited String if Complex Item Is Foound, Null IF NOT FOUND</returns>
-        internal static string GetSettingByName(string Name, SystemSettingsSections SectionsToSearch = (SystemSettingsSections.Basic | SystemSettingsSections.Complex))
+        public static string GetSettingByName(string Name, SystemSettingsSections SectionsToSearch = (SystemSettingsSections.Basic | SystemSettingsSections.Complex))
         {
             if (ACT_Status.ACT_Core_Ready == false) { ACT_Status.CHECKREADY("GetSettingByName"); }
             

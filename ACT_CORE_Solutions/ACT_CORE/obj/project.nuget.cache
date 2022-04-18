@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5plr2kJn+VZ64Z0TdA6rJqUs5SytJGHVd0BVBpclewrmtKhuYQCmKdnNJcHJxyGKYyKI4lbyVK5YK57TnaflXw==",
+  "dgSpecHash": "6Efsb/pnlIwzMoF/QxPRjVgO3nDfXsLhQ8K70fUw29eLfo0GwWcswc07rWzQJg3477fN+QPLpoSQRNFrClf64A==",
   "success": true,
   "projectFilePath": "D:\\IVolt_Development\\ACT_Core\\ACT_CORE\\ACT_CORE_Solutions\\ACT_CORE\\ACT_CORE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\act_enums\\2.1.2\\act_enums.2.1.2.nupkg.sha512",
-    "C:\\Users\\MarkAlicz\\.nuget\\packages\\act_interfaces\\2.1.3\\act_interfaces.2.1.3.nupkg.sha512",
+    "C:\\Users\\MarkAlicz\\.nuget\\packages\\act_interfaces\\2.1.6\\act_interfaces.2.1.6.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\act_security\\2.1.0\\act_security.2.1.0.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\bouncycastle.netcore\\1.8.10\\bouncycastle.netcore.1.8.10.nupkg.sha512",
     "C:\\Users\\MarkAlicz\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

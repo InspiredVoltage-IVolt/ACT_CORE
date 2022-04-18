@@ -12,8 +12,11 @@ namespace ACT.SuperAdmin.Console // Note: actual namespace depends on the projec
 
         public static void Main(string[] args)
         {
-            System.Console.WriteLine(GenericJSONSerializer.EncodeToJSON<System.Data.SqlClient.SqlConnectionStringBuilder>(new TestData(), false));
-            System.Console.ReadKey();
+
+            var _FileVersion = ACT.Core.SystemSettings.GetSettingByName("file_version", Core.Enums.SystemSettingsSections.All);
+
+            //System.Console.WriteLine(GenericJSONSerializer.EncodeToJSON<System.Data.SqlClient.SqlConnectionStringBuilder>(new TestData(), false));
+            //System.Console.ReadKey();
 
             //    return;
             //mainMenu:

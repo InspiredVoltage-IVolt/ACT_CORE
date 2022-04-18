@@ -1,0 +1,11 @@
+﻿{
+  "schema-name": "RoleMembers",
+  "version": "1.02",
+  "last-updated-by": "Mark Alicz",
+  "last-updated-on": "4/18/2022",
+  "permission-group": "ACT-Core",
+  "group-id": "",
+  "role-id": "",
+  "act-member-id": "",
+  "external-member-id": ""
+}

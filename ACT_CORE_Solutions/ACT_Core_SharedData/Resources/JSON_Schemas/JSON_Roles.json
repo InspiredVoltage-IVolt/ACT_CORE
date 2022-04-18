@@ -1,0 +1,28 @@
+﻿{
+  "schema-name": "Roles",
+  "version": "1.02",
+  "last-updated-by": "Mark Alicz",
+  "last-updated-on": "4/18/2022",
+  "permission-group": "ACT-Core",
+  "group-id": "",
+  "roles": [
+    {
+      "name": "Primary Role A",
+      "admin-role": false,
+      "contains-roles": [],
+      "permissions": [ 100, 200 ]
+    },
+    {
+      "name": "Primary Role B",
+      "admin-role": false,
+      "contains-roles": [ "Primary Role B" ],
+      "permissions": [ 200, 300 ]
+    },
+    {
+      "name": "Admin Of Members",
+      "admin-role": true,
+      "contains-roles": [],
+      "permissions": [ 10, 20 ]
+    }
+  ]
+}

@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ACT.Core.SystemConfig;
+using System.IO;
+using Org.BouncyCastle.Utilities.Zlib;
+using System.Runtime.Intrinsics.X86;
 
 namespace ACT.Core
 {
@@ -34,6 +38,8 @@ namespace ACT.Core
         public static string IconsDirectory = ResourcesDirectory + "Assets\\Icons\\";
         public static string LogsDirectory = ResourcesDirectory + "Logs\\";
         public static string LicenceFilePath = ResourcesDirectory + "Licenses\\";
+        public static string TempFilePath = ResourcesDirectory + "Temp\\";
+        public static string TempCompressionFilePath = TempFilePath + "Compression\\";
         #endregion
 
         #region File Paths
@@ -41,6 +47,22 @@ namespace ACT.Core
         public static string SettingsINIFileLocation = ResourcesDirectory + "Settings.ini";
         public static string SysConfigFileLocation = ResourcesDirectory + "SystemConfiguration.json";
         public static string SysConfigEncFileLocation = ResourcesDirectory + "SystemConfiguration.enc";
+        #endregion
+
+        #region Directory Tests and Logging
+        public static bool CheckPath(string PathToCheck, bool TryToCreate = true)
+        {
+            var _tmpFilePath = PathToCheck.EnsureDirectoryFormat();
+
+            if (_tmpFilePath.DirectoryExists(TryToCreate) == false)
+            {
+                var _tmpEx = new IOException("Unable to locate Temp Compression Path");
+                _.LogFatalError("Error Creating or Locating Path: '" + _tmpFilePath + "'", _tmpEx);
+                return false;
+            }
+
+            return true;
+        }
         #endregion
 
         #region INIFILE SETTINGS
@@ -111,6 +133,10 @@ namespace ACT.Core
 
         #endregion
 
+        #region String Arrays
 
+        public static string[] SupportedCompressionTypes = new string[] { "ZIP", "GZip", "BZip2", "PPMd", "Deflate", "Rar", "LZMA", "BCJ", "BCJ2", "LZip", "Xz", "Deflate64" };
+
+        #endregion
     }
 }

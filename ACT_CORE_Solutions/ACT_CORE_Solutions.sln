@@ -11,10 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACT_Core_SuperAdmin_Console
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACT_Nuget_Publisher", "ACT_Nuget_Publisher\ACT_Nuget_Publisher.csproj", "{8719BAB7-D7C3-40C0-91C8-FD8AB57F0C33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACT_Package_Publisher_UI", "ACT_Package_Publisher_UI\ACT_Package_Publisher_UI.csproj", "{199BB6C1-4493-4EFE-AF85-AF50887ECD41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACT_Package_Publisher_UI", "ACT_Package_Publisher_UI\ACT_Package_Publisher_UI.csproj", "{199BB6C1-4493-4EFE-AF85-AF50887ECD41}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ACT_Core_SharedData\ACT_Core_SharedData.projitems*{16b10679-111d-4492-ae91-1bc39f5e5e9e}*SharedItemsImports = 5
 		ACT_Core_SharedData\ACT_Core_SharedData.projitems*{565959e0-45c9-42c0-ad50-d3af2fc20260}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

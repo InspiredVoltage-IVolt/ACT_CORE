@@ -90,7 +90,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                     _Command = new System.Data.SqlClient.SqlCommand();
                     _Command.Connection = _Connection;
                     _Command.CommandType = System.Data.CommandType.Text;
-                    string _TmpSQL = SystemSettings.GetSettingByName("MSSQLColumnInfoQuery").Value;
+                    string _TmpSQL = SystemSettings.GetSettingByName("MSSQLColumnInfoQuery");
                     _TmpSQL = _TmpSQL.Replace("#TABLENAME#", _Table.ShortName);
                     _TmpSQL = _TmpSQL.Replace("#OWNER#", _TmpTableOwner);
                     _TmpSQL = _TmpSQL.Replace("From sys.tables st", "From sys.views st");
@@ -203,12 +203,12 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
 
                 foreach (string _prop in _ICoreObj.PublicProperties)
                 {
-                    Type _tmpProp = _ICoreObj.ReturnPropertyType(_prop);
+                    Type _tmpProp = _ICoreObj.GetPropertyType(_prop);
 
                     // IGNORE UNFAMILER TYPES FOR NOW
                     try
                     {
-                        _SQL += "[" + _prop + "] " + _tmpProp.ToSQLDataType(true) + " NULL,";
+                        _SQL += "[" + _prop + "] " + _tmpProp.ToMSSQLTypeString(true) + " NULL,";
                     }
                     catch
                     {
@@ -293,7 +293,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
             List<string> _IgnoreList = new List<string>();
             try
             {
-                _IgnoreList = ACT.Core.SystemSettings.GetSettingByName("GlobalIgnoreList").Value.SplitString(",", StringSplitOptions.RemoveEmptyEntries).ToList<string>();
+                _IgnoreList = ACT.Core.SystemSettings.GetSettingByName("GlobalIgnoreList").SplitString(",", StringSplitOptions.RemoveEmptyEntries).ToList<string>();
             }
             catch
             {
@@ -664,7 +664,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
             }
             catch (Exception ex)
             {
-                LogError(this.GetType().FullName, "Error Executing Command (" + _Command.CommandText + ")", ex, "", ErrorLevel.Severe);
+                LogError(this.GetType().FullName, "Error Executing Command (" + _Command.CommandText + ")", ex, "", Enums.Common.Error_Code_Severity.Severe);
                 _QR.Exceptions.Add(ex);
                 _QR.Errors.Add(true);
             }
@@ -894,12 +894,12 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
             {
                 if (ex.Number == 18487 || ex.Number == 18488)
                 {
-                    LogError(this.GetType().FullName, "UserName Specified Needs to Change Password.", ex, ex.Number.ToString(), ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "UserName Specified Needs to Change Password.", ex, ex.Number.ToString(), Enums.Common.Error_Code_Severity.Critical);
                     throw new Exception("Error opening Database.  Check Log file", ex);
                 }
                 else
                 {
-                    LogError(this.GetType().FullName, "General Error Opening Database.", ex, ex.Number.ToString(), ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "General Error Opening Database.", ex, ex.Number.ToString(), Enums.Common.Error_Code_Severity.Critical);
                     throw new Exception("Error opening Database.  Check Log file", ex);
                 }
             }
@@ -911,7 +911,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                 }
                 else
                 {
-                    LogError(this.GetType().FullName, "General Error Opening Database.", ex, "", ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "General Error Opening Database.", ex, "", Enums.Common.Error_Code_Severity.Critical);
                     throw new Exception("Error opening Database.  Check Log file", ex);
                 }
             }
@@ -1025,11 +1025,11 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                     {
                         RollbackTransaction();
                     }
-                    catch (Exception exsub) { LogError(this.GetType().FullName, "Error Rolling Transaction Back.", exsub, "", ErrorLevel.Severe); };
+                    catch (Exception exsub) { LogError(this.GetType().FullName, "Error Rolling Transaction Back.", exsub, "", Enums.Common.Error_Code_Severity.Severe); };
 
                     DisposeObjects();
 
-                    LogError(this.GetType().FullName, "Error Commiting Transaction.", ex, "", ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "Error Commiting Transaction.", ex, "", Enums.Common.Error_Code_Severity.Critical);
                     throw ex;
                 }
             }
@@ -1050,7 +1050,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                 catch (Exception ex)
                 {
                     DisposeObjects();
-                    LogError(this.GetType().FullName, "Error Rolling Back Transaction.", ex, "", ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "Error Rolling Back Transaction.", ex, "", Enums.Common.Error_Code_Severity.Critical);
                     throw ex;
                 }
             }
@@ -1102,7 +1102,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                 I_DbColumn _TmpColumn = _TmpTable.GetColumn(_key, true);
                 if (_TmpColumn == null)
                 {
-                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), ACT.Core.Enums.SeEnums.Common.Error_Code_Severity.Critical);
                 }
 
                 _Fields.Add(_key);
@@ -1123,7 +1123,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1173,7 +1173,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                 I_DbColumn _TmpColumn = _TmpTable.GetColumn(_key, true);
                 if (_TmpColumn == null)
                 {
-                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), Enums.Common.Error_Code_Severity.Critical);
                 }
 
                 _Fields.Add(_key);
@@ -1194,7 +1194,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1257,7 +1257,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                 I_DbColumn _TmpColumn = _TmpTable.GetColumn(_key, true);
                 if (_TmpColumn == null)
                 {
-                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), ErrorLevel.Critical);
+                    LogError(this.GetType().FullName, "Error Loading Column From DB", null, _TmpDB.ExportXMLData(), Enums.Common.Error_Code_Severity.Critical);
                 }
 
                 _Fields.Add(_key);
@@ -1278,7 +1278,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1392,7 +1392,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key.Name + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key.Name + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1458,7 +1458,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key.Name + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key.Name + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1528,7 +1528,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         }
                         else
                         {
-                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", ErrorLevel.Critical);
+                            LogError(this.GetType().FullName, "Column :" + _key + " Can't be null!", null, "", Enums.Common.Error_Code_Severity.Critical);
                         }
                     }
                 }
@@ -1710,7 +1710,7 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
 
             if (Connected == false)
             {
-                LogError(this.GetType().FullName, "Error Exporting Database. Database is not connected.", null, "", ErrorLevel.Warning);
+                LogError(this.GetType().FullName, "Error Exporting Database. Database is not connected.", null, "", Enums.Common.Error_Code_Severity.Warning);
                 throw new Exception("Error Exporting Database. Database is not connected.");
             }
 
@@ -1921,13 +1921,13 @@ namespace ACT.Core.BuiltInPlugins.DataAccess
                         _PKQR.Dispose();
                         //else
                         //{
-                        //    //LogError(this.GetType().FullName, "Error Locating Primary Key", null, _TmpTableName, ErrorLevel.Warning);
+                        //    //LogError(this.GetType().FullName, "Error Locating Primary Key", null, _TmpTableName, Enums.Common.Error_Code_Severity.Warning);
                         //}
 
                     }
                     catch (Exception ex)
                     {
-                        LogError(this.GetType().FullName, "Error Locating Primary Key", ex, _TmpTableName, ErrorLevel.Warning);
+                        LogError(this.GetType().FullName, "Error Locating Primary Key", ex, _TmpTableName, Enums.Common.Error_Code_Severity.Warning);
                     }
 
                     #endregion

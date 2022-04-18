@@ -5,45 +5,48 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using ACT.Core.Encoding.JSON;
+using ACT.Core.Managers.MSSQL_JSON_DataTypes;
 
 namespace ACT.Core.ACT_Types.JSON
 {
-    public class DbJsonArray
+    public static class MSSQL
     {
-        [Attributes.MSSQL_USERTYPES_ATTRIBUTE(UserTypeName = "arraydata")]
-        [JsonProperty("arraydata", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> Arraydata { get; set; }
+        //public static class GenerateMSSQLJSONTypes
+        //{
+        //    [Attributes.MSSQL_USERTYPES_ATTRIBUTE(UserTypeName = "arraydata")]
+        //    [JsonProperty("arraydata", NullValueHandling = NullValueHandling.Ignore)]
+        //    public static List<string> Arraydata { get; set; }
 
-        public static DbJsonArray FromJson(string json)
-        {
-            string JSON = json.Trim();
-            
-            if (JSON.Contains("\"arraydata\""))
-            {
-                return JsonConvert.DeserializeObject<DbJsonArray>(json, DefaultConverter.Settings);
-            }
-            else
-            {
-                int _indexof1Quote = JSON.IndexOf("\"");
-                string _PropName = JSON.Substring(_indexof1Quote + 1); 
-                int _indexofF2Quote = _PropName.IndexOf("\"");
-                _PropName = JSON.Substring(0, _indexofF2Quote);
+        //    public static DbJsonArray FromJson(string json)
+        //    {
+        //        string JSON = json.Trim();
 
-                if (_PropName.ToLower() != "arraydata") { JSON = JSON.Replace(_PropName, "arraydata"); }
+        //        if (JSON.Contains("\"arraydata\""))
+        //        {
+        //            return JsonConvert.DeserializeObject<DbJsonArray>(json, DefaultConverter.Settings);
+        //        }
+        //        else
+        //        {
+        //            int _indexof1Quote = JSON.IndexOf("\"");
+        //            string _PropName = JSON.Substring(_indexof1Quote + 1);
+        //            int _indexofF2Quote = _PropName.IndexOf("\"");
+        //            _PropName = JSON.Substring(0, _indexofF2Quote);
 
-                try
-                {
-                    return JsonConvert.DeserializeObject<DbJsonArray>(json, DefaultConverter.Settings);
-                }
-                catch(Exception ex)
-                {
-                    _.LogBasicInfoWithException("original: [[[" + json + "]]], reformatted: [[[" + JSON + "]]]", ex);
-                    throw new Exception("Invalid Data Found: " + json + " -- " + JSON);
-                }
-            }
+        //            if (_PropName.ToLower() != "arraydata") { JSON = JSON.Replace(_PropName, "arraydata"); }
 
-        }
-        public string ToJson() { return JsonConvert.SerializeObject(this, DefaultConverter.Settings); }
+        //            try
+        //            {
+        //                return JsonConvert.DeserializeObject<DbJsonArray>(json, DefaultConverter.Settings);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                _.LogBasicInfoWithException("original: [[[" + json + "]]], reformatted: [[[" + JSON + "]]]", ex);
+        //                throw new Exception("Invalid Data Found: " + json + " -- " + JSON);
+        //            }
+        //        }
+
+        //    }
+        //    public string ToJson() { return JsonConvert.SerializeObject(this, DefaultConverter.Settings); }
+        //}
     }
-
 }

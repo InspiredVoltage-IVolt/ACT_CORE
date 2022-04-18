@@ -1,0 +1,31 @@
+﻿{
+  "name-version": "permission_assignment",
+  "version": "1.02",
+  "role-id": "",
+  "act-id": "",
+  "external-id": "",
+  "development-team-id": "",
+  "company-id": "",
+  "client-id": "",
+  "default-permissions": false,
+  "permissions-granted": [
+    {
+      "permission-id": 100,
+      "granted-by-act-id": "",
+      "granted-by-external-id": "",
+      "expiration-date": ""
+    },
+    {
+      "permission-id": 101,
+      "granted-by-act-id": "",
+      "granted-by-external-id": "",
+      "expiration-date": "6/12/2022"
+    },
+    {
+      "permission-id": 121,
+      "granted-by-act-id": "",
+      "granted-by-external-id": "",
+      "expiration-date": ""
+    }
+  ]
+}

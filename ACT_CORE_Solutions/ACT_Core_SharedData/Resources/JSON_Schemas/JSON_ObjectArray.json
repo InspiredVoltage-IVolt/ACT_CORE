@@ -1,0 +1,41 @@
+﻿{
+  "objects": [
+    {
+      "modified-by-act-id": "",
+      "modified-by-external-id": "",
+      "authorization-id": "",
+      "object-id": "",
+      "object-hash": "",
+      "object-value-base64-binary": "",
+      "property-oldvalue": "",
+      "property-newvalue": "",
+      "date-modified": "",
+      "validation-hash": "",
+      "addtional-information": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "modified-by-act-id": "",
+      "modified-by-external-id": "",
+      "authorization-id": "",
+      "object-id": "",
+      "object-hash": "",
+      "object-value-base64-binary": "",
+      "property-oldvalue": "",
+      "property-newvalue": "",
+      "date-modified": "",
+      "validation-hash": "",
+      "addtional-information": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "validation-hash": ""
+}

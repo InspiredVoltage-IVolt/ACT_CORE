@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ACT.Core.Managers
 {
-    public class ini_File_Manager
+    public class Ini_File_Manager
     {
         Dictionary<string, Dictionary<string, string>> ini = new Dictionary<string, Dictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
         string file;
@@ -16,7 +16,7 @@ namespace ACT.Core.Managers
         /// Load it if it exists
         /// </summary>
         /// <param name="file">Full path where the INI file has to be read from or written to</param>
-        public ini_File_Manager(string file)
+        public Ini_File_Manager(string file)
         {
             this.file = file;
 

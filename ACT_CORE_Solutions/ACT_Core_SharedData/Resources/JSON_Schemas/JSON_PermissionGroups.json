@@ -1,0 +1,56 @@
+﻿{
+  "schema-name": "PermissionGroups",
+  "version": "1.01",
+  "last-updated-by": "Mark Alicz",
+  "last-updated-on": "4/18/2022",
+  "permission-groups": [
+    {
+      "name": "System",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "Self" ]
+    },
+    {
+      "name": "ACT-Core",
+      "public-modifyable": false,
+      "public-assignable": true,
+      "owners": [ "System" ]
+    },
+    {
+      "name": "ACT-Core-Server-Version",
+      "public-modifyable": true,
+      "public-assignable": true,
+      "owners": [ "Company", "Team", "ACT-Core", "Individual" ]
+    },
+    {
+      "name": "Company",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "Self", "ACT-Core", "Individual" ]
+    },
+    {
+      "name": "Application",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "ACT-Core", "Company", "Client", "Team", "Individual" ]
+    },
+    {
+      "name": "Client",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "Self", "Company", "ACT-Core", "Individual" ]
+    },
+    {
+      "name": "Team",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "Self", "Company", "ACT-Core", "Individual" ]
+    },
+    {
+      "name": "Individual",
+      "public-modifyable": false,
+      "public-assignable": false,
+      "owners": [ "Self",  "ACT-Core" ]
+    }
+  ] 
+}

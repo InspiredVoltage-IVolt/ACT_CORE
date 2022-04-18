@@ -1,0 +1,45 @@
+﻿{
+  "schema-name": "PermissionDefinitions",
+  "version": "1.03",
+  "last-updated-by": "Mark Alicz",
+  "last-updated-on": "4/18/2022",
+  "permission-group": "ACT-Core",
+  "group-id": "",
+  "permissions": [
+    {
+      "id": 10,
+      "name": "Add Members",
+      "shortname": "",
+      "description-base64": "",
+      "adnins-only": true
+    },
+    {
+      "id": 20,
+      "name": "Modify Members",
+      "shortname": "",
+      "description-base64": "",
+      "adnins-only": true
+    },
+    {
+      "id": 100,
+      "name": "Read All Posts",
+      "shortname": "",
+      "description-base64": "",
+      "adnins-only": false
+    },
+    {
+      "id": 200,
+      "name": "Write All Posts",
+      "shortname": "",
+      "description-base64": "",
+      "adnins-only": false
+    },
+    {
+      "id": 300,
+      "name": "Modify All Posts",
+      "shortname": "",
+      "description-base64": "",
+      "adnins-only": false
+    }
+  ]
+}

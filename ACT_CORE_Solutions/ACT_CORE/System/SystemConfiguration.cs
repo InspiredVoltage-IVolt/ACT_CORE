@@ -16,7 +16,8 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace ACT.Core
+namespace ACT.Core.SystemConfig
+
 {
 
     public class SystemConfiguration

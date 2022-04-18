@@ -1,0 +1,39 @@
+﻿{
+  "authors": [
+    {
+      "act-id": "",
+      "external-id": "",
+      "first-name": "",
+      "last-name": "",
+      "email-address": "",
+      "company": "",
+      "datelastedited": "",
+      "description": "",
+      "validation-hash": "",
+      "addtional-information": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "act-id": "",
+      "external-id": "",
+      "first-name": "",
+      "last-name": "",
+      "email-address": "",
+      "company": "",
+      "datelastedited": "",
+      "description": "",
+      "validation-hash": "",
+      "addtional-information": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "validation-hash": ""
+}

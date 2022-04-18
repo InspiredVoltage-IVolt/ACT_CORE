@@ -8,7 +8,7 @@
     <ApplicationIcon>Kinguin_API_Icon.ico</ApplicationIcon>
     <Description>Core Engine that Manages ACT Core and All of the  Applications</Description>
     <Copyright>2021 IVolt,LLC - Mark Alicz</Copyright>
-    <PackageProjectUrl>https://www.act.net.us</PackageProjectUrl>
+    <PackageProjectUrl>https://www.act-net.us</PackageProjectUrl>
     <PackageIcon>Kinguin_API_Icon.png</PackageIcon>
     <PackageTags>.net 6, ACT, Developer Tools,</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -58,7 +58,7 @@
 
   <ItemGroup>
     <PackageReference Include="ACT_Enums" Version="2.1.2" />
-    <PackageReference Include="ACT_Interfaces" Version="2.1.3" />
+    <PackageReference Include="ACT_Interfaces" Version="2.1.6" />
     <PackageReference Include="ACT_Security" Version="2.1.0" />
     <PackageReference Include="IVolt_ACT_ExtensionLibrary" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
