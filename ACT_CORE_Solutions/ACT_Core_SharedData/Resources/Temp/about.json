@@ -1,4 +1,4 @@
 ﻿{
-  "about": "This directories contents can be deleted.  Used only in temp situations.  Contains subfolders that are used in different functions.",
+  "about": "This directories contents can be deleted BUT NOT THE FOLDERS.  EACH FOLDER MUST CONTINUE TO EXIST OR ERRORS MAY OCCUR.    Used only in temp situations.  Contains subfolders that are used in different functions.",
   "part-of-auto-clean": true
 }

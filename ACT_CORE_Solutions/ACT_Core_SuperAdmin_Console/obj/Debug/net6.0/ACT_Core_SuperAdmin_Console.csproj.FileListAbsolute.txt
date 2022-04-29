@@ -41,3 +41,14 @@ D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\ACT_Core_SuperAdmin_Consol
 D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\ACT_Core_SuperAdmin_Console.dll
 D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\ACT_Core_SuperAdmin_Console.pdb
 D:\IVolt_Development\ACT_Core\ACT_CORE\ACT_CORE_Solutions\ACT_Core_SuperAdmin_Console\obj\Debug\net6.0\refint\ACT_Core_SuperAdmin_Console.dll
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Logs\about.txt
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\SystemConfiguration.json
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\SystemConfiguration_Template.json
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Assets\CheatSheets\ToString-Format-Info.html
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Assets\Icons\Icon.ico
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\NLog.config
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\NLog.xsd
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Assets\CheatSheets\ToString-FormatHelper.docx
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Assets\CheatSheets\ToString-FormatHelper.pdf
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Licenses\GPL3-29.txt
+D:\IVolt_Releases\ACT-SuperAdmin-Console\Debug\net6.0\Resources\Licenses\Lic.enc
